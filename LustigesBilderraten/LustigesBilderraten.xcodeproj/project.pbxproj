@@ -1,0 +1,284 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		84510EA814950C88007F0BCD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84510EA714950C88007F0BCD /* UIKit.framework */; };
+		84510EAA14950C88007F0BCD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84510EA914950C88007F0BCD /* Foundation.framework */; };
+		84510EAC14950C88007F0BCD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84510EAB14950C88007F0BCD /* CoreGraphics.framework */; };
+		84510EAE14950C88007F0BCD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84510EAD14950C88007F0BCD /* CoreData.framework */; };
+		84510EB414950C88007F0BCD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84510EB214950C88007F0BCD /* InfoPlist.strings */; };
+		84510EB614950C88007F0BCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84510EB514950C88007F0BCD /* main.m */; };
+		84510EBA14950C88007F0BCD /* PEMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84510EB914950C88007F0BCD /* PEMAppDelegate.m */; };
+		84510EBD14950C89007F0BCD /* LustigesBilderraten.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84510EBB14950C88007F0BCD /* LustigesBilderraten.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		84510EA314950C88007F0BCD /* LustigesBilderraten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LustigesBilderraten.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84510EA714950C88007F0BCD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		84510EA914950C88007F0BCD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		84510EAB14950C88007F0BCD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		84510EAD14950C88007F0BCD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		84510EB114950C88007F0BCD /* LustigesBilderraten-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LustigesBilderraten-Info.plist"; sourceTree = "<group>"; };
+		84510EB314950C88007F0BCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		84510EB514950C88007F0BCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84510EB714950C88007F0BCD /* LustigesBilderraten-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LustigesBilderraten-Prefix.pch"; sourceTree = "<group>"; };
+		84510EB814950C88007F0BCD /* PEMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEMAppDelegate.h; sourceTree = "<group>"; };
+		84510EB914950C88007F0BCD /* PEMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEMAppDelegate.m; sourceTree = "<group>"; };
+		84510EBC14950C88007F0BCD /* LustigesBilderraten.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LustigesBilderraten.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84510EA014950C88007F0BCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84510EA814950C88007F0BCD /* UIKit.framework in Frameworks */,
+				84510EAA14950C88007F0BCD /* Foundation.framework in Frameworks */,
+				84510EAC14950C88007F0BCD /* CoreGraphics.framework in Frameworks */,
+				84510EAE14950C88007F0BCD /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		84510E9814950C88007F0BCD = {
+			isa = PBXGroup;
+			children = (
+				84510EAF14950C88007F0BCD /* LustigesBilderraten */,
+				84510EA614950C88007F0BCD /* Frameworks */,
+				84510EA414950C88007F0BCD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		84510EA414950C88007F0BCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84510EA314950C88007F0BCD /* LustigesBilderraten.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84510EA614950C88007F0BCD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84510EA714950C88007F0BCD /* UIKit.framework */,
+				84510EA914950C88007F0BCD /* Foundation.framework */,
+				84510EAB14950C88007F0BCD /* CoreGraphics.framework */,
+				84510EAD14950C88007F0BCD /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84510EAF14950C88007F0BCD /* LustigesBilderraten */ = {
+			isa = PBXGroup;
+			children = (
+				84510EB814950C88007F0BCD /* PEMAppDelegate.h */,
+				84510EB914950C88007F0BCD /* PEMAppDelegate.m */,
+				84510EBB14950C88007F0BCD /* LustigesBilderraten.xcdatamodeld */,
+				84510EB014950C88007F0BCD /* Supporting Files */,
+			);
+			path = LustigesBilderraten;
+			sourceTree = "<group>";
+		};
+		84510EB014950C88007F0BCD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				84510EB114950C88007F0BCD /* LustigesBilderraten-Info.plist */,
+				84510EB214950C88007F0BCD /* InfoPlist.strings */,
+				84510EB514950C88007F0BCD /* main.m */,
+				84510EB714950C88007F0BCD /* LustigesBilderraten-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84510EA214950C88007F0BCD /* LustigesBilderraten */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84510EC014950C89007F0BCD /* Build configuration list for PBXNativeTarget "LustigesBilderraten" */;
+			buildPhases = (
+				84510E9F14950C88007F0BCD /* Sources */,
+				84510EA014950C88007F0BCD /* Frameworks */,
+				84510EA114950C88007F0BCD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LustigesBilderraten;
+			productName = LustigesBilderraten;
+			productReference = 84510EA314950C88007F0BCD /* LustigesBilderraten.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84510E9A14950C88007F0BCD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 84510E9D14950C88007F0BCD /* Build configuration list for PBXProject "LustigesBilderraten" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 84510E9814950C88007F0BCD;
+			productRefGroup = 84510EA414950C88007F0BCD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84510EA214950C88007F0BCD /* LustigesBilderraten */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84510EA114950C88007F0BCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84510EB414950C88007F0BCD /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84510E9F14950C88007F0BCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84510EB614950C88007F0BCD /* main.m in Sources */,
+				84510EBA14950C88007F0BCD /* PEMAppDelegate.m in Sources */,
+				84510EBD14950C89007F0BCD /* LustigesBilderraten.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		84510EB214950C88007F0BCD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84510EB314950C88007F0BCD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84510EBE14950C89007F0BCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		84510EBF14950C89007F0BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84510EC114950C89007F0BCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LustigesBilderraten/LustigesBilderraten-Prefix.pch";
+				INFOPLIST_FILE = "LustigesBilderraten/LustigesBilderraten-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		84510EC214950C89007F0BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LustigesBilderraten/LustigesBilderraten-Prefix.pch";
+				INFOPLIST_FILE = "LustigesBilderraten/LustigesBilderraten-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84510E9D14950C88007F0BCD /* Build configuration list for PBXProject "LustigesBilderraten" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84510EBE14950C89007F0BCD /* Debug */,
+				84510EBF14950C89007F0BCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84510EC014950C89007F0BCD /* Build configuration list for PBXNativeTarget "LustigesBilderraten" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84510EC114950C89007F0BCD /* Debug */,
+				84510EC214950C89007F0BCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		84510EBB14950C88007F0BCD /* LustigesBilderraten.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				84510EBC14950C88007F0BCD /* LustigesBilderraten.xcdatamodel */,
+			);
+			currentVersion = 84510EBC14950C88007F0BCD /* LustigesBilderraten.xcdatamodel */;
+			path = LustigesBilderraten.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 84510E9A14950C88007F0BCD /* Project object */;
+}
