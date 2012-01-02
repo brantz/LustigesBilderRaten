@@ -25,10 +25,10 @@
 		84160BD614950E3A0049C4B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84160BD814950E3A0049C4B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		84160BDA14950E3A0049C4B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		84160BDE14950E3A0049C4B4 /* Lustiges Bilderraten-Info.plist */ = {isa = PBXFileReference; path = "Lustiges Bilderraten-Info.plist"; sourceTree = "<group>"; };
+		84160BDE14950E3A0049C4B4 /* Lustiges Bilderraten-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lustiges Bilderraten-Info.plist"; sourceTree = "<group>"; };
 		84160BE014950E3A0049C4B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84160BE214950E3A0049C4B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84160BE414950E3B0049C4B4 /* Lustiges Bilderraten-Prefix.pch */ = {isa = PBXFileReference; path = "Lustiges Bilderraten-Prefix.pch"; sourceTree = "<group>"; };
+		84160BE414950E3B0049C4B4 /* Lustiges Bilderraten-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lustiges Bilderraten-Prefix.pch"; sourceTree = "<group>"; };
 		84160BE514950E3B0049C4B4 /* PEMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEMAppDelegate.h; sourceTree = "<group>"; };
 		84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEMAppDelegate.m; sourceTree = "<group>"; };
 		84160BE914950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lustiges_Bilerraten.xcdatamodel; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		84160BC514950E3A0049C4B4 = {
 			isa = PBXGroup;
 			children = (
-				84160BDC14950E3A0049C4B4 /* Lustiges Bilerraten */,
+				84160BDC14950E3A0049C4B4 /* Lustiges Bilderraten */,
 				84160BD314950E3A0049C4B4 /* Frameworks */,
 				84160BD114950E3A0049C4B4 /* Products */,
 			);
@@ -80,7 +80,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		84160BDC14950E3A0049C4B4 /* Lustiges Bilerraten */ = {
+		84160BDC14950E3A0049C4B4 /* Lustiges Bilderraten */ = {
 			isa = PBXGroup;
 			children = (
 				84160BF014950E5A0049C4B4 /* Storyboard.storyboard */,
@@ -91,6 +91,7 @@
 				84160BE814950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodeld */,
 				84160BDD14950E3A0049C4B4 /* Supporting Files */,
 			);
+			name = "Lustiges Bilderraten";
 			path = "Lustiges Bilerraten";
 			sourceTree = "<group>";
 		};
