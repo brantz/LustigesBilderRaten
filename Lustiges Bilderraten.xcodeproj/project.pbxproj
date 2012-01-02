@@ -20,15 +20,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		84160BD014950E3A0049C4B4 /* Lustiges Bilerraten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lustiges Bilerraten.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84160BD014950E3A0049C4B4 /* Lustiges Bilderraten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lustiges Bilderraten.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84160BD414950E3A0049C4B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84160BD614950E3A0049C4B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		84160BD814950E3A0049C4B4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		84160BDA14950E3A0049C4B4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		84160BDE14950E3A0049C4B4 /* Lustiges Bilerraten-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Lustiges Bilerraten-Info.plist"; sourceTree = "<group>"; };
+		84160BDE14950E3A0049C4B4 /* Lustiges Bilderraten-Info.plist */ = {isa = PBXFileReference; path = "Lustiges Bilderraten-Info.plist"; sourceTree = "<group>"; };
 		84160BE014950E3A0049C4B4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		84160BE214950E3A0049C4B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84160BE414950E3B0049C4B4 /* Lustiges Bilerraten-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lustiges Bilerraten-Prefix.pch"; sourceTree = "<group>"; };
+		84160BE414950E3B0049C4B4 /* Lustiges Bilderraten-Prefix.pch */ = {isa = PBXFileReference; path = "Lustiges Bilderraten-Prefix.pch"; sourceTree = "<group>"; };
 		84160BE514950E3B0049C4B4 /* PEMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEMAppDelegate.h; sourceTree = "<group>"; };
 		84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEMAppDelegate.m; sourceTree = "<group>"; };
 		84160BE914950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lustiges_Bilerraten.xcdatamodel; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 		84160BD114950E3A0049C4B4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84160BD014950E3A0049C4B4 /* Lustiges Bilerraten.app */,
+				84160BD014950E3A0049C4B4 /* Lustiges Bilderraten.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,10 +97,10 @@
 		84160BDD14950E3A0049C4B4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				84160BDE14950E3A0049C4B4 /* Lustiges Bilerraten-Info.plist */,
+				84160BDE14950E3A0049C4B4 /* Lustiges Bilderraten-Info.plist */,
 				84160BDF14950E3A0049C4B4 /* InfoPlist.strings */,
 				84160BE214950E3A0049C4B4 /* main.m */,
-				84160BE414950E3B0049C4B4 /* Lustiges Bilerraten-Prefix.pch */,
+				84160BE414950E3B0049C4B4 /* Lustiges Bilderraten-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84160BCF14950E3A0049C4B4 /* Lustiges Bilerraten */ = {
+		84160BCF14950E3A0049C4B4 /* Lustiges Bilderraten */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84160BED14950E3B0049C4B4 /* Build configuration list for PBXNativeTarget "Lustiges Bilerraten" */;
+			buildConfigurationList = 84160BED14950E3B0049C4B4 /* Build configuration list for PBXNativeTarget "Lustiges Bilderraten" */;
 			buildPhases = (
 				84160BCC14950E3A0049C4B4 /* Sources */,
 				84160BCD14950E3A0049C4B4 /* Frameworks */,
@@ -120,9 +120,9 @@
 			);
 			dependencies = (
 			);
-			name = "Lustiges Bilerraten";
+			name = "Lustiges Bilderraten";
 			productName = "Lustiges Bilerraten";
-			productReference = 84160BD014950E3A0049C4B4 /* Lustiges Bilerraten.app */;
+			productReference = 84160BD014950E3A0049C4B4 /* Lustiges Bilderraten.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -133,7 +133,7 @@
 			attributes = {
 				LastUpgradeCheck = 0420;
 			};
-			buildConfigurationList = 84160BCA14950E3A0049C4B4 /* Build configuration list for PBXProject "Lustiges Bilerraten" */;
+			buildConfigurationList = 84160BCA14950E3A0049C4B4 /* Build configuration list for PBXProject "Lustiges Bilderraten" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -145,7 +145,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84160BCF14950E3A0049C4B4 /* Lustiges Bilerraten */,
+				84160BCF14950E3A0049C4B4 /* Lustiges Bilderraten */,
 			);
 		};
 /* End PBXProject section */
@@ -237,9 +237,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Lustiges Bilerraten/Lustiges Bilerraten-Prefix.pch";
-				INFOPLIST_FILE = "Lustiges Bilerraten/Lustiges Bilerraten-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Lustiges Bilerraten/Lustiges Bilderraten-Prefix.pch";
+				INFOPLIST_FILE = "Lustiges Bilerraten/Lustiges Bilderraten-Info.plist";
+				PRODUCT_NAME = "Lustiges Bilderraten";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -248,9 +248,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Lustiges Bilerraten/Lustiges Bilerraten-Prefix.pch";
-				INFOPLIST_FILE = "Lustiges Bilerraten/Lustiges Bilerraten-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Lustiges Bilerraten/Lustiges Bilderraten-Prefix.pch";
+				INFOPLIST_FILE = "Lustiges Bilerraten/Lustiges Bilderraten-Info.plist";
+				PRODUCT_NAME = "Lustiges Bilderraten";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -258,7 +258,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		84160BCA14950E3A0049C4B4 /* Build configuration list for PBXProject "Lustiges Bilerraten" */ = {
+		84160BCA14950E3A0049C4B4 /* Build configuration list for PBXProject "Lustiges Bilderraten" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84160BEB14950E3B0049C4B4 /* Debug */,
@@ -267,7 +267,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84160BED14950E3B0049C4B4 /* Build configuration list for PBXNativeTarget "Lustiges Bilerraten" */ = {
+		84160BED14950E3B0049C4B4 /* Build configuration list for PBXNativeTarget "Lustiges Bilderraten" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84160BEE14950E3B0049C4B4 /* Debug */,
