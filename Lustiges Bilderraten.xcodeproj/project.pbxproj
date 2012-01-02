@@ -14,7 +14,7 @@
 		84160BE114950E3A0049C4B4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84160BDF14950E3A0049C4B4 /* InfoPlist.strings */; };
 		84160BE314950E3A0049C4B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84160BE214950E3A0049C4B4 /* main.m */; };
 		84160BE714950E3B0049C4B4 /* PEMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */; };
-		84160BEA14950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84160BE814950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodeld */; };
+		84160BEA14950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84160BE814950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld */; };
 		84160BF114950E5A0049C4B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84160BF014950E5A0049C4B4 /* Storyboard.storyboard */; };
 		84B0CC0114A20A5D00F07EA9 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0CC0014A20A5D00F07EA9 /* MainScreen.m */; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		84160BE414950E3B0049C4B4 /* Lustiges Bilderraten-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lustiges Bilderraten-Prefix.pch"; sourceTree = "<group>"; };
 		84160BE514950E3B0049C4B4 /* PEMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PEMAppDelegate.h; sourceTree = "<group>"; };
 		84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEMAppDelegate.m; sourceTree = "<group>"; };
-		84160BE914950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lustiges_Bilerraten.xcdatamodel; sourceTree = "<group>"; };
+		84160BE914950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lustiges_Bilderraten.xcdatamodel; sourceTree = "<group>"; };
 		84160BF014950E5A0049C4B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		84B0CBFF14A20A5D00F07EA9 /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
 		84B0CC0014A20A5D00F07EA9 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 				84B0CC0014A20A5D00F07EA9 /* MainScreen.m */,
 				84160BE514950E3B0049C4B4 /* PEMAppDelegate.h */,
 				84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */,
-				84160BE814950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodeld */,
+				84160BE814950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld */,
 				84160BDD14950E3A0049C4B4 /* Supporting Files */,
 			);
 			name = "Lustiges Bilderraten";
@@ -170,7 +170,7 @@
 			files = (
 				84160BE314950E3A0049C4B4 /* main.m in Sources */,
 				84160BE714950E3B0049C4B4 /* PEMAppDelegate.m in Sources */,
-				84160BEA14950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodeld in Sources */,
+				84160BEA14950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld in Sources */,
 				84B0CC0114A20A5D00F07EA9 /* MainScreen.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,13 +280,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		84160BE814950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodeld */ = {
+		84160BE814950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				84160BE914950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodel */,
+				84160BE914950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodel */,
 			);
-			currentVersion = 84160BE914950E3B0049C4B4 /* Lustiges_Bilerraten.xcdatamodel */;
-			path = Lustiges_Bilerraten.xcdatamodeld;
+			currentVersion = 84160BE914950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodel */;
+			path = Lustiges_Bilderraten.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
