@@ -10,4 +10,9 @@
 
 @implementation MyGallery
 
+
+- (void) addPainting:(Painting*) painting {
+    [paintingsArray addObject:painting];
+}
+
 @end

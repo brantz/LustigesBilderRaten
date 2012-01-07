@@ -21,4 +21,8 @@
 @property(nonatomic, strong) NSString* artist;
 @property (nonatomic, strong) UIImage* picture;
 
+-(Painting*) initPaintingWithFoto: (UIImage*) foto;
+-(void) findPaintingName;
+-(void) findArtist;
+-(void) findStyleOfPainting;
 @end

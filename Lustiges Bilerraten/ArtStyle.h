@@ -20,4 +20,8 @@
 @property(nonatomic, strong) NSString* infoText;
 @property(nonatomic, strong) NSString* shortText;
 
+-(ArtStyle*) initArtStyleWithName: (NSString*) style;
+-(void) findmoreInfoLink;
+-(void) findInfoText;
+-(void) findShortText;
 @end

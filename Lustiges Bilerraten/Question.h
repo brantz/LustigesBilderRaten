@@ -9,15 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "Painting.h"
 #import "Hints.h"
+#import "Answer.h"
 
 @interface Question : NSObject {
+    Answer* answer;
     Painting* painting;
     Hints* hint;
-    int points;
+    NSArray* answerPossibilities;
+    NSArray* allAnswer;
+    NSString* rightAnswer;
 }
 
+@property(nonatomic,strong) NSArray* answerPossibilities;
+
+-(Question*) initQuestionWith: (Painting*) paint;
 -(void) generateAnswerPossibilities;
 -(NSString*) generateHints;
--(void) giveAnswer: (id) sender andPoints: (int) point;
+-(void) giveAnswer: (NSString*) answr andPoints: (int) point;
 
 @end

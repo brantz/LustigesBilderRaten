@@ -17,6 +17,6 @@
 }
 
 -(int) pointsToStars;
--(UIImage*) takeNewPicture; 
+-(Answer*) initWithAnswer:(BOOL) answ andPainting:(Painting*)paint andPoints: (int) point;
 
 @end

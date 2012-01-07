@@ -9,26 +9,33 @@
 #import "Game.h"
 
 @implementation Game
-@synthesize painting;
+@synthesize myPainting;
 
+-(Game*) initGameWithPic: (UIImage*) pic {
+    myGallery = [[MyGallery alloc]init];
+    self->totalPoints=0;
+    self->picture=pic;
+    [self findPainting  ];
+    [self newQuestionOfPainting];
+    return self;
+}
 
--(void) setPainting:(UIImage*) foto {
-    self->picture = foto;
-    // die Klasse Painting instanziieren und dann der Variable Painting das richtige gemaelde geben
+-(void) findPainting{
+    myPainting = [[Painting alloc] initPaintingWithFoto:picture];
+    [myGallery addPainting:myPainting];
 }
 -(void) quitGame {
     
 }
--(Question*) newQuestionOfPainting:(Painting*) painting{
-    Question* question;
-    
-    //frage erstellen anhand von gemaelde
+-(Question*) newQuestionOfPainting{
+    question = [[Question alloc]initQuestionWith:myPainting];
     return question;
 }
 
 -(void) nextRound: (int)points andFoto:(UIImage*) foto{
     self->totalPoints = self->totalPoints+points;
     self->picture = foto;
-    [self setPainting:foto];
+    [self findPainting];
+    [self newQuestionOfPainting];
 }
 @end

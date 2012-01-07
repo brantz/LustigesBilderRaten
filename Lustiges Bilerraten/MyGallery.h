@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 #import <Foundation/Foundation.h>
+#import "Painting.h"
 
 @interface MyGallery : NSObject {
     NSMutableArray* paintingsArray;
-    UIImage* pictureOfPainting;
-    NSMutableArray* artStylesArray;
 }
 
+- (void) addPainting:(Painting*)painting;
 
 
 @end

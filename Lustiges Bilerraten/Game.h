@@ -9,18 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "Painting.h"
 #import "Question.h"
+#import "MyGallery.h"
 
 @interface Game : NSObject {
-    Painting* painting;
+    Painting* myPainting;
     int totalPoints;
     UIImage* picture;
+    Question* question;
+    MyGallery* myGallery;
 }
 
-@property(nonatomic,strong) Painting* painting;
+@property(nonatomic,strong) Painting* myPainting;
 
--(void) setPainting:(UIImage*) foto;
+-(Game*) initGameWithPic: (UIImage*) pic;
+-(void) findPainting;
 -(void) quitGame;
--(Question*) newQuestionOfPainting:(Painting*) painting;
+-(Question*) newQuestionOfPainting;
 -(void) nextRound: (int) points andFoto:(UIImage*) foto ; 
 
 @end
