@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		267A21C114B86E8F00A8B194 /* MyGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C014B86E8F00A8B194 /* MyGallery.m */; };
+		262A2EC814B8945100807B34 /* MyGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 262A2EC714B8945100807B34 /* MyGallery.m */; };
 		267A21C514B86FCD00A8B194 /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C414B86FCD00A8B194 /* Painting.m */; };
 		267A21C814B86FE600A8B194 /* ArtStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C714B86FE600A8B194 /* ArtStyle.m */; };
 		267A21CB14B86FFE00A8B194 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21CA14B86FFD00A8B194 /* Game.m */; };
@@ -24,14 +24,12 @@
 		84160BE714950E3B0049C4B4 /* PEMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */; };
 		84160BEA14950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84160BE814950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld */; };
 		84160BF114950E5A0049C4B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84160BF014950E5A0049C4B4 /* Storyboard.storyboard */; };
-		849BAD2F14B86FA2005E75B5 /* MyGalleryTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849BAD2E14B86FA2005E75B5 /* MyGalleryTableVC.m */; };
-		849BAD3214B878C9005E75B5 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849BAD3114B878C9005E75B5 /* SettingsVC.m */; };
 		84B0CC0114A20A5D00F07EA9 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0CC0014A20A5D00F07EA9 /* MainScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		267A21BF14B86E8F00A8B194 /* MyGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyGallery.h; path = ../../MyGallery.h; sourceTree = "<group>"; };
-		267A21C014B86E8F00A8B194 /* MyGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyGallery.m; path = ../../MyGallery.m; sourceTree = "<group>"; };
+		262A2EC614B8945100807B34 /* MyGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGallery.h; sourceTree = "<group>"; };
+		262A2EC714B8945100807B34 /* MyGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGallery.m; sourceTree = "<group>"; };
 		267A21C314B86FCD00A8B194 /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
 		267A21C414B86FCD00A8B194 /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
 		267A21C614B86FE600A8B194 /* ArtStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtStyle.h; sourceTree = "<group>"; };
@@ -98,8 +96,8 @@
 		84111C9414B7874F009C60BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				267A21BF14B86E8F00A8B194 /* MyGallery.h */,
-				267A21C014B86E8F00A8B194 /* MyGallery.m */,
+				262A2EC614B8945100807B34 /* MyGallery.h */,
+				262A2EC714B8945100807B34 /* MyGallery.m */,
 				267A21C314B86FCD00A8B194 /* Painting.h */,
 				267A21C414B86FCD00A8B194 /* Painting.m */,
 				267A21C614B86FE600A8B194 /* ArtStyle.h */,
@@ -247,15 +245,13 @@
 				84160BEA14950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld in Sources */,
 				84B0CC0114A20A5D00F07EA9 /* MainScreen.m in Sources */,
 				84111C9814B787E1009C60BD /* MainMenuVC.m in Sources */,
-				849BAD2514B8404B005E75B5 /* MyGalleryVC.m in Sources */,
-				849BAD2C14B85464005E75B5 /* MyGalleryTableVC.m in Sources */,
-				267A21C114B86E8F00A8B194 /* MyGallery.m in Sources */,
 				267A21C514B86FCD00A8B194 /* Painting.m in Sources */,
 				267A21C814B86FE600A8B194 /* ArtStyle.m in Sources */,
 				267A21CB14B86FFE00A8B194 /* Game.m in Sources */,
 				267A21CE14B8702800A8B194 /* Question.m in Sources */,
 				267A21D114B8704900A8B194 /* Answer.m in Sources */,
 				267A21D414B8706400A8B194 /* Hints.m in Sources */,
+				262A2EC814B8945100807B34 /* MyGallery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
