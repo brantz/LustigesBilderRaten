@@ -25,7 +25,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="bwk-Lm-3p8" kind="push" id="zoN-O4-tUU"/>
+                                    <segue destination="8M0-kz-DZh" kind="push" id="x4A-ky-JZz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="o0F-g9-N7d">
@@ -175,19 +175,64 @@
             </objects>
             <point key="canvasLocation" x="900" y="788"/>
         </scene>
-        <scene sceneID="pYZ-KL-0Lv">
+        <scene sceneID="Xze-D5-yWb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="To4-fv-CJn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="bwk-Lm-3p8" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ucX-tW-quV">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6a-pk-jTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="8M0-kz-DZh" customClass="ImageChooserVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jlc-xn-dM0">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="xbs-8L-yDN">
+                                <rect key="frame" x="29" y="109" width="263" height="198"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="e6x-p9-Ma3">
+                                        <rect key="frame" x="2" y="2" width="259" height="194"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" image="noImage@2x.png" id="TlW-Ts-hzh">
+                                                <rect key="frame" x="0.0" y="0.0" width="259" height="194"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.6784313917" green="0.74509805439999999" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="deviceRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZK9-YT-BjO">
+                                <rect key="frame" x="60" y="341" width="201" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="chooseImageButton.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="chooseImageButtonHighlighted.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="takePicture" destination="8M0-kz-DZh" eventType="touchUpInside" id="jEe-OR-o0s"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Nimm ein Bild mit deiner iPhone- Kamera auf. Wenn es dir gefällt, mach weiter." id="J4H-Vf-59V">
+                                <rect key="frame" x="29" y="25" width="263" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="1wj-tb-OCM"/>
+                    <navigationItem key="navigationItem" id="rmu-Wv-3RU"/>
+                    <connections>
+                        <outlet property="previewImage" destination="TlW-Ts-hzh" id="1q4-iU-uX5"/>
+                    </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="777" y="-381"/>
+            <point key="canvasLocation" x="814" y="-375"/>
         </scene>
         <scene sceneID="WPq-Ji-zaK">
             <objects>
@@ -198,15 +243,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="artStyleMGCell" textLabel="zg9-le-6df" style="IBUITableViewCellStyleDefault" id="OuO-Bo-73B">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="artStyleMGCell" textLabel="zg9-le-6df" rowHeight="54" style="IBUITableViewCellStyleDefault" id="OuO-Bo-73B">
+                                <rect key="frame" x="0.0" y="22" width="320" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Art Style" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zg9-le-6df">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="0.0" width="300" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -217,7 +262,7 @@
                                 </view>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="imageMGCell" textLabel="Ibe-Sq-4Yr" detailTextLabel="UjA-wl-ZDP" style="IBUITableViewCellStyleValue1" id="tIC-xS-S8d">
-                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="76" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -255,7 +300,19 @@
             <point key="canvasLocation" x="1253" y="211"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="chooseImageButton.png" width="201" height="39"/>
+        <image name="chooseImageButtonHighlighted.png" width="201" height="39"/>
+        <image name="noImage@2x.png" width="88" height="157"/>
+    </resources>
     <classes>
+        <class className="ImageChooserVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageChooserVC.h"/>
+            <relationships>
+                <relationship kind="action" name="takePicture"/>
+                <relationship kind="outlet" name="previewImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
         <class className="MainMenuVC" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuVC.h"/>
             <relationships>
