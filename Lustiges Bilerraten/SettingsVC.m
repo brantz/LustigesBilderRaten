@@ -1,15 +1,15 @@
 //
-//  MyGalleryTableVC.m
+//  SettingsVC.m
 //  Lustiges Bilderraten
 //
 //  Created by Raphael Teßmer on 07.01.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MyGalleryTableVC.h"
+#import "SettingsVC.h"
 
 
-@implementation MyGalleryTableVC
+@implementation SettingsVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,18 +43,13 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    //Set the NavigationControlBar visible
-    self.navigationController.navigationBarHidden = YES;
-    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
     [super viewWillAppear:animated];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -83,30 +78,46 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"SettingsSwitchCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
     
-    cell.textLabel.text = @"Hello";
-    // Configure the cell...
+    UILabel* settingsLabel = (UILabel*) [cell viewWithTag:10];
+    UISwitch* settingsSwitch = (UISwitch*) [cell viewWithTag:11];
+
+    
+    settingsLabel.text = [self getSettingsDataWithSection:indexPath.section andRow:indexPath.row];
+    settingsSwitch.on = NO;
+    
+    
     
     return cell;
 }
 
+        
+#pragma mark - Settings Data
+
+- (NSString*) getSettingsDataWithSection: (NSInteger) section andRow: (NSInteger) myRow{
+    if (section == 0) {
+        // First Section Stuff
+        return [NSString stringWithFormat:@"Section 1, Row %i", myRow];
+    } else{
+        return [NSString stringWithFormat:@"Section 2, Row %i", myRow];
+    }
+}
+        
+        
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -150,14 +161,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     // Navigation logic may go here. Create and push another view controller.
-    
-     UITableViewController *detailViewController = [[UITableViewController alloc] init];
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
-     
+     */
 }
 
 @end

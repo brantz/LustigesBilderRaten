@@ -17,8 +17,8 @@
 		84160BE714950E3B0049C4B4 /* PEMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */; };
 		84160BEA14950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84160BE814950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld */; };
 		84160BF114950E5A0049C4B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84160BF014950E5A0049C4B4 /* Storyboard.storyboard */; };
-		849BAD2514B8404B005E75B5 /* MyGalleryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849BAD2414B8404B005E75B5 /* MyGalleryVC.m */; };
-		849BAD2C14B85464005E75B5 /* MyGalleryTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849BAD2B14B85464005E75B5 /* MyGalleryTableVC.m */; };
+		849BAD2F14B86FA2005E75B5 /* MyGalleryTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849BAD2E14B86FA2005E75B5 /* MyGalleryTableVC.m */; };
+		849BAD3214B878C9005E75B5 /* SettingsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 849BAD3114B878C9005E75B5 /* SettingsVC.m */; };
 		84B0CC0114A20A5D00F07EA9 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0CC0014A20A5D00F07EA9 /* MainScreen.m */; };
 /* End PBXBuildFile section */
 
@@ -38,10 +38,10 @@
 		84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PEMAppDelegate.m; sourceTree = "<group>"; };
 		84160BE914950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lustiges_Bilderraten.xcdatamodel; sourceTree = "<group>"; };
 		84160BF014950E5A0049C4B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
-		849BAD2314B8404B005E75B5 /* MyGalleryVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGalleryVC.h; sourceTree = "<group>"; };
-		849BAD2414B8404B005E75B5 /* MyGalleryVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGalleryVC.m; sourceTree = "<group>"; };
-		849BAD2A14B85464005E75B5 /* MyGalleryTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGalleryTableVC.h; sourceTree = "<group>"; };
-		849BAD2B14B85464005E75B5 /* MyGalleryTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGalleryTableVC.m; sourceTree = "<group>"; };
+		849BAD2D14B86FA2005E75B5 /* MyGalleryTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGalleryTableVC.h; sourceTree = "<group>"; };
+		849BAD2E14B86FA2005E75B5 /* MyGalleryTableVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGalleryTableVC.m; sourceTree = "<group>"; };
+		849BAD3014B878C9005E75B5 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
+		849BAD3114B878C9005E75B5 /* SettingsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsVC.m; sourceTree = "<group>"; };
 		84B0CBFF14A20A5D00F07EA9 /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
 		84B0CC0014A20A5D00F07EA9 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,10 +66,10 @@
 			children = (
 				84111C9614B787E1009C60BD /* MainMenuVC.h */,
 				84111C9714B787E1009C60BD /* MainMenuVC.m */,
-				849BAD2314B8404B005E75B5 /* MyGalleryVC.h */,
-				849BAD2414B8404B005E75B5 /* MyGalleryVC.m */,
-				849BAD2A14B85464005E75B5 /* MyGalleryTableVC.h */,
-				849BAD2B14B85464005E75B5 /* MyGalleryTableVC.m */,
+				849BAD2D14B86FA2005E75B5 /* MyGalleryTableVC.h */,
+				849BAD2E14B86FA2005E75B5 /* MyGalleryTableVC.m */,
+				849BAD3014B878C9005E75B5 /* SettingsVC.h */,
+				849BAD3114B878C9005E75B5 /* SettingsVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -212,8 +212,8 @@
 				84160BEA14950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld in Sources */,
 				84B0CC0114A20A5D00F07EA9 /* MainScreen.m in Sources */,
 				84111C9814B787E1009C60BD /* MainMenuVC.m in Sources */,
-				849BAD2514B8404B005E75B5 /* MyGalleryVC.m in Sources */,
-				849BAD2C14B85464005E75B5 /* MyGalleryTableVC.m in Sources */,
+				849BAD2F14B86FA2005E75B5 /* MyGalleryTableVC.m in Sources */,
+				849BAD3214B878C9005E75B5 /* SettingsVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
