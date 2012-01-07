@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		267A21C114B86E8F00A8B194 /* MyGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C014B86E8F00A8B194 /* MyGallery.m */; };
+		267A21C514B86FCD00A8B194 /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C414B86FCD00A8B194 /* Painting.m */; };
+		267A21C814B86FE600A8B194 /* ArtStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C714B86FE600A8B194 /* ArtStyle.m */; };
+		267A21CB14B86FFE00A8B194 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21CA14B86FFD00A8B194 /* Game.m */; };
+		267A21CE14B8702800A8B194 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21CD14B8702800A8B194 /* Question.m */; };
+		267A21D114B8704900A8B194 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21D014B8704800A8B194 /* Answer.m */; };
+		267A21D414B8706400A8B194 /* Hints.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21D314B8706400A8B194 /* Hints.m */; };
 		84111C9814B787E1009C60BD /* MainMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84111C9714B787E1009C60BD /* MainMenuVC.m */; };
 		84160BD514950E3A0049C4B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD414950E3A0049C4B4 /* UIKit.framework */; };
 		84160BD714950E3A0049C4B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD614950E3A0049C4B4 /* Foundation.framework */; };
@@ -23,6 +30,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		267A21BF14B86E8F00A8B194 /* MyGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyGallery.h; path = ../../MyGallery.h; sourceTree = "<group>"; };
+		267A21C014B86E8F00A8B194 /* MyGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyGallery.m; path = ../../MyGallery.m; sourceTree = "<group>"; };
+		267A21C314B86FCD00A8B194 /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
+		267A21C414B86FCD00A8B194 /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
+		267A21C614B86FE600A8B194 /* ArtStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtStyle.h; sourceTree = "<group>"; };
+		267A21C714B86FE600A8B194 /* ArtStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtStyle.m; sourceTree = "<group>"; };
+		267A21C914B86FFD00A8B194 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		267A21CA14B86FFD00A8B194 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		267A21CC14B8702800A8B194 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		267A21CD14B8702800A8B194 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		267A21CF14B8704800A8B194 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
+		267A21D014B8704800A8B194 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
+		267A21D214B8706400A8B194 /* Hints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hints.h; sourceTree = "<group>"; };
+		267A21D314B8706400A8B194 /* Hints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hints.m; sourceTree = "<group>"; };
 		84111C9614B787E1009C60BD /* MainMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuVC.h; sourceTree = "<group>"; };
 		84111C9714B787E1009C60BD /* MainMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuVC.m; sourceTree = "<group>"; };
 		84160BD014950E3A0049C4B4 /* Lustiges Bilderraten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lustiges Bilderraten.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +98,20 @@
 		84111C9414B7874F009C60BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				267A21BF14B86E8F00A8B194 /* MyGallery.h */,
+				267A21C014B86E8F00A8B194 /* MyGallery.m */,
+				267A21C314B86FCD00A8B194 /* Painting.h */,
+				267A21C414B86FCD00A8B194 /* Painting.m */,
+				267A21C614B86FE600A8B194 /* ArtStyle.h */,
+				267A21C714B86FE600A8B194 /* ArtStyle.m */,
+				267A21C914B86FFD00A8B194 /* Game.h */,
+				267A21CA14B86FFD00A8B194 /* Game.m */,
+				267A21CC14B8702800A8B194 /* Question.h */,
+				267A21CD14B8702800A8B194 /* Question.m */,
+				267A21CF14B8704800A8B194 /* Answer.h */,
+				267A21D014B8704800A8B194 /* Answer.m */,
+				267A21D214B8706400A8B194 /* Hints.h */,
+				267A21D314B8706400A8B194 /* Hints.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -214,6 +249,13 @@
 				84111C9814B787E1009C60BD /* MainMenuVC.m in Sources */,
 				849BAD2514B8404B005E75B5 /* MyGalleryVC.m in Sources */,
 				849BAD2C14B85464005E75B5 /* MyGalleryTableVC.m in Sources */,
+				267A21C114B86E8F00A8B194 /* MyGallery.m in Sources */,
+				267A21C514B86FCD00A8B194 /* Painting.m in Sources */,
+				267A21C814B86FE600A8B194 /* ArtStyle.m in Sources */,
+				267A21CB14B86FFE00A8B194 /* Game.m in Sources */,
+				267A21CE14B8702800A8B194 /* Question.m in Sources */,
+				267A21D114B8704900A8B194 /* Answer.m in Sources */,
+				267A21D414B8706400A8B194 /* Hints.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
