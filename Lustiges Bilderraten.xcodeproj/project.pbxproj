@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84111C9814B787E1009C60BD /* MainMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84111C9714B787E1009C60BD /* MainMenuVC.m */; };
 		84160BD514950E3A0049C4B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD414950E3A0049C4B4 /* UIKit.framework */; };
 		84160BD714950E3A0049C4B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD614950E3A0049C4B4 /* Foundation.framework */; };
 		84160BD914950E3A0049C4B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD814950E3A0049C4B4 /* CoreGraphics.framework */; };
@@ -20,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84111C9614B787E1009C60BD /* MainMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuVC.h; sourceTree = "<group>"; };
+		84111C9714B787E1009C60BD /* MainMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuVC.m; sourceTree = "<group>"; };
 		84160BD014950E3A0049C4B4 /* Lustiges Bilderraten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lustiges Bilderraten.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84160BD414950E3A0049C4B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84160BD614950E3A0049C4B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -52,6 +55,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84111C9214B78739009C60BD /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84111C9614B787E1009C60BD /* MainMenuVC.h */,
+				84111C9714B787E1009C60BD /* MainMenuVC.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		84111C9414B7874F009C60BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		84111C9514B78766009C60BD /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				84B0CBFF14A20A5D00F07EA9 /* MainScreen.h */,
+				84B0CC0014A20A5D00F07EA9 /* MainScreen.m */,
+				84160BE514950E3B0049C4B4 /* PEMAppDelegate.h */,
+				84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		84160BC514950E3A0049C4B4 = {
 			isa = PBXGroup;
 			children = (
@@ -83,11 +113,10 @@
 		84160BDC14950E3A0049C4B4 /* Lustiges Bilderraten */ = {
 			isa = PBXGroup;
 			children = (
+				84111C9514B78766009C60BD /* Main */,
 				84160BF014950E5A0049C4B4 /* Storyboard.storyboard */,
-				84B0CBFF14A20A5D00F07EA9 /* MainScreen.h */,
-				84B0CC0014A20A5D00F07EA9 /* MainScreen.m */,
-				84160BE514950E3B0049C4B4 /* PEMAppDelegate.h */,
-				84160BE614950E3B0049C4B4 /* PEMAppDelegate.m */,
+				84111C9214B78739009C60BD /* ViewController */,
+				84111C9414B7874F009C60BD /* Model */,
 				84160BE814950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld */,
 				84160BDD14950E3A0049C4B4 /* Supporting Files */,
 			);
@@ -172,6 +201,7 @@
 				84160BE714950E3B0049C4B4 /* PEMAppDelegate.m in Sources */,
 				84160BEA14950E3B0049C4B4 /* Lustiges_Bilderraten.xcdatamodeld in Sources */,
 				84B0CC0114A20A5D00F07EA9 /* MainScreen.m in Sources */,
+				84111C9814B787E1009C60BD /* MainMenuVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
