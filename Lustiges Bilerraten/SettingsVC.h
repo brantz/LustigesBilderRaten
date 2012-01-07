@@ -1,5 +1,5 @@
 //
-//  MyGalleryVC.h
+//  SettingsVC.h
 //  Lustiges Bilderraten
 //
 //  Created by Raphael Teßmer on 07.01.12.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyGalleryVC : UINavigationController
+@interface SettingsVC : UITableViewController{
+}
+
+- (NSString*) getSettingsDataWithSection: (NSInteger) section andRow: (NSInteger) myRow;
 
 @end

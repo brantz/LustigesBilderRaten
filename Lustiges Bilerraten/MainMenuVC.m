@@ -30,13 +30,20 @@
 #pragma mark - Main to Gallery
 
 - (IBAction)pushedGalleryButton{
-    myGallery = [[MyGalleryVC alloc] init];
-    myGalleryTable = [[MyGalleryTableVC alloc] init];
-    [myGallery pushViewController:myGalleryTable animated:YES];
 }
 
 
 #pragma mark - View lifecycle
+
+- (void) viewWillAppear:(BOOL)animated{
+    //Set the NavigationControlBar hidden
+    self.navigationController.navigationBarHidden = YES;
+}
+
+-(void) viewWillDisappear:(BOOL)animated{
+    //Set the NavigationControlBar hidden
+    self.navigationController.navigationBarHidden = NO;
+}
 
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -45,13 +52,13 @@
 }
 */
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //Set the NavigationControlBar hidden
 }
-*/
+
 
 - (void)viewDidUnload
 {

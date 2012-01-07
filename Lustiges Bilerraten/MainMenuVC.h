@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MyGalleryVC.h"
 #import "MyGalleryTableVC.h"
     
 @interface MainMenuVC : UIViewController{
-    MyGalleryVC* myGallery;
     MyGalleryTableVC* myGalleryTable;
 }
 
