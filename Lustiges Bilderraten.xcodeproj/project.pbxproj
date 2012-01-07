@@ -31,6 +31,7 @@
 		8461E7DF14B8B3A100BA363B /* noImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8461E7DB14B8B3A100BA363B /* noImage@2x.png */; };
 		8461E7E314B8B87E00BA363B /* chooseImageButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8461E7E114B8B87E00BA363B /* chooseImageButton.png */; };
 		8461E7E414B8B87E00BA363B /* chooseImageButtonHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 8461E7E214B8B87E00BA363B /* chooseImageButtonHighlighted.png */; };
+		8461E7E714B8CF0C00BA363B /* QuestionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8461E7E614B8CF0C00BA363B /* QuestionVC.m */; };
 		84B0CC0114A20A5D00F07EA9 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0CC0014A20A5D00F07EA9 /* MainScreen.m */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,8 @@
 		8461E7DB14B8B3A100BA363B /* noImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noImage@2x.png"; sourceTree = "<group>"; };
 		8461E7E114B8B87E00BA363B /* chooseImageButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chooseImageButton.png; sourceTree = "<group>"; };
 		8461E7E214B8B87E00BA363B /* chooseImageButtonHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chooseImageButtonHighlighted.png; sourceTree = "<group>"; };
+		8461E7E514B8CF0C00BA363B /* QuestionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionVC.h; sourceTree = "<group>"; };
+		8461E7E614B8CF0C00BA363B /* QuestionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionVC.m; sourceTree = "<group>"; };
 		849BAD2D14B86FA2005E75B5 /* MyGalleryTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGalleryTableVC.h; sourceTree = "<group>"; };
 		849BAD3014B878C9005E75B5 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
 		84B0CBFF14A20A5D00F07EA9 /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				8461E7D114B8962E00BA363B /* SettingsVC.m */,
 				8461E7D514B8992100BA363B /* ImageChooserVC.h */,
 				8461E7D614B8992100BA363B /* ImageChooserVC.m */,
+				8461E7E514B8CF0C00BA363B /* QuestionVC.h */,
+				8461E7E614B8CF0C00BA363B /* QuestionVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				8461E7D214B8962E00BA363B /* SettingsVC.m in Sources */,
 				8461E7D414B8968400BA363B /* MyGalleryTableVC.m in Sources */,
 				8461E7D714B8992100BA363B /* ImageChooserVC.m in Sources */,
+				8461E7E714B8CF0C00BA363B /* QuestionVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

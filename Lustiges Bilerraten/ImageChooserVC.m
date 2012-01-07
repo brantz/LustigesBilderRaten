@@ -7,8 +7,11 @@
 //
 
 #import "ImageChooserVC.h"
+#import "QuestionVC.h"
 
 @implementation ImageChooserVC
+
+@synthesize imagePicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -83,25 +86,32 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+
+- (void) showQuestion{
+    QuestionVC* nextQuestion = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionView"];
+    [self.navigationController pushViewController:nextQuestion animated:YES];
+}
+
 #pragma mark - Get Picture
 
+/*
+ Create a ImagePickerController and set self as it's delegate.
+ Sourcetype defines that a new photo is going to be taken rather than chosen from camera roll. Finally the image picker is being presented as a modal view.
+*/
 - (IBAction) takePicture{
-    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-    
-        UIImagePickerController* imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker = [[UIImagePickerController alloc] init];
         [imagePicker setDelegate:self];
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [imagePicker showsCameraControls];
-
+        [self presentViewController:self.imagePicker animated:YES completion:NULL];
         
     }
     
         
-}
+
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
-    
     [self updatePicturePreview:image];
+    [self.imagePicker dismissModalViewControllerAnimated:YES];
 }
 
 - (void) updatePicturePreview: (UIImage*) image{

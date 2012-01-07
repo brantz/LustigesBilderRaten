@@ -12,9 +12,14 @@
     
     UIImage* pictureTaken;
     IBOutlet UIImageView* previewImage;
+    
+    //UIImagePickerController* imagePicker;
 }
 
 - (IBAction) takePicture;
 - (void) updatePicturePreview:(UIImage*)image;
+- (void) showQuestion;
+
+@property (nonatomic, retain) UIImagePickerController* imagePicker;
 
 @end
