@@ -27,6 +27,15 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+#pragma mark - Main to Gallery
+
+- (IBAction)pushedGalleryButton{
+    myGallery = [[MyGalleryVC alloc] init];
+    myGalleryTable = [[MyGalleryTableVC alloc] init];
+    [myGallery pushViewController:myGalleryTable animated:YES];
+}
+
+
 #pragma mark - View lifecycle
 
 /*
