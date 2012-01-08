@@ -10,4 +10,6 @@
 
 @interface GameOverVC : UIViewController
 
+- (IBAction)mainMenuPushed;
+
 @end

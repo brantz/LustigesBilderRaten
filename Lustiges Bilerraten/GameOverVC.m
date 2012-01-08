@@ -42,8 +42,6 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.leftBarButtonItem = nil;
-
     
 }
 
@@ -60,5 +58,13 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark - Interactions
+
+- (IBAction)mainMenuPushed{
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 
 @end
