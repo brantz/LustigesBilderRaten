@@ -8,6 +8,7 @@
 
 #import "ImageChooserVC.h"
 #import "QuestionVC.h"
+#import "GameOverVC.h"
 
 @implementation ImageChooserVC
 
@@ -45,7 +46,7 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     
     switch (buttonIndex) {
         case 0:
-            NSLog(@"0");
+            [self quitGame];
             break;
         case 1:
             NSLog(@"1");
@@ -90,6 +91,25 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
 - (void) showQuestion{
     QuestionVC* nextQuestion = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionView"];
     [self.navigationController pushViewController:nextQuestion animated:YES];
+}
+
+- (void) quitGame{
+    [self dismissModalViewControllerAnimated:YES];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Spiel Beenden"
+    message:@"Wollen Sie das Spiel wirklich beenden?" delegate:self cancelButtonTitle:@"Abbrechen" otherButtonTitles:@"Beenden", nil];
+    [alert show];
+    
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        
+        GameOverVC* gameOver = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverView"];
+        [self.navigationController pushViewController:gameOver animated:YES];
+        
+    }
+    
 }
 
 #pragma mark - Get Picture

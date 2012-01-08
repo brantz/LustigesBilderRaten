@@ -42,8 +42,6 @@
 {
     [super viewDidLoad];
     
-    [self.storyboard 
-    
     self.navigationItem.hidesBackButton = YES;
     //Generate a Menu Button for the Navigation Bar
     UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
