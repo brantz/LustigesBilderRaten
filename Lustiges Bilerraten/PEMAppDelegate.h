@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MainScreen.h"
 
 @interface PEMAppDelegate : UIResponder <UIApplicationDelegate>{
-    MainScreen* viewController;
 }
 
 @property (strong, nonatomic) UIWindow *window;

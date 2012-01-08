@@ -7,6 +7,7 @@
 //
 
 #import "QuestionVC.h"
+#import "MainMenuVC.h"
 
 @implementation QuestionVC
 
@@ -36,13 +37,19 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationItem.hidesBackButton = YES;
+    //Generate a Menu Button for the Navigation Bar
+    UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    
+    self.navigationItem.leftBarButtonItem = menuBarButton;
 }
-*/
+
 
 - (void)viewDidUnload
 {
@@ -56,6 +63,33 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+- (void) showMenu{
+    UIActionSheet* gameMenu = [[UIActionSheet alloc] initWithTitle:@""
+                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Hauptmenü", @"Meine Galerie", nil];
+    
+    [gameMenu showInView:self.view];
+    
+}
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"0");
+            break;
+        case 1:
+            NSLog(@"1");
+            [self.navigationController popToRootViewControllerAnimated:YES];
+            break;
+        case 2:
+            NSLog(@"3");
+            break;
+        default:
+            break;
+    }
+}
+
 
 #pragma mark - Interactions
 

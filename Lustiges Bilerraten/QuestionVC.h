@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuestionVC : UIViewController{
+@interface QuestionVC : UIViewController <UIActionSheetDelegate>{
     IBOutlet UITextView* hintText;
     IBOutlet UIButton* hintButton;
     
@@ -17,5 +17,6 @@
 }
 
 - (IBAction) hintButtonPushed;
+- (void) showMenu;
 
 @end
