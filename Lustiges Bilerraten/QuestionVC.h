@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuestionVC : UIViewController
+@interface QuestionVC : UIViewController{
+    IBOutlet UITextView* hintText;
+    IBOutlet UIButton* hintButton;
+    
+    IBOutlet UIView* hintTextView;
+    IBOutlet UIView* hintButtonView;
+}
+
+- (IBAction) hintButtonPushed;
 
 @end

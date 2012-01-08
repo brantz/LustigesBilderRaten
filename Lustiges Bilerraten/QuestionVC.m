@@ -57,4 +57,47 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - Interactions
+
+- (IBAction) hintButtonPushed{
+    
+    /*[UIView transitionWithView:hintButton    
+                      duration:1          
+                       options:UIViewAnimationOptionTransitionFlipFromRight 
+                    animations:^{         
+                        hintButton.hidden = YES;
+                        hintText.hidden = NO;
+                    }
+                    completion:NULL];     
+*/
+    [UIView transitionFromView:hintButton toView:hintText duration:1 options:UIViewAnimationOptionTransitionFlipFromRight completion:NULL];
+    hintText.hidden = NO;
+    //transitionFromView:toView:duration:options:completion:
+    
+    /*
+    [UIView beginAnimations:nil context:NULL];  
+    [UIView setAnimationDuration:1];  
+    hintButton.transform = CGAffineTransformMakeRotation(180);
+    hintText.transform = CGAffineTransformMakeTranslation(0, 180);
+   // hintButton.hidden = YES;
+    hintText.hidden = NO;
+    [UIView commitAnimations];
+    */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @end
