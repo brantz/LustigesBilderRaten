@@ -10,6 +10,7 @@
 #import "MyGalleryTableVC.h"
     
 @interface MainMenuVC : UIViewController{
+    BOOL gameIsRunning;
 }
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "MainMenuVC.h"
+#import "Game.h"
+#import "ImageChooserVC.h"
 
 @implementation MainMenuVC
 
@@ -71,7 +73,18 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - 
+#pragma mark - Data Transmission
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ( [[segue identifier] isEqualToString:@"newGameSegue"] && !gameIsRunning ) {
+        //Create new game
+        Game* myGame = [[Game alloc] initGameWithPic:nil];
+        ImageChooserVC* imageChooser = (ImageChooserVC*) [segue destinationViewController];
+        imageChooser.myGame = myGame;
+        
+    }
+}
 
 
 @end

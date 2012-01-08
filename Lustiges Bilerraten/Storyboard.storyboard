@@ -25,7 +25,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8M0-kz-DZh" kind="push" id="x4A-ky-JZz"/>
+                                    <segue destination="8M0-kz-DZh" kind="push" identifier="newGameSegue" id="x4A-ky-JZz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="o0F-g9-N7d">
@@ -247,7 +247,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d0K-3q-z1d">
-                                <rect key="frame" x="42" y="73" width="236" height="37"/>
+                                <rect key="frame" x="42" y="85" width="236" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -259,6 +259,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="questionButtonPushed:" destination="OSV-M2-XFW" eventType="touchUpInside" id="0rZ-ar-SaE"/>
                                     <segue destination="tq8-Iq-r7t" kind="push" identifier="questionC" id="wX6-eK-VWW"/>
                                 </connections>
                             </button>
@@ -275,11 +276,12 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="questionButtonPushed:" destination="OSV-M2-XFW" eventType="touchUpInside" id="Y68-dT-v6f"/>
                                     <segue destination="tq8-Iq-r7t" kind="push" identifier="questionA" id="wJA-iD-lgJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T1k-ri-mLi">
-                                <rect key="frame" x="42" y="243" width="236" height="37"/>
+                                <rect key="frame" x="42" y="234" width="236" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -291,6 +293,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="questionButtonPushed:" destination="OSV-M2-XFW" eventType="touchUpInside" id="qXa-jB-iSI"/>
                                     <segue destination="tq8-Iq-r7t" kind="push" identifier="questionB" id="4c1-Oh-fSg"/>
                                 </connections>
                             </button>
@@ -347,10 +350,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="firstQuestionButton" destination="d0K-3q-z1d" id="9Kf-n2-e56"/>
                         <outlet property="hintButton" destination="2JG-tQ-ByS" id="8lX-dM-EF2"/>
                         <outlet property="hintButtonView" destination="qPw-yj-4Bv" id="lkO-yy-yTn"/>
                         <outlet property="hintText" destination="Fax-PK-o9H" id="VDW-em-DHh"/>
                         <outlet property="hintTextView" destination="20i-NK-kaa" id="rTO-ej-dlQ"/>
+                        <outlet property="pointsBar" destination="5fi-6A-7RK" id="Lwi-fm-Jlp"/>
+                        <outlet property="pointsLabel" destination="K7F-Ix-un6" id="zRT-7c-PDj"/>
+                        <outlet property="secondQuestionButton" destination="7fI-vt-nYx" id="shK-sC-BlE"/>
+                        <outlet property="thirdQuestionButton" destination="T1k-ri-mLi" id="6iU-4p-ONu"/>
                     </connections>
                 </viewController>
             </objects>

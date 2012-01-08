@@ -12,7 +12,7 @@
 
 @implementation ImageChooserVC
 
-@synthesize imagePicker;
+@synthesize imagePicker, myGame;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +39,6 @@
 delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Hauptmenü", @"Meine Galerie", nil];
         
     [gameMenu showInView:self.view];
-    
 }
 
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -90,6 +89,7 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
 
 - (void) showQuestion{
     QuestionVC* nextQuestion = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionView"];
+    nextQuestion.myGame = self.myGame;
     [self.navigationController pushViewController:nextQuestion animated:YES];
 }
 
@@ -136,6 +136,8 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
 
 - (void) updatePicturePreview: (UIImage*) image{
     [previewImage setImage:image];
+    //Update Image within Game
+    myGame = [[Game alloc] initGameWithPic:image];
 }
 
 @end

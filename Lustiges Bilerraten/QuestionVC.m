@@ -9,8 +9,11 @@
 #import "QuestionVC.h"
 #import "MainMenuVC.h"
 #import "GameOverVC.h"
+#import "Question.h"
 
 @implementation QuestionVC
+
+@synthesize myGame;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -114,40 +117,50 @@
 #pragma mark - Interactions
 
 - (IBAction) hintButtonPushed{
-    
-    /*[UIView transitionWithView:hintButton    
-                      duration:1          
-                       options:UIViewAnimationOptionTransitionFlipFromRight 
-                    animations:^{         
-                        hintButton.hidden = YES;
-                        hintText.hidden = NO;
-                    }
-                    completion:NULL];     
-*/
+
     [UIView transitionFromView:hintButton toView:hintText duration:1 options:UIViewAnimationOptionTransitionFlipFromRight completion:NULL];
     hintText.hidden = NO;
-    //transitionFromView:toView:duration:options:completion:
-    
-    /*
-    [UIView beginAnimations:nil context:NULL];  
-    [UIView setAnimationDuration:1];  
-    hintButton.transform = CGAffineTransformMakeRotation(180);
-    hintText.transform = CGAffineTransformMakeTranslation(0, 180);
-   // hintButton.hidden = YES;
-    hintText.hidden = NO;
-    [UIView commitAnimations];
-    */
+
 }
 
 
+- (IBAction)questionButtonPushed:(id)sender{
+    //Tags for Buttons: first: 10; second: 11; third: 12
+    NSLog(@"Button pressed: %i", [sender tag]);  
+}
 
 
-
-
-
-
-
-
+- (void) setupQuestions{
+    //Get Array of possible answers from game
+    NSArray* possibleAnswers = [[NSArray alloc] initWithArray: [myGame newQuestionOfPainting].answerPossibilities ];
+    NSString* rightAnswer = [possibleAnswers objectAtIndex:0];
+    NSString* firstWrongAnswer = [possibleAnswers objectAtIndex:1];
+    NSString* secondWrongAnswer = [possibleAnswers objectAtIndex:2];
+    
+    int rightAnswerIndex = arc4random() % 2;
+    
+    switch (rightAnswerIndex) {
+        case 0:
+            [firstQuestionButton setTitle:rightAnswer forState:UIControlStateNormal];
+            [secondQuestionButton setTitle:firstWrongAnswer forState:UIControlStateNormal];
+            [thirdQuestionButton setTitle:secondWrongAnswer forState:UIControlStateNormal];
+            break;
+        case 1:
+            [firstQuestionButton setTitle:firstWrongAnswer forState:UIControlStateNormal];
+            [secondQuestionButton setTitle:rightAnswer forState:UIControlStateNormal];
+            [thirdQuestionButton setTitle:secondWrongAnswer forState:UIControlStateNormal];
+            break;
+        case 2:
+            [firstQuestionButton setTitle:secondWrongAnswer forState:UIControlStateNormal];
+            [secondQuestionButton setTitle:firstWrongAnswer forState:UIControlStateNormal];
+            [thirdQuestionButton setTitle:rightAnswer forState:UIControlStateNormal];
+            break;
+        default:
+            break;
+    }
+    
+    [hintText setText: [[myGame newQuestionOfPainting] generateHints]];
+    }
 
 
 

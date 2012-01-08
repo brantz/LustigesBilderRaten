@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface ImageChooserVC : UIViewController<UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>{
     
     UIImage* pictureTaken;
     IBOutlet UIImageView* previewImage;
-    
+        
     //UIImagePickerController* imagePicker;
 }
 
@@ -22,5 +23,6 @@
 - (void) quitGame;
 
 @property (nonatomic, retain) UIImagePickerController* imagePicker;
+@property (nonatomic, retain) Game* myGame;
 
 @end
