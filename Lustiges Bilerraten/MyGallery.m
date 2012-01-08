@@ -9,6 +9,7 @@
 #import "MyGallery.h"
 
 @implementation MyGallery
+@synthesize paintingsArray;
 
 
 - (void) addPainting:(Painting*) painting {

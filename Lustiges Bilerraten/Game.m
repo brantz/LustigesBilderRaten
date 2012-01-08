@@ -9,7 +9,7 @@
 #import "Game.h"
 
 @implementation Game
-@synthesize myPainting;
+@synthesize myPainting,totalPoints;
 
 -(Game*) initGameWithPic: (UIImage*) pic {
     myGallery = [[MyGallery alloc]init];
@@ -38,4 +38,6 @@
     [self findPainting];
     [self newQuestionOfPainting];
 }
+
+//TODO methode die das spiel speichert wenn man das spiel beendet
 @end

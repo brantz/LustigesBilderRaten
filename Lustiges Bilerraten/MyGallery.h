@@ -12,6 +12,7 @@
     NSMutableArray* paintingsArray;
 }
 
+@property(nonatomic,strong) NSMutableArray* paintingsArray;
 - (void) addPainting:(Painting*)painting;
 
 

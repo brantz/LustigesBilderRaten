@@ -20,6 +20,7 @@
 }
 
 @property(nonatomic,strong) Painting* myPainting;
+@property int totalPoints;
 
 -(Game*) initGameWithPic: (UIImage*) pic;
 -(void) findPainting;
