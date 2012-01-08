@@ -10,9 +10,6 @@
 #import "MyGalleryTableVC.h"
     
 @interface MainMenuVC : UIViewController{
-    MyGalleryTableVC* myGalleryTable;
 }
-
-- (IBAction)pushedGalleryButton;
 
 @end

@@ -29,8 +29,6 @@
 
 #pragma mark - Main to Gallery
 
-- (IBAction)pushedGalleryButton{
-}
 
 
 #pragma mark - View lifecycle
@@ -72,5 +70,8 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+#pragma mark - 
+
 
 @end
