@@ -8,6 +8,7 @@
 
 #import "QuestionVC.h"
 #import "MainMenuVC.h"
+#import "GameOverVC.h"
 
 @implementation QuestionVC
 
@@ -76,7 +77,7 @@
     
     switch (buttonIndex) {
         case 0:
-            NSLog(@"0");
+            [self quitGame];
             break;
         case 1:
             NSLog(@"1");
@@ -88,6 +89,25 @@
         default:
             break;
     }
+}
+
+- (void) quitGame{
+    [self dismissModalViewControllerAnimated:YES];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Spiel Beenden"
+                                                    message:@"Wollen Sie das Spiel wirklich beenden?" delegate:self cancelButtonTitle:@"Abbrechen" otherButtonTitles:@"Beenden", nil];
+    [alert show];
+    
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        
+        GameOverVC* gameOver = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverView"];
+        [self.navigationController pushViewController:gameOver animated:YES];
+        
+    }
+    
 }
 
 

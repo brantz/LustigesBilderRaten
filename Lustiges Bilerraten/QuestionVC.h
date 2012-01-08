@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuestionVC : UIViewController <UIActionSheetDelegate>{
+@interface QuestionVC : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate>{
     IBOutlet UITextView* hintText;
     IBOutlet UIButton* hintButton;
     
@@ -18,5 +18,6 @@
 
 - (IBAction) hintButtonPushed;
 - (void) showMenu;
+- (void) quitGame;
 
 @end

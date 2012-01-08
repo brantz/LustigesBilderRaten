@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConclusionVC : UIViewController <UIActionSheetDelegate>{
+@interface ConclusionVC : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate>{
     //View elements
     IBOutlet UILabel* wrongLabel;
     IBOutlet UILabel* rightLabel;
@@ -30,5 +30,6 @@
 - (void) setupRightAnswerView;
 - (void) setupWrongAnswerView;
 - (void) setupStarRating:(int)rating;
+- (void) quitGame;
 
 @end

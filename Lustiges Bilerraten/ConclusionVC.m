@@ -7,6 +7,7 @@
 //
 
 #import "ConclusionVC.h"
+#import "GameOverVC.h"
 
 @implementation ConclusionVC
 
@@ -75,7 +76,7 @@
     
     switch (buttonIndex) {
         case 0:
-            NSLog(@"0");
+            [self quitGame];
             break;
         case 1:
             NSLog(@"1");
@@ -88,6 +89,26 @@
             break;
     }
 }
+
+- (void) quitGame{
+    [self dismissModalViewControllerAnimated:YES];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Spiel Beenden"
+                                                    message:@"Wollen Sie das Spiel wirklich beenden?" delegate:self cancelButtonTitle:@"Abbrechen" otherButtonTitles:@"Beenden", nil];
+    [alert show];
+    
+}
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+        
+        GameOverVC* gameOver = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverView"];
+        [self.navigationController pushViewController:gameOver animated:YES];
+        
+    }
+    
+}
+
 
 #pragma mark - Setup Conclusion View
 
@@ -129,7 +150,7 @@
             [star4 setHighlighted:NO];
             [star5 setHighlighted:NO];
             break;
-            
+            //1 Star, etc.
         case 1:
             [star1 setHighlighted:YES];
             [star2 setHighlighted:NO];
