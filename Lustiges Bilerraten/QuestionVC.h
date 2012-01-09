@@ -22,6 +22,8 @@
     
     IBOutlet UIView* hintTextView;
     IBOutlet UIView* hintButtonView;
+    
+    NSString* rightChoice;
     }
 
 @property (nonatomic, strong) Game* myGame; 

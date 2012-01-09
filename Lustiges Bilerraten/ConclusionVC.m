@@ -11,6 +11,8 @@
 
 @implementation ConclusionVC
 
+@synthesize myGame;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -118,20 +120,27 @@
 //TODO: Setup Actions for the two buttons at the bottom
 
 - (void) setupRightAnswerView{
-    
+    NSLog(@"wrong: %d", wrongLabel.hidden);
+    NSLog(@"right: %d", rightLabel.hidden);
     //Setup Headline
     [wrongLabel setHidden:YES];
     [rightLabel setHidden:NO];
     //Hide rightAnswerText
     [rightAnswerLabel setHidden:YES];
+    
+    NSLog(@"wrong: %d", wrongLabel.hidden);
+    NSLog(@"right: %d", rightLabel.hidden);
 }
 
 //TODO: set text for rightAnswerLabel and shortInfo
 - (void) setupWrongAnswerView{
-    
     //Setup Headline
     [wrongLabel setHidden:NO];
     [rightLabel setHidden:YES];
+    
+    wrongLabel.hidden = NO;
+    rightLabel.hidden = YES;
+    
     //Setup rightAnswerText
     [rightAnswerLabel setHidden:NO];
     

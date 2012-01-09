@@ -10,6 +10,7 @@
 #import "MainMenuVC.h"
 #import "GameOverVC.h"
 #import "Question.h"
+#import "ConclusionVC.h"
 
 @implementation QuestionVC
 
@@ -144,27 +145,46 @@
             [firstQuestionButton setTitle:rightAnswer forState:UIControlStateNormal];
             [secondQuestionButton setTitle:firstWrongAnswer forState:UIControlStateNormal];
             [thirdQuestionButton setTitle:secondWrongAnswer forState:UIControlStateNormal];
+            rightChoice = @"a";
             break;
         case 1:
             [firstQuestionButton setTitle:firstWrongAnswer forState:UIControlStateNormal];
             [secondQuestionButton setTitle:rightAnswer forState:UIControlStateNormal];
             [thirdQuestionButton setTitle:secondWrongAnswer forState:UIControlStateNormal];
+            rightChoice = @"b";
             break;
         case 2:
             [firstQuestionButton setTitle:secondWrongAnswer forState:UIControlStateNormal];
             [secondQuestionButton setTitle:firstWrongAnswer forState:UIControlStateNormal];
             [thirdQuestionButton setTitle:rightAnswer forState:UIControlStateNormal];
+            rightChoice = @"c";
             break;
         default:
             break;
     }
     
     [hintText setText: [[myGame newQuestionOfPainting] generateHints]];
+}
+
+
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+
+    //**************
+    rightChoice = @"a";
+    //**************
+    
+    ConclusionVC* myConclusion =  [self.storyboard instantiateViewControllerWithIdentifier:@"ConclusionVC"];
+    myConclusion.myGame = self.myGame;
+    
+    if ( [[segue identifier]  isEqualToString:rightChoice] ) {
+    // If right answer is pushed set conclusion state to right answer
+        [myConclusion setupRightAnswerView];
+    } else {
+        //If wrong Answer is pushed set conclusion to wrong answer
+        [myConclusion setupWrongAnswerView];
     }
-
-
-
-
+}
 
 
 @end

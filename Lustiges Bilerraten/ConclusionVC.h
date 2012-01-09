@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface ConclusionVC : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate>{
     //View elements
@@ -25,6 +26,7 @@
     IBOutlet UIButton* moreInfoButton;
     IBOutlet UIButton* takePictureButton;
 }
+@property (nonatomic, strong) Game* myGame; 
 
 - (void) showMenu;
 - (void) setupRightAnswerView;

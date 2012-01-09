@@ -260,7 +260,7 @@
                                 </state>
                                 <connections>
                                     <action selector="questionButtonPushed:" destination="OSV-M2-XFW" eventType="touchUpInside" id="0rZ-ar-SaE"/>
-                                    <segue destination="tq8-Iq-r7t" kind="push" identifier="questionC" id="wX6-eK-VWW"/>
+                                    <segue destination="tq8-Iq-r7t" kind="push" identifier="a" id="wX6-eK-VWW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7fI-vt-nYx">
@@ -277,7 +277,7 @@
                                 </state>
                                 <connections>
                                     <action selector="questionButtonPushed:" destination="OSV-M2-XFW" eventType="touchUpInside" id="Y68-dT-v6f"/>
-                                    <segue destination="tq8-Iq-r7t" kind="push" identifier="questionA" id="wJA-iD-lgJ"/>
+                                    <segue destination="tq8-Iq-r7t" kind="push" identifier="b" id="wJA-iD-lgJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T1k-ri-mLi">
@@ -294,7 +294,7 @@
                                 </state>
                                 <connections>
                                     <action selector="questionButtonPushed:" destination="OSV-M2-XFW" eventType="touchUpInside" id="qXa-jB-iSI"/>
-                                    <segue destination="tq8-Iq-r7t" kind="push" identifier="questionB" id="4c1-Oh-fSg"/>
+                                    <segue destination="tq8-Iq-r7t" kind="push" identifier="c" id="4c1-Oh-fSg"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="wzw-ia-wuf">
@@ -503,7 +503,7 @@
         <scene sceneID="GxT-86-tyC">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEQ-5X-ukm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="tq8-Iq-r7t" customClass="ConclusionVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConclusionVC" id="tq8-Iq-r7t" customClass="ConclusionVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jLe-Ln-vVf">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -610,12 +610,68 @@
         <image name="star_default.png" width="175" height="167"/>
         <image name="star_highlighted.png" width="175" height="167"/>
     </resources>
+    <classes>
+        <class className="ConclusionVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConclusionVC.h"/>
+            <relationships>
+                <relationship kind="outlet" name="moreInfoButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rightAnswerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="rightLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shortInfoText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="star1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="star2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="star3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="star4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="star5" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="wrongLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GameOverVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameOverVC.h"/>
+            <relationships>
+                <relationship kind="action" name="mainMenuPushed"/>
+            </relationships>
+        </class>
+        <class className="ImageChooserVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageChooserVC.h"/>
+            <relationships>
+                <relationship kind="action" name="takePicture"/>
+                <relationship kind="outlet" name="previewImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MainMenuVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuVC.h"/>
+        </class>
+        <class className="MyGalleryTableVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyGalleryTableVC.h"/>
+        </class>
+        <class className="QuestionVC" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/QuestionVC.h"/>
+            <relationships>
+                <relationship kind="action" name="hintButtonPushed"/>
+                <relationship kind="action" name="questionButtonPushed:"/>
+                <relationship kind="outlet" name="firstQuestionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hintButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="hintButtonView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="hintText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="hintTextView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pointsBar" candidateClass="UIProgressView"/>
+                <relationship kind="outlet" name="pointsLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="secondQuestionButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="thirdQuestionButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SettingsVC" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsVC.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wX6-eK-VWW"/>
+        <segue reference="4c1-Oh-fSg"/>
     </inferredMetricsTieBreakers>
 </document>
