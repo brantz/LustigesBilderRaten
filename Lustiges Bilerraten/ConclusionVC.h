@@ -25,13 +25,15 @@
     
     IBOutlet UIButton* moreInfoButton;
     IBOutlet UIButton* takePictureButton;
-}
-@property (nonatomic, strong) Game* myGame; 
+    }
+@property (nonatomic, strong) Game* myGame;
+@property BOOL answerIsRight;
 
 - (void) showMenu;
 - (void) setupRightAnswerView;
 - (void) setupWrongAnswerView;
 - (void) setupStarRating:(int)rating;
 - (void) quitGame;
+
 
 @end

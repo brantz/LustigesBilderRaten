@@ -11,7 +11,7 @@
 
 @implementation ConclusionVC
 
-@synthesize myGame;
+@synthesize myGame, answerIsRight;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +40,10 @@
 */
 
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -50,6 +53,21 @@
     UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
     self.navigationItem.leftBarButtonItem = menuBarButton;
+        
+    if (answerIsRight)
+        [self setupRightAnswerView];
+    else{
+        [self setupWrongAnswerView];
+        NSLog(@"!!!!!!!!!!!!! %i", star1.highlighted);
+        NSLog(@"!!!!!!!!!!!!! %i", star2.highlighted);
+        NSLog(@"!!!!!!!!!!!!! %i", star3.highlighted);
+        NSLog(@"!!!!!!!!!!!!! %i", star4.highlighted);
+        NSLog(@"!!!!!!!!!!!!! %i", star5.highlighted);
+        
+
+    }
+    
+    
 }
 
 
@@ -117,35 +135,29 @@
 
 
 
-//TODO: Setup Actions for the two buttons at the bottom
+//TODO: Setup Actions for the two buttons at the bottom, get actual star rating
 
 - (void) setupRightAnswerView{
-    NSLog(@"wrong: %d", wrongLabel.hidden);
-    NSLog(@"right: %d", rightLabel.hidden);
     //Setup Headline
     [wrongLabel setHidden:YES];
     [rightLabel setHidden:NO];
+
     //Hide rightAnswerText
     [rightAnswerLabel setHidden:YES];
     
-    NSLog(@"wrong: %d", wrongLabel.hidden);
-    NSLog(@"right: %d", rightLabel.hidden);
+    [self setupStarRating:5];
 }
 
-//TODO: set text for rightAnswerLabel and shortInfo
+//TODO: set text for rightAnswerLabel and shortInfo, get actual star rating
 - (void) setupWrongAnswerView{
     //Setup Headline
     [wrongLabel setHidden:NO];
     [rightLabel setHidden:YES];
-    
-    wrongLabel.hidden = NO;
-    rightLabel.hidden = YES;
-    
+
     //Setup rightAnswerText
     [rightAnswerLabel setHidden:NO];
     
-    
-    
+    [self setupStarRating:0];
 }
 
 - (void) setupStarRating:(int)rating{
@@ -204,6 +216,5 @@
             break;
     }
 }
-
 
 @end

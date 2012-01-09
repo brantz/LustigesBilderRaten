@@ -127,7 +127,22 @@
 
 - (IBAction)questionButtonPushed:(id)sender{
     //Tags for Buttons: first: 10; second: 11; third: 12
-    NSLog(@"Button pressed: %i", [sender tag]);  
+    //NSLog(@"Button pressed: %i", [sender tag]);  
+    
+    //******DEBUGGING********
+    rightChoice = @"a";
+    int rightInt = 10;
+    //******DEBUGGING********
+    ConclusionVC* myConclusion =  [self.storyboard instantiateViewControllerWithIdentifier:@"ConclusionVC"];
+    myConclusion.myGame = self.myGame;
+    
+    if ([sender tag] == rightInt) {
+        myConclusion.answerIsRight = YES;
+    } else {
+        myConclusion.answerIsRight = NO;
+    }
+    
+    [self.navigationController pushViewController:myConclusion animated:YES];
 }
 
 
@@ -169,21 +184,22 @@
 
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
-    //**************
-    rightChoice = @"a";
-    //**************
     
-    ConclusionVC* myConclusion =  [self.storyboard instantiateViewControllerWithIdentifier:@"ConclusionVC"];
-    myConclusion.myGame = self.myGame;
+    
+    /*
     
     if ( [[segue identifier]  isEqualToString:rightChoice] ) {
-    // If right answer is pushed set conclusion state to right answer
-        [myConclusion setupRightAnswerView];
+        // If right answer is pushed set conclusion state to right answer
+        myConclusion.answerIsRight = TRUE; 
+        
+        NSLog(@"QUESTIoooooooon: %i", myConclusion.answerIsRight);
+
     } else {
         //If wrong Answer is pushed set conclusion to wrong answer
-        [myConclusion setupWrongAnswerView];
+        myConclusion.answerIsRight = FALSE;
     }
+     
+     */
 }
 
 
