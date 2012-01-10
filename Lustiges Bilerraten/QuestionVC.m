@@ -88,9 +88,11 @@
             break;
         case 2:
             NSLog(@"MeineGalerieButton");
+			[self performSegueWithIdentifier: @"questionToGallery" sender:(self)];
             break;
 		case 3:
 			NSLog(@"EinstellungsButton");
+			[self performSegueWithIdentifier: @"questionToSettings" sender:(self)];
 			break;
         default:
             break;
