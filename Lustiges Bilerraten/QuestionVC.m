@@ -84,7 +84,7 @@
             break;
         case 1:
             NSLog(@"AnleitungsButton");
-            [self.navigationController popToViewController:<#(UIViewController *)#> animated:<#(BOOL)#>];
+            [self performSegueWithIdentifier: @"questionToManual" sender:(self)];
             break;
         case 2:
             NSLog(@"MeineGalerieButton");
