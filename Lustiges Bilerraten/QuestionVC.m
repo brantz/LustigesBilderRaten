@@ -70,7 +70,7 @@
 
 - (void) showMenu{
     UIActionSheet* gameMenu = [[UIActionSheet alloc] initWithTitle:@""
-                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Hauptmenü", @"Meine Galerie", nil];
+                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Anleitung", @"Meine Galerie", @"Einstellungen", nil];
     
     [gameMenu showInView:self.view];
     
@@ -83,12 +83,15 @@
             [self quitGame];
             break;
         case 1:
-            NSLog(@"1");
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            NSLog(@"AnleitungsButton");
+            [self.navigationController popToViewController:<#(UIViewController *)#> animated:<#(BOOL)#>];
             break;
         case 2:
-            NSLog(@"3");
+            NSLog(@"MeineGalerieButton");
             break;
+		case 3:
+			NSLog(@"EinstellungsButton");
+			break;
         default:
             break;
     }

@@ -36,6 +36,7 @@
 		84667B1B14B9A20600FEA1A1 /* ConclusionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84667B1A14B9A20600FEA1A1 /* ConclusionVC.m */; };
 		84667B1E14B9A78A00FEA1A1 /* chooseImageButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 84667B1D14B9A78A00FEA1A1 /* chooseImageButton.png */; };
 		84667B2114B9B2C300FEA1A1 /* GameOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84667B2014B9B2C300FEA1A1 /* GameOverVC.m */; };
+		A64BDFB214BCE5B500CA2068 /* ManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A64BDFB114BCE5B500CA2068 /* ManualVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,8 @@
 		84667B2014B9B2C300FEA1A1 /* GameOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverVC.m; sourceTree = "<group>"; };
 		849BAD2D14B86FA2005E75B5 /* MyGalleryTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGalleryTableVC.h; sourceTree = "<group>"; };
 		849BAD3014B878C9005E75B5 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
+		A64BDFB014BCE5B500CA2068 /* ManualVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualVC.h; sourceTree = "<group>"; };
+		A64BDFB114BCE5B500CA2068 /* ManualVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				84667B1A14B9A20600FEA1A1 /* ConclusionVC.m */,
 				84667B1F14B9B2C300FEA1A1 /* GameOverVC.h */,
 				84667B2014B9B2C300FEA1A1 /* GameOverVC.m */,
+				A64BDFB014BCE5B500CA2068 /* ManualVC.h */,
+				A64BDFB114BCE5B500CA2068 /* ManualVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				8461E7E714B8CF0C00BA363B /* QuestionVC.m in Sources */,
 				84667B1B14B9A20600FEA1A1 /* ConclusionVC.m in Sources */,
 				84667B2114B9B2C300FEA1A1 /* GameOverVC.m in Sources */,
+				A64BDFB214BCE5B500CA2068 /* ManualVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
