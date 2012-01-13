@@ -53,21 +53,11 @@
     UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
     self.navigationItem.leftBarButtonItem = menuBarButton;
-        
-    if (answerIsRight)
+    
+    if(answerIsRight)
         [self setupRightAnswerView];
-    else{
+    else
         [self setupWrongAnswerView];
-        NSLog(@"!!!!!!!!!!!!! %i", star1.highlighted);
-        NSLog(@"!!!!!!!!!!!!! %i", star2.highlighted);
-        NSLog(@"!!!!!!!!!!!!! %i", star3.highlighted);
-        NSLog(@"!!!!!!!!!!!!! %i", star4.highlighted);
-        NSLog(@"!!!!!!!!!!!!! %i", star5.highlighted);
-        
-
-    }
-    
-    
 }
 
 
@@ -154,10 +144,15 @@
     [wrongLabel setHidden:NO];
     [rightLabel setHidden:YES];
 
-    //Setup rightAnswerText
+    //Get right Answer and setup rightAnswerText
+    NSString* rightAnswerText = [[myGame newQuestionOfPainting].answerPossibilities objectAtIndex:0];
+    rightAnswerText = [NSString stringWithFormat:@"Richtige Antwort: @", 
+                                 rightAnswerText];
     [rightAnswerLabel setHidden:NO];
-    
+    //Setup Star Rating
     [self setupStarRating:0];
+    
+    shortInfoText.text =  myGame.myPainting.styleOfPainting.shortText;
 }
 
 - (void) setupStarRating:(int)rating{

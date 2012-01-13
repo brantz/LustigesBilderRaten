@@ -53,6 +53,10 @@
     UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
     self.navigationItem.leftBarButtonItem = menuBarButton;
+        
+       // [pointsBar setProgress:1];
+    
+    [self animateProgressView2];
 }
 
 
@@ -136,13 +140,39 @@
     ConclusionVC* myConclusion =  [self.storyboard instantiateViewControllerWithIdentifier:@"ConclusionVC"];
     myConclusion.myGame = self.myGame;
     
-    if ([sender tag] == rightInt) {
-        myConclusion.answerIsRight = YES;
-    } else {
-        myConclusion.answerIsRight = NO;
-    }
+    if ([sender tag] == rightInt)
+            myConclusion.answerIsRight = YES;
+    else 
+            myConclusion.answerIsRight = NO;
+    
     
     [self.navigationController pushViewController:myConclusion animated:YES];
+}
+
+
+-(void)changeProgress
+{
+    if(duration <= 0.0f)
+    {
+        //Invalidate timer when time reaches 0
+        [timer invalidate];
+    }
+    else
+    {
+        duration -= 0.01;
+        pointsBar.progress = duration;
+    }
+}
+
+-(void)progressAnimater
+{
+    pointsBar.progress = 1;
+    duration = 1;
+    timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f
+                                             target: self
+                                           selector: @selector(updateProgressBar)
+                                           userInfo: nil
+                                            repeats: YES];
 }
 
 
@@ -179,28 +209,10 @@
     }
     
     [hintText setText: [[myGame newQuestionOfPainting] generateHints]];
+    
+
 }
 
-
-
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
-    
-    /*
-    
-    if ( [[segue identifier]  isEqualToString:rightChoice] ) {
-        // If right answer is pushed set conclusion state to right answer
-        myConclusion.answerIsRight = TRUE; 
-        
-        NSLog(@"QUESTIoooooooon: %i", myConclusion.answerIsRight);
-
-    } else {
-        //If wrong Answer is pushed set conclusion to wrong answer
-        myConclusion.answerIsRight = FALSE;
-    }
-     
-     */
-}
 
 
 @end

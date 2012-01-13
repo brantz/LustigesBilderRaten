@@ -24,6 +24,9 @@
     IBOutlet UIView* hintButtonView;
     
     NSString* rightChoice;
+    
+    NSTimer* timer;
+    float duration;
     }
 
 @property (nonatomic, strong) Game* myGame; 
@@ -35,5 +38,8 @@
 - (IBAction) questionButtonPushed:(id)sender;
 
 - (void) setupQuestions;
+
+- (void) changeProgress;
+- (void) progressAnimater;
 
 @end
