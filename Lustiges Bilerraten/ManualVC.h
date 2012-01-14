@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class ManualVC;
+
 @interface ManualVC : UIViewController{
 }
+
+- (IBAction)done:(id)sender;
 
 @end
