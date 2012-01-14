@@ -27,6 +27,9 @@
     
     NSTimer* timer;
     float duration;
+    
+    float pointsInRound;
+    BOOL roundActive;
     }
 
 @property (nonatomic, strong) Game* myGame; 

@@ -56,7 +56,7 @@
         
        // [pointsBar setProgress:1];
     
-    [self animateProgressView2];
+    [self progressAnimater];
 }
 
 
@@ -137,6 +137,13 @@
     rightChoice = @"a";
     int rightInt = 10;
     //******DEBUGGING********
+    
+    //Setup Points and Stop Animation
+    roundActive = NO;
+    pointsInRound = 1000 * pointsBar.progress;
+    NSLog(@"!!!!!!!!!! : %f", pointsInRound);
+    pointsLabel.text = [NSString stringWithFormat:@"%f",pointsInRound];
+    
     ConclusionVC* myConclusion =  [self.storyboard instantiateViewControllerWithIdentifier:@"ConclusionVC"];
     myConclusion.myGame = self.myGame;
     
@@ -152,14 +159,14 @@
 
 -(void)changeProgress
 {
-    if(duration <= 0.0f)
-    {
+    if(duration <= 0.0f && !roundActive)
+    {   
         //Invalidate timer when time reaches 0
         [timer invalidate];
     }
     else
     {
-        duration -= 0.01;
+        duration -= 0.001;
         pointsBar.progress = duration;
     }
 }
@@ -168,9 +175,9 @@
 {
     pointsBar.progress = 1;
     duration = 1;
-    timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f
+    timer = [NSTimer scheduledTimerWithTimeInterval: 0.01f
                                              target: self
-                                           selector: @selector(updateProgressBar)
+                                           selector: @selector(changeProgress)
                                            userInfo: nil
                                             repeats: YES];
 }
