@@ -111,6 +111,7 @@
     if (buttonIndex == 1) {
         
         GameOverVC* gameOver = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverView"];
+        gameOver.myGame = myGame;
         [self.navigationController pushViewController:gameOver animated:YES];
         
     }
@@ -127,7 +128,7 @@
 
 }
 
-
+//TODO: rightChoice dynamically
 - (IBAction)questionButtonPushed:(id)sender{
     //Tags for Buttons: first: 10; second: 11; third: 12
     
@@ -138,7 +139,7 @@
     //Setup Points and Stop Animation
     roundActive = NO;
     pointsInRound = 1000 * pointsBar.progress;
-    pointsLabel.text = [NSString stringWithFormat:@"%f",pointsInRound];
+    pointsLabel.text = [NSString stringWithFormat:@"%f",pointsInRound];    
     
     //Setup next View (Conclusion)
     ConclusionVC* myConclusion =  [self.storyboard instantiateViewControllerWithIdentifier:@"ConclusionVC"];
@@ -149,11 +150,10 @@
                 [self givenAnswerForChoice:
                         [self getQuestionIDWithTag: [sender tag]]
                  ]
-                andPoints:pointsInRound];
-    
+                andPoints:(int)pointsInRound];
     
     if ( [self getQuestionIDWithTag: [sender tag] ] == rightChoice){
-            myConclusion.answerIsRight = YES;
+        myConclusion.answerIsRight = YES;
         myConclusion.pointsInRound = pointsInRound;
     }
     else 
@@ -206,6 +206,9 @@
     {
         duration -= 0.001;
         pointsBar.progress = duration;
+        pointsLabel.text = [NSString stringWithFormat:@"%f", duration * 1000 ];
+       //int logInt = (int) duration * 1000;
+        NSLog(@"!!!!!!!!!!! %@", [NSString stringWithFormat:@"%f", duration * 1000 ] );
     }
 }
 

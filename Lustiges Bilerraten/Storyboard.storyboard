@@ -303,8 +303,8 @@
                                 <color key="backgroundColor" red="0.6784313917" green="0.74509805439999999" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="deviceRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1000" lineBreakMode="tailTruncation" minimumFontSize="10" id="K7F-Ix-un6">
-                                <rect key="frame" x="139" y="82" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="139" y="82" width="37" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -503,6 +503,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="pointsLabel" destination="MtX-Ms-WCW" id="gDf-MY-eq7"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1853" y="-1003"/>
@@ -541,11 +544,11 @@
                                 <rect key="frame" x="138" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="MzG-Kl-YNj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="MzG-Kl-YNj">
                                 <rect key="frame" x="190" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="TzW-Rx-gG1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="TzW-Rx-gG1">
                                 <rect key="frame" x="242" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -587,6 +590,9 @@
                                 <state key="highlighted" backgroundImage="chooseImageButtonHighlighted.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="takePicture" destination="tq8-Iq-r7t" eventType="touchUpInside" id="mI7-d9-cL9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -617,62 +623,6 @@
         <image name="star_default.png" width="175" height="167"/>
         <image name="star_highlighted.png" width="175" height="167"/>
     </resources>
-    <classes>
-        <class className="ConclusionVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConclusionVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="moreInfoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rightAnswerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rightLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="shortInfoText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="star1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star4" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star5" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="wrongLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GameOverVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameOverVC.h"/>
-            <relationships>
-                <relationship kind="action" name="mainMenuPushed"/>
-            </relationships>
-        </class>
-        <class className="ImageChooserVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageChooserVC.h"/>
-            <relationships>
-                <relationship kind="action" name="takePicture"/>
-                <relationship kind="outlet" name="previewImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MainMenuVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuVC.h"/>
-        </class>
-        <class className="MyGalleryTableVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyGalleryTableVC.h"/>
-        </class>
-        <class className="QuestionVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/QuestionVC.h"/>
-            <relationships>
-                <relationship kind="action" name="hintButtonPushed"/>
-                <relationship kind="action" name="questionButtonPushed:"/>
-                <relationship kind="outlet" name="firstQuestionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="hintButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="hintButtonView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="hintText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="hintTextView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="pointsBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="pointsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondQuestionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thirdQuestionButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SettingsVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

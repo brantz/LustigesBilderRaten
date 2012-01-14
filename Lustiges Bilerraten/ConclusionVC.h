@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 
-@interface ConclusionVC : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate>{
+@interface ConclusionVC : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
     //View elements
     IBOutlet UILabel* wrongLabel;
     IBOutlet UILabel* rightLabel;
@@ -29,12 +29,17 @@
 @property (nonatomic, strong) Game* myGame;
 @property BOOL answerIsRight;
 @property float pointsInRound;
+@property (nonatomic, retain) UIImagePickerController* imagePicker;
+
 
 - (void) showMenu;
 - (void) setupRightAnswerView;
 - (void) setupWrongAnswerView;
 - (void) setupStarRating:(int)rating;
 - (void) quitGame;
+
+- (IBAction) takePicture;
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo;
 
 
 @end

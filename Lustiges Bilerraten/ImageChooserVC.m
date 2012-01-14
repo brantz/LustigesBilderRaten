@@ -12,7 +12,7 @@
 
 @implementation ImageChooserVC
 
-@synthesize imagePicker, myGame;
+@synthesize imagePicker, myGame, shouldSkipView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,9 +59,18 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     }
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    if (shouldSkipView) {
+        [self showQuestion];
+        shouldSkipView = NO;
+    }
+}
 
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     //Generate a Menu Button for the Navigation Bar
@@ -78,7 +87,11 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    NSLog(@"11111111111");
+
 }
+
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -106,6 +119,7 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     if (buttonIndex == 1) {
         
         GameOverVC* gameOver = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverView"];
+        gameOver.myGame = myGame;
         [self.navigationController pushViewController:gameOver animated:YES];
         
     }

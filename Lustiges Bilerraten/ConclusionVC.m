@@ -8,10 +8,11 @@
 
 #import "ConclusionVC.h"
 #import "GameOverVC.h"
+#import "ImageChooserVC.h"
 
 @implementation ConclusionVC
 
-@synthesize myGame, answerIsRight, pointsInRound;
+@synthesize myGame, answerIsRight, pointsInRound, imagePicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -58,6 +59,9 @@
         [self setupRightAnswerView];
     else
         [self setupWrongAnswerView];
+    
+    
+    NSLog(@"How many viewcontrollers are there: %i", [self.navigationController viewControllers].count);
 }
 
 
@@ -113,6 +117,7 @@
     if (buttonIndex == 1) {
         
         GameOverVC* gameOver = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverView"];
+        gameOver.myGame = myGame;
         [self.navigationController pushViewController:gameOver animated:YES];
         
     }
@@ -136,9 +141,7 @@
     [rightAnswerLabel setHidden:YES];
     
     //Calculate Stars for Points
-  //  [myGame.question.answer 
-    
-    [self setupStarRating:5];
+    [self setupStarRating:[myGame.question.answer pointsToStars]];
 }
 
 //TODO: set text for rightAnswerLabel and shortInfo, get actual star rating
@@ -148,14 +151,16 @@
     [rightLabel setHidden:YES];
 
     //Get right Answer and setup rightAnswerText
-    NSString* rightAnswerText = [[myGame newQuestionOfPainting].answerPossibilities objectAtIndex:0];
-    rightAnswerText = [NSString stringWithFormat:@"Richtige Antwort: @", 
-                                 rightAnswerText];
+    // **********To be uncommented, when model is set ***********
+    //NSString* rightAnswerText = [myGame.question.answerPossibilities objectAtIndex:0];
+    //rightAnswerText = [NSString stringWithFormat:@"Richtige Antwort: @", rightAnswerText];
+    
     [rightAnswerLabel setHidden:NO];
+    
     //Setup Star Rating
     [self setupStarRating:0];
     
-    shortInfoText.text =  myGame.myPainting.styleOfPainting.shortText;
+    shortInfoText.text = myGame.myPainting.styleOfPainting.shortText;
 }
 
 - (void) setupStarRating:(int)rating{
@@ -214,5 +219,40 @@
             break;
     }
 }
+
+
+#pragma mark - Get Picture
+
+/*
+ Create a ImagePickerController and set self as it's delegate.
+ Sourcetype defines that a new photo is going to be taken rather than chosen from camera roll.
+ Finally the image picker is being presented as a modal view.
+ */
+- (IBAction) takePicture{
+    imagePicker = [[UIImagePickerController alloc] init];
+    [imagePicker setDelegate:self];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:self.imagePicker animated:YES completion:NULL];
+    
+}
+
+
+
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
+    [self.imagePicker dismissModalViewControllerAnimated:YES];
+    
+    //setup next Round
+    [myGame nextRound:(int)pointsInRound andFoto:image];
+    //pop back to QuestionVC
+    
+    ImageChooserVC* oldImageChooser = [[self.navigationController viewControllers] objectAtIndex:1];
+    oldImageChooser.shouldSkipView = YES;
+    [self.navigationController popToViewController:oldImageChooser  animated:NO];
+    
+    
+}
+
+
 
 @end

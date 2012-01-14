@@ -24,5 +24,6 @@
 
 @property (nonatomic, retain) UIImagePickerController* imagePicker;
 @property (nonatomic, retain) Game* myGame;
+@property BOOL shouldSkipView;
 
 @end
