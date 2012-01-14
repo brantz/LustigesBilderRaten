@@ -90,9 +90,6 @@
             NSLog(@"AnleitungsButton");
 			ManualVC *manualVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ManualView"];
 			[self.navigationController pushViewController:manualVC animated:YES];
-            // ManualVC *manualVC = [[ManualVC alloc] init];
-            // [manualVC setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
-            // [self presentModalViewController:manualVC animated:YES];
             break;
         }
         case 2:{
