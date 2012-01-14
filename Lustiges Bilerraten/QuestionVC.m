@@ -9,6 +9,9 @@
 #import "QuestionVC.h"
 #import "MainMenuVC.h"
 #import "GameOverVC.h"
+#import "ManualVC.h"
+#import "MyGallery.h"
+#import "SettingsVC.h"
 #import "Question.h"
 
 @implementation QuestionVC
@@ -51,6 +54,7 @@
     //Generate a Menu Button for the Navigation Bar
     UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
+	self.navigationItem.title = @"Quizz";
     self.navigationItem.leftBarButtonItem = menuBarButton;
 }
 
@@ -70,7 +74,7 @@
 
 - (void) showMenu{
     UIActionSheet* gameMenu = [[UIActionSheet alloc] initWithTitle:@""
-                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Hauptmenü", @"Meine Galerie", nil];
+                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Anleitung", @"Meine Galerie", @"Einstellungen", nil];
     
     [gameMenu showInView:self.view];
     
@@ -82,13 +86,24 @@
         case 0:
             [self quitGame];
             break;
-        case 1:
-            NSLog(@"1");
-            [self.navigationController popToRootViewControllerAnimated:YES];
+        case 1:{
+            NSLog(@"AnleitungsButton");
+			ManualVC *manualVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ManualView"];
+			[self.navigationController pushViewController:manualVC animated:YES];
             break;
-        case 2:
-            NSLog(@"3");
+        }
+        case 2:{
+            NSLog(@"MeineGalerieButton");
+			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+			[self.navigationController pushViewController:galleryVC animated:YES];
             break;
+		}
+		case 3:{
+			NSLog(@"EinstellungsButton");
+			SettingsVC *settingsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsView"];
+			[self.navigationController pushViewController:settingsVC animated:YES];
+			break;
+		}
         default:
             break;
     }

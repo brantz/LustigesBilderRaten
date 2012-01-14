@@ -110,13 +110,13 @@
         <scene sceneID="xd4-K0-sW8">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aB-jc-URP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="o9g-ig-Jid" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManualView" id="o9g-ig-Jid" customClass="ManualVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7dH-29-JQm">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="wvP-6V-Z6V">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="38" width="320" height="334"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -126,9 +126,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Anleitung" id="28X-0m-BGl">
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="tZH-88-fOt"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="777" y="1402"/>
@@ -136,7 +138,7 @@
         <scene sceneID="uyI-N2-QmL">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRI-Sw-hxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tableViewController id="aim-U6-N3l" customClass="SettingsVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SettingsView" id="aim-U6-N3l" customClass="SettingsVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="OuG-wG-Lrg">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,7 +175,7 @@
                     <navigationItem key="navigationItem" id="Pvv-4v-wq4"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="900" y="788"/>
+            <point key="canvasLocation" x="1306" y="638"/>
         </scene>
         <scene sceneID="Xze-D5-yWb">
             <objects>
@@ -362,7 +364,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1332" y="-375"/>
+            <point key="canvasLocation" x="1274" y="-509"/>
         </scene>
         <scene sceneID="WPq-Ji-zaK">
             <objects>
@@ -427,7 +429,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1253" y="211"/>
+            <point key="canvasLocation" x="1843" y="283"/>
         </scene>
         <scene sceneID="bgB-Wh-qmm">
             <objects>

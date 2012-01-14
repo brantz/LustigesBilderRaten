@@ -7,6 +7,7 @@
 //
 
 #import "ConclusionVC.h"
+#import "MyGalleryTableVC.h"
 #import "GameOverVC.h"
 
 @implementation ConclusionVC
@@ -66,7 +67,7 @@
 
 - (void) showMenu{
     UIActionSheet* gameMenu = [[UIActionSheet alloc] initWithTitle:@""
-                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Hauptmenü", @"Meine Galerie", nil];
+                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Meine Galerie", nil];
     
     [gameMenu showInView:self.view];
     
@@ -76,15 +77,15 @@
     
     switch (buttonIndex) {
         case 0:
+			NSLog(@"SpielBeendenButton");
             [self quitGame];
             break;
-        case 1:
-            NSLog(@"1");
-            [self.navigationController popToRootViewControllerAnimated:YES];
+        case 1:{
+            NSLog(@"MeineGalerieButton");
+			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+			[self.navigationController pushViewController:galleryVC animated:YES];
             break;
-        case 2:
-            NSLog(@"3");
-            break;
+		}
         default:
             break;
     }

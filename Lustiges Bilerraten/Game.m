@@ -13,8 +13,8 @@
 
 -(Game*) initGameWithPic: (UIImage*) pic {
     myGallery = [[MyGallery alloc]init];
-    self->totalPoints=0;
-    self->picture=pic;
+    self->totalPoints = 0;
+    self->picture = pic;
     [self findPainting  ];
     [self newQuestionOfPainting];
     return self;
@@ -33,8 +33,8 @@
 }
 
 -(void) nextRound: (int)points andFoto:(UIImage*) foto{
-    self->totalPoints = self->totalPoints+points;
-    self->picture = foto;
+    totalPoints = totalPoints + points;
+    picture = foto;
     [self findPainting];
     [self newQuestionOfPainting];
 }
