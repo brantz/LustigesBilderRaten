@@ -28,6 +28,7 @@
     }
 @property (nonatomic, strong) Game* myGame;
 @property BOOL answerIsRight;
+@property float pointsInRound;
 
 - (void) showMenu;
 - (void) setupRightAnswerView;

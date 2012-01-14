@@ -11,7 +11,7 @@
 
 @implementation ConclusionVC
 
-@synthesize myGame, answerIsRight;
+@synthesize myGame, answerIsRight, pointsInRound;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -134,6 +134,9 @@
 
     //Hide rightAnswerText
     [rightAnswerLabel setHidden:YES];
+    
+    //Calculate Stars for Points
+  //  [myGame.question.answer 
     
     [self setupStarRating:5];
 }

@@ -15,12 +15,12 @@
     Painting* myPainting;
     int totalPoints;
     UIImage* picture;
-    Question* question;
     MyGallery* myGallery;
 }
 
 @property(nonatomic,strong) Painting* myPainting;
 @property int totalPoints;
+@property (nonatomic, strong) Question* question;
 
 -(Game*) initGameWithPic: (UIImage*) pic;
 -(void) findPainting;

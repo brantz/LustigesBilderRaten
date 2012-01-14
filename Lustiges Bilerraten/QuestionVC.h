@@ -25,6 +25,10 @@
     
     NSString* rightChoice;
     
+    NSString* rightAnswer;
+    NSString* firstWrongAnswer;
+    NSString* secondWrongAnswer;
+    
     NSTimer* timer;
     float duration;
     
@@ -44,5 +48,8 @@
 
 - (void) changeProgress;
 - (void) progressAnimater;
+
+- (NSString *) getQuestionIDWithTag: (int) myTag;
+- (NSString *) givenAnswerForChoice: (NSString *) questionID;
 
 @end

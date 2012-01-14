@@ -12,7 +12,6 @@
 #import "Answer.h"
 
 @interface Question : NSObject {
-    Answer* answer;
     Painting* painting;
     Hints* hint;
     NSArray* answerPossibilities;
@@ -21,6 +20,7 @@
 }
 
 @property(nonatomic,strong) NSArray* answerPossibilities;
+@property (nonatomic, strong) Answer* answer;
 
 -(Question*) initQuestionWith: (Painting*) paint;
 -(void) generateAnswerPossibilities;
