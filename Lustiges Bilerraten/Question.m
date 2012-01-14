@@ -21,29 +21,29 @@
 
 
 -(void) generateAnswerPossibilities {
-    self->rightAnswer = self->painting.styleOfPainting.styleName;
-    int first = rand() % self->allAnswer.count;
-    int second = rand() % self->allAnswer.count;
+    rightAnswer = painting.styleOfPainting.styleName;
+    int first = rand() % allAnswer.count;
+    int second = rand() % allAnswer.count;
     
     while(first == second) {
-        first = rand() % self->allAnswer.count;
-        second = rand() % self->allAnswer.count;
+        first = rand() % allAnswer.count;
+        second = rand() % allAnswer.count;
     }
    
-        self->answerPossibilities = [NSArray arrayWithObjects:rightAnswer,[self->allAnswer objectAtIndex:first],[self->allAnswer objectAtIndex:second], nil];
+        answerPossibilities = [NSArray arrayWithObjects:rightAnswer,[allAnswer objectAtIndex:first],[allAnswer objectAtIndex:second], nil];
     
 }
 -(NSString*) generateHints{
-    self->hint = [[Hints alloc] initHintWithPainting:self->painting];
+    hint = [[Hints alloc] initHintWithPainting:painting];
     return [hint generateHint];
 }
 
 -(void) giveAnswer: (NSString*) answr andPoints: (int) point {
 
-    if([answr isEqualToString:self->rightAnswer]){
-        self->answer = [[Answer alloc]initWithAnswer:YES andPainting:self->painting andPoints:point ];
+    if([answr isEqualToString:rightAnswer]){
+        answer = [[Answer alloc]initWithAnswer:YES andPainting:painting andPoints:point ];
     } else {
-        self->answer = [[Answer alloc]initWithAnswer:NO andPainting:self->painting andPoints: point ];   
+        answer = [[Answer alloc]initWithAnswer:NO andPainting:painting andPoints: point ];   
     }
     
 }

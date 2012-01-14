@@ -10,14 +10,14 @@
 
 @implementation Hints
 
--(NSString*) generateHint {
-    
-    return NULL;
-}
-
 -(Hints*) initHintWithPainting:(Painting*) paint {
     self->painting = paint;
     return self;
+}
+
+-(NSString*) generateHint {
+    
+    return NULL;
 }
 
 @end

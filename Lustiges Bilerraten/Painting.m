@@ -12,8 +12,8 @@
 @synthesize nameOfPainting,styleOfPainting,artist,picture;
 
 
--(Painting*) initPaintingWithFoto: (UIImage*) foto {
-    self->picture=foto;
+- (Painting*) initPaintingWithFoto: (UIImage*) foto {
+    self->picture = foto;
     [self findPaintingName];
     [self findArtist];
     [self findStyleOfPainting];

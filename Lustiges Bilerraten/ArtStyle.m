@@ -11,7 +11,7 @@
 @implementation ArtStyle
 @synthesize styleName,moreInfoLink,infoText,shortText;
 
--(ArtStyle*) initArtStyleWithName: (NSString*) style{
+- (ArtStyle*) initArtStyleWithName: (NSString*) style{
     self->styleName=style;
     [self findInfoText];
     [self findmoreInfoLink];
