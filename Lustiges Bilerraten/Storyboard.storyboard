@@ -245,12 +245,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" progress="1" id="5fi-6A-7RK">
-                                <rect key="frame" x="85" y="35" width="150" height="9"/>
+                                <rect key="frame" x="85" y="73" width="150" height="9"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="d0K-3q-z1d">
-                                <rect key="frame" x="42" y="85" width="236" height="37"/>
+                                <rect key="frame" x="42" y="126" width="236" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="a"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="a) Impressionismus">
@@ -262,12 +263,12 @@
                                 </state>
                                 <connections>
                                     <action selector="questionButtonPushed:" destination="OSV-M2-XFW" eventType="touchUpInside" id="0rZ-ar-SaE"/>
-                                    <segue destination="tq8-Iq-r7t" kind="push" identifier="questionC" id="wX6-eK-VWW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7fI-vt-nYx">
-                                <rect key="frame" x="42" y="158" width="236" height="37"/>
+                                <rect key="frame" x="42" y="181" width="236" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="b"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="a) Abstrakter Impressionismus">
@@ -279,12 +280,12 @@
                                 </state>
                                 <connections>
                                     <action selector="questionButtonPushed:" destination="OSV-M2-XFW" eventType="touchUpInside" id="Y68-dT-v6f"/>
-                                    <segue destination="tq8-Iq-r7t" kind="push" identifier="questionA" id="wJA-iD-lgJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="T1k-ri-mLi">
-                                <rect key="frame" x="42" y="234" width="236" height="37"/>
+                                <rect key="frame" x="42" y="237" width="236" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="c"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="a) Realismus">
@@ -296,7 +297,6 @@
                                 </state>
                                 <connections>
                                     <action selector="questionButtonPushed:" destination="OSV-M2-XFW" eventType="touchUpInside" id="qXa-jB-iSI"/>
-                                    <segue destination="tq8-Iq-r7t" kind="push" identifier="questionB" id="4c1-Oh-fSg"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="wzw-ia-wuf">
@@ -305,8 +305,8 @@
                                 <color key="backgroundColor" red="0.6784313917" green="0.74509805439999999" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="deviceRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1000" lineBreakMode="tailTruncation" minimumFontSize="10" id="K7F-Ix-un6">
-                                <rect key="frame" x="139" y="44" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="139" y="82" width="37" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -348,6 +348,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Zu welchem Kunststil gehört das Bild?" lineBreakMode="tailTruncation" minimumFontSize="10" id="MDK-im-vFa">
+                                <rect key="frame" x="14" y="17" width="293" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -498,6 +505,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="pointsLabel" destination="MtX-Ms-WCW" id="gDf-MY-eq7"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1853" y="-1003"/>
@@ -505,42 +515,42 @@
         <scene sceneID="GxT-86-tyC">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEQ-5X-ukm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="tq8-Iq-r7t" customClass="ConclusionVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConclusionVC" id="tq8-Iq-r7t" customClass="ConclusionVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jLe-Ln-vVf">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Richtig" lineBreakMode="tailTruncation" minimumFontSize="10" id="hZB-qm-tFo">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="98" contentMode="left" text="Richtig" lineBreakMode="tailTruncation" minimumFontSize="10" id="hZB-qm-tFo">
                                 <rect key="frame" x="90" y="9" width="123" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="37"/>
                                 <color key="textColor" red="0.20118230581283569" green="0.67254197597503662" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Falsch" lineBreakMode="tailTruncation" minimumFontSize="10" id="qwI-yH-HYd">
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="99" contentMode="left" text="Falsch" lineBreakMode="tailTruncation" minimumFontSize="10" id="qwI-yH-HYd">
                                 <rect key="frame" x="90" y="9" width="123" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="37"/>
                                 <color key="textColor" red="0.9405895471572876" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_highlighted.png" highlightedImage="star_highlighted.png" id="9Cg-ST-CZA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="9Cg-ST-CZA">
                                 <rect key="frame" x="34" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_highlighted.png" highlightedImage="star_highlighted.png" id="Vlc-Sp-Gth">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="Vlc-Sp-Gth">
                                 <rect key="frame" x="86" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_highlighted.png" highlightedImage="star_highlighted.png" id="iWe-xj-ylf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="iWe-xj-ylf">
                                 <rect key="frame" x="138" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="MzG-Kl-YNj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="MzG-Kl-YNj">
                                 <rect key="frame" x="190" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="TzW-Rx-gG1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="TzW-Rx-gG1">
                                 <rect key="frame" x="242" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -560,7 +570,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p4x-y1-v6n">
-                                <rect key="frame" x="77" y="317" width="166" height="37"/>
+                                <rect key="frame" x="77" y="313" width="166" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Mehr Informationen">
@@ -572,7 +582,7 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="u3j-n6-JCi">
-                                <rect key="frame" x="60" y="367" width="201" height="39"/>
+                                <rect key="frame" x="60" y="363" width="201" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" backgroundImage="chooseImageButton.png">
@@ -582,6 +592,9 @@
                                 <state key="highlighted" backgroundImage="chooseImageButtonHighlighted.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="takePicture" destination="tq8-Iq-r7t" eventType="touchUpInside" id="mI7-d9-cL9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -602,7 +615,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1843" y="-370"/>
+            <point key="canvasLocation" x="1835" y="-375"/>
         </scene>
     </scenes>
     <resources>
@@ -617,7 +630,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="wX6-eK-VWW"/>
-    </inferredMetricsTieBreakers>
 </document>

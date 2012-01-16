@@ -10,6 +10,8 @@
 
 @implementation GameOverVC
 
+@synthesize myGame, pointsOverall;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,6 +44,8 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    
+    [pointsLabel setText: [NSString stringWithFormat:@"%i", myGame.totalPoints] ];
     
 }
 
