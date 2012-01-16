@@ -13,6 +13,6 @@
 @interface ManualVC : UIViewController{
 }
 
-- (IBAction)done:(id)sender;
+
 
 @end

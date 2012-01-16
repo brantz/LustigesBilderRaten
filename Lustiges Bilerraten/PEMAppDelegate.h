@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface PEMAppDelegate : UIResponder <UIApplicationDelegate>{
+    
+    NSString *databaseName;
+	NSString *databasePath;
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -16,8 +20,11 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic,strong)    NSString* databasePath;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+- (void) checkAndCreateDatabase;
+
 
 @end

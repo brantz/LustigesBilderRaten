@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		262A2EC814B8945100807B34 /* MyGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 262A2EC714B8945100807B34 /* MyGallery.m */; };
+		2654E0B714C33F7100F9B1FF /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2654E0B414C33F1400F9B1FF /* libsqlite3.0.dylib */; };
+		2654E0B914C33FB700F9B1FF /* Musuem.sql in Resources */ = {isa = PBXBuildFile; fileRef = 2654E0B814C33FB700F9B1FF /* Musuem.sql */; };
 		267A21C514B86FCD00A8B194 /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C414B86FCD00A8B194 /* Painting.m */; };
 		267A21C814B86FE600A8B194 /* ArtStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C714B86FE600A8B194 /* ArtStyle.m */; };
 		267A21CB14B86FFE00A8B194 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21CA14B86FFD00A8B194 /* Game.m */; };
@@ -42,6 +44,8 @@
 /* Begin PBXFileReference section */
 		262A2EC614B8945100807B34 /* MyGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGallery.h; sourceTree = "<group>"; };
 		262A2EC714B8945100807B34 /* MyGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGallery.m; sourceTree = "<group>"; };
+		2654E0B414C33F1400F9B1FF /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		2654E0B814C33FB700F9B1FF /* Musuem.sql */ = {isa = PBXFileReference; lastKnownFileType = file; name = Musuem.sql; path = ../../MuseumDB/Musuem.sql; sourceTree = "<group>"; };
 		267A21C314B86FCD00A8B194 /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
 		267A21C414B86FCD00A8B194 /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
 		267A21C614B86FE600A8B194 /* ArtStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtStyle.h; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2654E0B714C33F7100F9B1FF /* libsqlite3.0.dylib in Frameworks */,
 				84160BD514950E3A0049C4B4 /* UIKit.framework in Frameworks */,
 				84160BD714950E3A0049C4B4 /* Foundation.framework in Frameworks */,
 				84160BD914950E3A0049C4B4 /* CoreGraphics.framework in Frameworks */,
@@ -162,6 +167,7 @@
 		84160BC514950E3A0049C4B4 = {
 			isa = PBXGroup;
 			children = (
+				2654E0B414C33F1400F9B1FF /* libsqlite3.0.dylib */,
 				84160BDC14950E3A0049C4B4 /* Lustiges Bilderraten */,
 				84160BD314950E3A0049C4B4 /* Frameworks */,
 				84160BD114950E3A0049C4B4 /* Products */,
@@ -216,6 +222,7 @@
 		8461E7E014B8B3A900BA363B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2654E0B814C33FB700F9B1FF /* Musuem.sql */,
 				84667B1D14B9A78A00FEA1A1 /* chooseImageButton.png */,
 				8461E7EC14B8E0B100BA363B /* star_default.png */,
 				8461E7ED14B8E0B100BA363B /* star_highlighted.png */,
@@ -284,6 +291,7 @@
 				8461E7EE14B8E0B200BA363B /* star_default.png in Resources */,
 				8461E7EF14B8E0B200BA363B /* star_highlighted.png in Resources */,
 				84667B1E14B9A78A00FEA1A1 /* chooseImageButton.png in Resources */,
+				2654E0B914C33FB700F9B1FF /* Musuem.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

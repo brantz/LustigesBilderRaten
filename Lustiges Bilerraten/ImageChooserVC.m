@@ -138,6 +138,9 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     [previewImage setImage:image];
     //Update Image within Game
     myGame = [[Game alloc] initGameWithPic:image];
+    //********DEBUGGING************
+    
+    //********DEBUGGING************
 }
 
 @end
