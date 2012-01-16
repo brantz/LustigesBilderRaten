@@ -22,6 +22,18 @@
     
     IBOutlet UIView* hintTextView;
     IBOutlet UIView* hintButtonView;
+    
+    NSString* rightChoice;
+    
+    NSString* rightAnswer;
+    NSString* firstWrongAnswer;
+    NSString* secondWrongAnswer;
+    
+    NSTimer* timer;
+    float duration;
+    
+    float pointsInRound;
+    BOOL roundActive;
     }
 
 @property (nonatomic, strong) Game* myGame; 
@@ -33,5 +45,11 @@
 - (IBAction) questionButtonPushed:(id)sender;
 
 - (void) setupQuestions;
+
+- (void) changeProgress;
+- (void) progressAnimater;
+
+- (NSString *) getQuestionIDWithTag: (int) myTag;
+- (NSString *) givenAnswerForChoice: (NSString *) questionID;
 
 @end

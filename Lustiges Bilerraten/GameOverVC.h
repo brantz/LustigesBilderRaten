@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
-@interface GameOverVC : UIViewController
+@interface GameOverVC : UIViewController{
+    IBOutlet UILabel* pointsLabel;
+}
+
+@property (nonatomic, strong) Game* myGame;
+@property int pointsOverall;
 
 - (IBAction)mainMenuPushed;
+
 
 @end

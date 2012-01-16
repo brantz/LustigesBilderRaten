@@ -9,7 +9,7 @@
 #import "Question.h"
 
 @implementation Question
-@synthesize answerPossibilities;
+@synthesize answerPossibilities, answer;
 
 -(Question*) initQuestionWith: (Painting*) paint{
     self->painting = paint;

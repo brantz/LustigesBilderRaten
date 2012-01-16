@@ -9,8 +9,11 @@
 #import "ConclusionVC.h"
 #import "MyGalleryTableVC.h"
 #import "GameOverVC.h"
+#import "ImageChooserVC.h"
 
 @implementation ConclusionVC
+
+@synthesize myGame, answerIsRight, pointsInRound, imagePicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,7 +42,10 @@
 */
 
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -49,6 +55,14 @@
     UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
     self.navigationItem.leftBarButtonItem = menuBarButton;
+    
+    if(answerIsRight)
+        [self setupRightAnswerView];
+    else
+        [self setupWrongAnswerView];
+    
+    
+    NSLog(@"How many viewcontrollers are there: %i", [self.navigationController viewControllers].count);
 }
 
 
@@ -104,6 +118,7 @@
     if (buttonIndex == 1) {
         
         GameOverVC* gameOver = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverView"];
+        gameOver.myGame = myGame;
         [self.navigationController pushViewController:gameOver animated:YES];
         
     }
@@ -116,28 +131,37 @@
 
 
 
-//TODO: Setup Actions for the two buttons at the bottom
+//TODO: Setup Actions for the two buttons at the bottom, get actual star rating
 
 - (void) setupRightAnswerView{
-    
     //Setup Headline
     [wrongLabel setHidden:YES];
     [rightLabel setHidden:NO];
+
     //Hide rightAnswerText
     [rightAnswerLabel setHidden:YES];
+    
+    //Calculate Stars for Points
+    [self setupStarRating:[myGame.question.answer pointsToStars]];
 }
 
-//TODO: set text for rightAnswerLabel and shortInfo
+//TODO: set text for rightAnswerLabel and shortInfo, get actual star rating
 - (void) setupWrongAnswerView{
-    
     //Setup Headline
     [wrongLabel setHidden:NO];
     [rightLabel setHidden:YES];
-    //Setup rightAnswerText
+
+    //Get right Answer and setup rightAnswerText
+    // **********To be uncommented, when model is set ***********
+    //NSString* rightAnswerText = [myGame.question.answerPossibilities objectAtIndex:0];
+    //rightAnswerText = [NSString stringWithFormat:@"Richtige Antwort: @", rightAnswerText];
+    
     [rightAnswerLabel setHidden:NO];
     
+    //Setup Star Rating
+    [self setupStarRating:0];
     
-    
+    shortInfoText.text = myGame.myPainting.styleOfPainting.shortText;
 }
 
 - (void) setupStarRating:(int)rating{
@@ -196,6 +220,40 @@
             break;
     }
 }
+
+
+#pragma mark - Get Picture
+
+/*
+ Create a ImagePickerController and set self as it's delegate.
+ Sourcetype defines that a new photo is going to be taken rather than chosen from camera roll.
+ Finally the image picker is being presented as a modal view.
+ */
+- (IBAction) takePicture{
+    imagePicker = [[UIImagePickerController alloc] init];
+    [imagePicker setDelegate:self];
+    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:self.imagePicker animated:YES completion:NULL];
+    
+}
+
+
+
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
+    [self.imagePicker dismissModalViewControllerAnimated:YES];
+    
+    //setup next Round
+    [myGame nextRound:(int)pointsInRound andFoto:image];
+    //pop back to QuestionVC
+    
+    ImageChooserVC* oldImageChooser = [[self.navigationController viewControllers] objectAtIndex:1];
+    oldImageChooser.shouldSkipView = YES;
+    [self.navigationController popToViewController:oldImageChooser  animated:NO];
+    
+    
+}
+
 
 
 @end
