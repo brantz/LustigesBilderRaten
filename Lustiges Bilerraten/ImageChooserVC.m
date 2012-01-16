@@ -135,7 +135,11 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
 - (IBAction) takePicture{
         imagePicker = [[UIImagePickerController alloc] init];
         [imagePicker setDelegate:self];
+    if( [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
         [self presentViewController:self.imagePicker animated:YES completion:NULL];
         
     }
