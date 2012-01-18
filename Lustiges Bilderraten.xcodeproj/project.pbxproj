@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		262A2EC814B8945100807B34 /* MyGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 262A2EC714B8945100807B34 /* MyGallery.m */; };
 		2654E0B714C33F7100F9B1FF /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2654E0B414C33F1400F9B1FF /* libsqlite3.0.dylib */; };
-		2666C0EB14C4454600034B8B /* Musuem.sql in Resources */ = {isa = PBXBuildFile; fileRef = 2666C0EA14C4454600034B8B /* Musuem.sql */; };
 		267A21C514B86FCD00A8B194 /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C414B86FCD00A8B194 /* Painting.m */; };
 		267A21C814B86FE600A8B194 /* ArtStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C714B86FE600A8B194 /* ArtStyle.m */; };
 		267A21CB14B86FFE00A8B194 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21CA14B86FFD00A8B194 /* Game.m */; };
 		267A21CE14B8702800A8B194 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21CD14B8702800A8B194 /* Question.m */; };
 		267A21D114B8704900A8B194 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21D014B8704800A8B194 /* Answer.m */; };
 		267A21D414B8706400A8B194 /* Hints.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21D314B8706400A8B194 /* Hints.m */; };
+		26F8A56E14C4AF5700009509 /* Musuem.sql in Resources */ = {isa = PBXBuildFile; fileRef = 26F8A56D14C4AF5700009509 /* Musuem.sql */; };
 		84111C9814B787E1009C60BD /* MainMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84111C9714B787E1009C60BD /* MainMenuVC.m */; };
 		84160BD514950E3A0049C4B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD414950E3A0049C4B4 /* UIKit.framework */; };
 		84160BD714950E3A0049C4B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD614950E3A0049C4B4 /* Foundation.framework */; };
@@ -45,7 +45,6 @@
 		262A2EC614B8945100807B34 /* MyGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGallery.h; sourceTree = "<group>"; };
 		262A2EC714B8945100807B34 /* MyGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGallery.m; sourceTree = "<group>"; };
 		2654E0B414C33F1400F9B1FF /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		2666C0EA14C4454600034B8B /* Musuem.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = Musuem.sql; sourceTree = "<group>"; };
 		267A21C314B86FCD00A8B194 /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
 		267A21C414B86FCD00A8B194 /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
 		267A21C614B86FE600A8B194 /* ArtStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtStyle.h; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		267A21D014B8704800A8B194 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		267A21D214B8706400A8B194 /* Hints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hints.h; sourceTree = "<group>"; };
 		267A21D314B8706400A8B194 /* Hints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hints.m; sourceTree = "<group>"; };
+		26F8A56D14C4AF5700009509 /* Musuem.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = Musuem.sql; sourceTree = "<group>"; };
 		84111C9614B787E1009C60BD /* MainMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuVC.h; sourceTree = "<group>"; };
 		84111C9714B787E1009C60BD /* MainMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuVC.m; sourceTree = "<group>"; };
 		84160BD014950E3A0049C4B4 /* Lustiges Bilderraten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lustiges Bilderraten.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -222,7 +222,7 @@
 		8461E7E014B8B3A900BA363B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2666C0EA14C4454600034B8B /* Musuem.sql */,
+				26F8A56D14C4AF5700009509 /* Musuem.sql */,
 				84667B1D14B9A78A00FEA1A1 /* chooseImageButton.png */,
 				8461E7EC14B8E0B100BA363B /* star_default.png */,
 				8461E7ED14B8E0B100BA363B /* star_highlighted.png */,
@@ -291,7 +291,7 @@
 				8461E7EE14B8E0B200BA363B /* star_default.png in Resources */,
 				8461E7EF14B8E0B200BA363B /* star_highlighted.png in Resources */,
 				84667B1E14B9A78A00FEA1A1 /* chooseImageButton.png in Resources */,
-				2666C0EB14C4454600034B8B /* Musuem.sql in Resources */,
+				26F8A56E14C4AF5700009509 /* Musuem.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
