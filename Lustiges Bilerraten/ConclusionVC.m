@@ -61,9 +61,7 @@
     else
         [self setupWrongAnswerView];
     
-    
-    NSLog(@"How many viewcontrollers are there: %i", [self.navigationController viewControllers].count);
-}
+    }
 
 
 - (void)viewDidUnload
@@ -129,9 +127,7 @@
 #pragma mark - Setup Conclusion View
 
 
-
-
-//TODO: Setup Actions for the two buttons at the bottom, get actual star rating
+//TODO: Setup More Information button push
 
 - (void) setupRightAnswerView{
     //Setup Headline
@@ -143,25 +139,28 @@
     
     //Calculate Stars for Points
     [self setupStarRating:[myGame.question.answer pointsToStars]];
+    
+    //Setup shortText
+    [shortInfoText setText: myGame.myPainting.styleOfPainting.shortText];
 }
 
-//TODO: set text for rightAnswerLabel and shortInfo, get actual star rating
 - (void) setupWrongAnswerView{
+    
     //Setup Headline
     [wrongLabel setHidden:NO];
     [rightLabel setHidden:YES];
 
-    //Get right Answer and setup rightAnswerText
-    // **********To be uncommented, when model is set ***********
-    //NSString* rightAnswerText = [myGame.question.answerPossibilities objectAtIndex:0];
-    //rightAnswerText = [NSString stringWithFormat:@"Richtige Antwort: @", rightAnswerText];
-    
+    //Get right Answer and setup rightAnswerLabel
+    NSString* rightAnswerText = [myGame.question.answerPossibilities objectAtIndex:0];
+    rightAnswerText = [NSString stringWithFormat:@"Richtige Antwort: %@", rightAnswerText];
     [rightAnswerLabel setHidden:NO];
-    
+    [rightAnswerLabel setText:rightAnswerText];
+
     //Setup Star Rating
     [self setupStarRating:0];
     
-    shortInfoText.text = myGame.myPainting.styleOfPainting.shortText;
+    //Setup shortText
+    [shortInfoText setText: myGame.myPainting.styleOfPainting.shortText];
 }
 
 - (void) setupStarRating:(int)rating{
