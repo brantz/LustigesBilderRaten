@@ -59,6 +59,7 @@
     self.navigationItem.leftBarButtonItem = menuBarButton;
             
     [self progressAnimater];
+    [self setupQuestions];
     
 }
 
@@ -211,6 +212,7 @@
     }
 }
 
+//FIXME: fix this fucking int
 -(void)changeProgress
 {
     if(duration <= 0.0f && !roundActive)
@@ -221,9 +223,12 @@
     {
         duration -= 0.001;
         pointsBar.progress = duration;
-        pointsLabel.text = [NSString stringWithFormat:@"%f", duration * 1000 ];
+        //pointsLabel.text = [NSString stringWithFormat:@"%i", pointsBar.progress * 1000 ];
+        
+        pointsLabel.text = [NSString stringWithFormat:@"%i", [[NSNumber numberWithFloat:duration] intValue]  ];
+        
+       // int myInt = [[NSNumber numberWithFloat:0.883f] intValue];
        //int logInt = (int) duration * 1000;
-        NSLog(@"!!!!!!!!!!! %@", [NSString stringWithFormat:@"%f", duration * 1000 ] );
     }
 }
 
@@ -245,6 +250,7 @@
     rightAnswer = [possibleAnswers objectAtIndex:0];
     firstWrongAnswer = [possibleAnswers objectAtIndex:1];
     secondWrongAnswer = [possibleAnswers objectAtIndex:2];
+    
     
     int rightAnswerIndex = arc4random() % 2;
     
@@ -270,7 +276,6 @@
         default:
             break;
     }
-    
     [hintText setText: [[myGame newQuestionOfPainting] generateHints]];
     
 
