@@ -149,7 +149,7 @@
     //Tags for Buttons: first: 10; second: 11; third: 12
     
     //******DEBUGGING********
-    rightChoice = @"a";
+    //rightChoice = @"a";
     //******DEBUGGING********
     
     //Setup Points and Stop Animation
@@ -221,14 +221,10 @@
     }
     else
     {
+        durationPoints = 1000 * duration;
         duration -= 0.001;
         pointsBar.progress = duration;
-        //pointsLabel.text = [NSString stringWithFormat:@"%i", pointsBar.progress * 1000 ];
-        
-        pointsLabel.text = [NSString stringWithFormat:@"%i", [[NSNumber numberWithFloat:duration] intValue]  ];
-        
-       // int myInt = [[NSNumber numberWithFloat:0.883f] intValue];
-       //int logInt = (int) duration * 1000;
+        [pointsLabel setText:[NSString stringWithFormat:@"%i", durationPoints] ];
     }
 }
 

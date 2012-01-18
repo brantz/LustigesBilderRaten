@@ -304,9 +304,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.6784313917" green="0.74509805439999999" blue="0.81176471709999998" alpha="1" colorSpace="custom" customColorSpace="deviceRGB"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1000" lineBreakMode="tailTruncation" minimumFontSize="10" id="K7F-Ix-un6">
-                                <rect key="frame" x="139" y="82" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1000" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="K7F-Ix-un6">
+                                <rect key="frame" x="85" y="82" width="150" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
