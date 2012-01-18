@@ -18,6 +18,13 @@
     return self;
 }
 
+- (Painting*) initPaintingWithName:(NSString*) name andPic: (UIImage*) pic {
+    self.nameOfPainting = name;
+    self.picture = pic;
+   [self readPaintingFromDB];
+    return self;
+}
+
 //TODO Name des Bildes muss gesetzt werden
 -(void) findPaintingName {
     self.nameOfPainting =@"Ostende";

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		262A2EC814B8945100807B34 /* MyGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 262A2EC714B8945100807B34 /* MyGallery.m */; };
+		264A59E314C73445004AD42E /* Galerie.m in Sources */ = {isa = PBXBuildFile; fileRef = 264A59E214C73444004AD42E /* Galerie.m */; };
 		2654E0B714C33F7100F9B1FF /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 2654E0B414C33F1400F9B1FF /* libsqlite3.0.dylib */; };
 		267A21C514B86FCD00A8B194 /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C414B86FCD00A8B194 /* Painting.m */; };
 		267A21C814B86FE600A8B194 /* ArtStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21C714B86FE600A8B194 /* ArtStyle.m */; };
@@ -44,6 +45,8 @@
 /* Begin PBXFileReference section */
 		262A2EC614B8945100807B34 /* MyGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGallery.h; sourceTree = "<group>"; };
 		262A2EC714B8945100807B34 /* MyGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyGallery.m; sourceTree = "<group>"; };
+		264A59E114C73444004AD42E /* Galerie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Galerie.h; sourceTree = "<group>"; };
+		264A59E214C73444004AD42E /* Galerie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Galerie.m; sourceTree = "<group>"; };
 		2654E0B414C33F1400F9B1FF /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		267A21C314B86FCD00A8B194 /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
 		267A21C414B86FCD00A8B194 /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 		84111C9414B7874F009C60BD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				264A59E114C73444004AD42E /* Galerie.h */,
+				264A59E214C73444004AD42E /* Galerie.m */,
 				262A2EC614B8945100807B34 /* MyGallery.h */,
 				262A2EC714B8945100807B34 /* MyGallery.m */,
 				267A21C314B86FCD00A8B194 /* Painting.h */,
@@ -320,6 +325,7 @@
 				84667B1B14B9A20600FEA1A1 /* ConclusionVC.m in Sources */,
 				84667B2114B9B2C300FEA1A1 /* GameOverVC.m in Sources */,
 				A64BDFB214BCE5B500CA2068 /* ManualVC.m in Sources */,
+				264A59E314C73445004AD42E /* Galerie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

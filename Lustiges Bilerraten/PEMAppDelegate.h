@@ -13,7 +13,6 @@
     
     NSString *databaseName;
 	NSString *databasePath;
-  //  sqlite3 *database;
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -26,7 +25,6 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 - (void) checkAndCreateDatabase;
-//- (void) readPaintingFromDB;
 
 
 @end

@@ -8,11 +8,14 @@
 #import <Foundation/Foundation.h>
 #import "Painting.h"
 
-@interface MyGallery : NSObject {
+@interface MyGallery: NSManagedObject {
     NSMutableArray* paintingsArray;
+    NSManagedObjectContext *context;
 }
 
 @property(nonatomic,strong) NSMutableArray* paintingsArray;
+@property(nonatomic,strong) NSManagedObjectContext* context;
+
 - (void) addPainting:(Painting*)painting;
 
 

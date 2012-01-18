@@ -27,5 +27,6 @@
 -(void) quitGame;
 -(Question*) newQuestionOfPainting;
 -(void) nextRound: (int) points andFoto:(UIImage*) foto ; 
+-(void) getPaintingsFromCoreData;
 
 @end
