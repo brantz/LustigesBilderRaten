@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "Painting.h"
+#import <sqlite3.h>
+#import "PEMAppDelegate.h"
 
 @interface Hints : NSObject {
     Painting* painting;
+    NSArray* hint;
 }
 
 -(NSString*) generateHint;
--(Hints*) initHintWithPainting:(Painting*) paint;
+- (Hints*) initHintWithPainting:(Painting*) paint;
+- (void) readHintFromDB;
+- (void) setHints:(NSString*) hints;
 @end

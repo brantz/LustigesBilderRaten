@@ -18,13 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    databaseName = @"Museum.sql";
+    databaseName = @"Musuem.sql";
     
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDir = [documentPaths objectAtIndex:0];
-	databasePath = [documentsDir stringByAppendingPathComponent:databaseName];
-    
+	self.databasePath = [documentsDir stringByAppendingPathComponent:databaseName];
+    NSLog(@"databasePaht %@",self.databasePath);
     [self checkAndCreateDatabase];
+   // [self readPaintingFromDB];
     return YES;
 }
 
@@ -187,9 +188,10 @@
     
 	// Check if the database has already been created in the users filesystem
 	success = [fileManager fileExistsAtPath:databasePath];
-    
 	// If the database already exists then return without doing anything
-	if(success) return;
+	if(success){
+        return; 
+    }
     
 	// If not then proceed to copy the database from the application to the users filesystem
     
@@ -200,6 +202,50 @@
 	[fileManager copyItemAtPath:databasePathFromApp toPath:databasePath error:nil];
     
 }
+
+/*- (void) readPaintingFromDB{
+  //  PEMAppDelegate *appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
+  //  NSString* paintingName = self.nameOfPainting;
+  //  NSString* databasePath = appDelegate.databasePath;
+    
+   // sqlite3 *database;
+    NSLog(@"%@",databasePath);
+    // Open the database from the users filessytem
+	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
+		// Setup the SQL Statement and compile it for faster access
+        //NSString* smt = @"select * from paintings where name=";
+        //NSString *complsmt = [smt stringByAppendingString:paintingName];
+		//const char *sqlStatement = (const char*) [complsmt UTF8String];
+        NSString* sqlQuery = @"SELECT * FROM paintings WHERE name='Ostende'";
+        
+        NSLog(@"sqlStatement:%@",sqlQuery);
+		sqlite3_stmt *compiledStatement;
+        
+        int returnCode = sqlite3_prepare_v2(database, [sqlQuery UTF8String], -1, &compiledStatement, nil);
+        if(returnCode == SQLITE_OK) {
+            while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+				// Read the data from the result row
+				NSString *pArtist = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
+				NSString *pArtStyle = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
+				NSString *pYear = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
+                
+                NSLog(@"databse %@,%@,%@",pArtist,pArtStyle,pYear);
+            }
+            
+            
+        } else {
+			NSLog(@"Error (sqlite3_prepare_v2) with returnCode !!: %d , visit http://www.sqlite.org/c3ref/c_abort.html for details!",returnCode);
+            NSLog(@"%s", sqlite3_errmsg(database));
+		}	
+        
+        // Release the compiled statement from memory
+		sqlite3_finalize(compiledStatement);
+        
+    }
+    
+    sqlite3_close(database);
+}*/
+
 
 
 

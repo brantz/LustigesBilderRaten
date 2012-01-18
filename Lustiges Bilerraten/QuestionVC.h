@@ -31,6 +31,7 @@
     
     NSTimer* timer;
     float duration;
+    int durationPoints;
     
     float pointsInRound;
     BOOL roundActive;

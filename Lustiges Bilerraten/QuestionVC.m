@@ -59,6 +59,7 @@
     self.navigationItem.leftBarButtonItem = menuBarButton;
             
     [self progressAnimater];
+    [self setupQuestions];
     
 }
 
@@ -148,7 +149,7 @@
     //Tags for Buttons: first: 10; second: 11; third: 12
     
     //******DEBUGGING********
-    rightChoice = @"a";
+    //rightChoice = @"a";
     //******DEBUGGING********
     
     //Setup Points and Stop Animation
@@ -211,6 +212,7 @@
     }
 }
 
+//FIXME: fix this fucking int
 -(void)changeProgress
 {
     if(duration <= 0.0f && !roundActive)
@@ -219,11 +221,10 @@
     }
     else
     {
+        durationPoints = 1000 * duration;
         duration -= 0.001;
         pointsBar.progress = duration;
-        pointsLabel.text = [NSString stringWithFormat:@"%f", duration * 1000 ];
-       //int logInt = (int) duration * 1000;
-        NSLog(@"!!!!!!!!!!! %@", [NSString stringWithFormat:@"%f", duration * 1000 ] );
+        [pointsLabel setText:[NSString stringWithFormat:@"%i", durationPoints] ];
     }
 }
 
@@ -245,6 +246,7 @@
     rightAnswer = [possibleAnswers objectAtIndex:0];
     firstWrongAnswer = [possibleAnswers objectAtIndex:1];
     secondWrongAnswer = [possibleAnswers objectAtIndex:2];
+    
     
     int rightAnswerIndex = arc4random() % 2;
     
@@ -270,7 +272,6 @@
         default:
             break;
     }
-    
     [hintText setText: [[myGame newQuestionOfPainting] generateHints]];
     
 

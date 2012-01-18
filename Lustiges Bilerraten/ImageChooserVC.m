@@ -41,6 +41,7 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     [gameMenu showInView:self.view];
 }
 
+//TODO: case:2
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     switch (buttonIndex) {
@@ -48,7 +49,6 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
             [self quitGame];
             break;
         case 1:
-            NSLog(@"1");
             [self.navigationController popViewControllerAnimated:YES];
             break;
         case 2:
