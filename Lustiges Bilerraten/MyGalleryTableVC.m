@@ -7,6 +7,7 @@
 //
 
 #import "MyGalleryTableVC.h"
+#import "Painting.h"
 
 
 @implementation MyGalleryTableVC
@@ -106,7 +107,21 @@
     cell.textLabel.text = @"Hello";
     // Configure the cell...
     
-    NSLog(@"!!!!!!!!!!!!!!!!!!: %@", [myGame.myGallery.paintingsArray objectAtIndex:0]);
+    NSLog(@"!!!!!!!!!!!!!!!!!!: %i", myGame.myGallery.paintingsArray.count);
+
+    Painting* meinPainting = (Painting*) [myGame.myGallery.paintingsArray objectAtIndex:0];
+    
+    UIImage* meinImage = meinPainting.picture;
+    
+    UIImageView* meinImageView = [[UIImageView alloc] initWithImage:meinImage];
+    [meinImageView sizeToFit];
+    
+    meinImageView.multipleTouchEnabled = YES;
+    meinImageView.userInteractionEnabled = YES;
+    
+    if (meinImage) {
+        [self.view addSubview:meinImageView];
+    }
     
     return cell;
 }
