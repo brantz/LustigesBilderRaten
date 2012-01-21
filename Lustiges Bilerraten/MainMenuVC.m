@@ -80,6 +80,7 @@
     if ( [[segue identifier] isEqualToString:@"newGameSegue"] && !gameIsRunning ) {
         //Create new game
         Game* myGame = [[Game alloc] initGameWithPic:nil];
+        [myGame getPaintingsFromCoreData];
         ImageChooserVC* imageChooser = (ImageChooserVC*) [segue destinationViewController];
         imageChooser.myGame = myGame;
         

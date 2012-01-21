@@ -42,9 +42,10 @@
 }
 
 -(void) findPainting
-{
+{   if(picture!=nil) {
     myPainting = [[Painting alloc] initPaintingWithFoto:picture];
     [myGallery addPainting:myPainting];
+}
 }
 -(void) quitGame {
     
