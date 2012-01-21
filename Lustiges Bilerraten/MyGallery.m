@@ -12,7 +12,7 @@
 @synthesize paintingsArray;
 
 - (void) addPainting:(Painting*) painting andBool:(BOOL)coreData{
-    [paintingsArray addObject:painting];
+     NSLog(@"???????????????????????array count %i",paintingsArray.count );
     
     if(coreData) {
     NSData *imageData = UIImagePNGRepresentation(painting.picture);
@@ -24,7 +24,6 @@
     }
     }
     
-    NSLog(@"paintingsinmyga %@",[paintingsArray objectAtIndex:0]);
 }
 
 - (MyGallery*) initWith {

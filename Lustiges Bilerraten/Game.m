@@ -41,7 +41,9 @@
         pictureOfPainting = [UIImage imageWithData:info.paintingImg];
         NSLog(@"nameofpaa %@", nameOfPainting);
         [myGallery addPainting:[[Painting alloc] initPaintingWithName:nameOfPainting andPic:pictureOfPainting]andBool:false];
-    }          
+    }    
+    
+   
 }
 
 -(void) findPainting
