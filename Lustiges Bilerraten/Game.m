@@ -48,10 +48,10 @@
 
 -(void) findPainting
 {   
-    if(![picture isKindOfClass:[NSNull class]]) {
+    //if(![picture isKindOfClass:[NSNull class]]) {
     myPainting = [[Painting alloc] initPaintingWithFoto:picture];
     [myGallery addPainting:myPainting andBool:true];
-    }
+    //}
 }
 -(void) quitGame {
     
