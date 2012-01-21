@@ -106,7 +106,7 @@
     cell.textLabel.text = @"Hello";
     // Configure the cell...
     
-    NSLog(@"!!!!!!!!!!!!!!!!!!: %@", [myGame.myGallery.paintingsArray objectAtIndex:0]);
+    NSLog(@"!!!!!!!!!!!!!!!!!!: %i", myGame.myGallery.paintingsArray.count);
     
     return cell;
 }
