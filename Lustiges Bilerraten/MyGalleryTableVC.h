@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface MyGalleryTableVC : UITableViewController
+
+@property (nonatomic, strong) Game* myGame;
 
 @end

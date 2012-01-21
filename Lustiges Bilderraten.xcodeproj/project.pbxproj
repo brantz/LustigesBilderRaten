@@ -117,10 +117,10 @@
 		84111C9214B78739009C60BD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				8461E7D314B8968400BA363B /* MyGalleryTableVC.m */,
 				84111C9614B787E1009C60BD /* MainMenuVC.h */,
 				84111C9714B787E1009C60BD /* MainMenuVC.m */,
 				849BAD2D14B86FA2005E75B5 /* MyGalleryTableVC.h */,
+				8461E7D314B8968400BA363B /* MyGalleryTableVC.m */,
 				849BAD3014B878C9005E75B5 /* SettingsVC.h */,
 				8461E7D114B8962E00BA363B /* SettingsVC.m */,
 				8461E7D514B8992100BA363B /* ImageChooserVC.h */,

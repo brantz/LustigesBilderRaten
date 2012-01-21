@@ -82,7 +82,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="UtA-YP-mgC" kind="push" id="OUv-ay-cZs"/>
+                                    <segue destination="UtA-YP-mgC" kind="push" identifier="menuToMG" id="OUv-ay-cZs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -315,7 +315,7 @@
                                 <rect key="frame" x="40" y="310" width="240" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hinweistexte wurden dazu erfunden sinnvolle Hinweise zu erteilen. Dies ist hier nicht bedacht wurden." id="Fax-PK-o9H">
+                                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hinweistexte wurden dazu erfunden sinnvolle Hinweise zu erteilen. Dies ist hier nicht bedacht wurden." id="Fax-PK-o9H">
                                         <rect key="frame" x="0.0" y="-2" width="240" height="90"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -438,7 +438,7 @@
                     </navigationItem>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1843" y="283"/>
+            <point key="canvasLocation" x="1835" y="253"/>
         </scene>
         <scene sceneID="bgB-Wh-qmm">
             <objects>
@@ -630,67 +630,6 @@
         <image name="star_default.png" width="175" height="167"/>
         <image name="star_highlighted.png" width="175" height="167"/>
     </resources>
-    <classes>
-        <class className="ConclusionVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConclusionVC.h"/>
-            <relationships>
-                <relationship kind="action" name="takePicture"/>
-                <relationship kind="outlet" name="moreInfoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rightAnswerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rightLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="shortInfoText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="star1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star4" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star5" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="wrongLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GameOverVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameOverVC.h"/>
-            <relationships>
-                <relationship kind="action" name="mainMenuPushed"/>
-                <relationship kind="outlet" name="pointsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ImageChooserVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageChooserVC.h"/>
-            <relationships>
-                <relationship kind="action" name="takePicture"/>
-                <relationship kind="outlet" name="previewImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MainMenuVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuVC.h"/>
-        </class>
-        <class className="ManualVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ManualVC.h"/>
-        </class>
-        <class className="MyGalleryTableVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyGalleryTableVC.h"/>
-        </class>
-        <class className="QuestionVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/QuestionVC.h"/>
-            <relationships>
-                <relationship kind="action" name="hintButtonPushed"/>
-                <relationship kind="action" name="questionButtonPushed:"/>
-                <relationship kind="outlet" name="firstQuestionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="hintButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="hintButtonView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="hintText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="hintTextView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="pointsBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="pointsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondQuestionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thirdQuestionButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SettingsVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

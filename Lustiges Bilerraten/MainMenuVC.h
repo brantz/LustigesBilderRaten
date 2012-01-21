@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MyGalleryTableVC.h"
+#import "Game.h"
     
 @interface MainMenuVC : UIViewController{
     BOOL gameIsRunning;
 }
+
+@property (nonatomic, strong) Game* myGame;
 
 @end

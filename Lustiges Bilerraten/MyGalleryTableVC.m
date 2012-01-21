@@ -11,6 +11,8 @@
 
 @implementation MyGalleryTableVC
 
+@synthesize myGame;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -103,6 +105,8 @@
     
     cell.textLabel.text = @"Hello";
     // Configure the cell...
+    
+    NSLog(@"!!!!!!!!!!!!!!!!!!: %@", [myGame.myGallery.paintingsArray objectAtIndex:0]);
     
     return cell;
 }

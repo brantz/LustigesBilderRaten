@@ -10,7 +10,7 @@
 #import "Galerie.h"
 
 @implementation Game
-@synthesize myPainting,totalPoints,question;
+@synthesize myPainting,totalPoints,question,myGallery;
 
 -(Game*) initGameWithPic: (UIImage*) pic {
     myGallery = [[MyGallery alloc]initWith];
