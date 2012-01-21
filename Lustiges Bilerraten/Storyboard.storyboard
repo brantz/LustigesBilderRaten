@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="d30-ib-jrN">
     <dependencies>
-        <development defaultVersion="4200" identifier="xcode"/>
+        <development version="4200" defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
     </dependencies>
     <scenes>
@@ -515,7 +515,7 @@
         <scene sceneID="GxT-86-tyC">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MEQ-5X-ukm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="ConclusionVC" id="tq8-Iq-r7t" customClass="ConclusionVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConclusionVC" providesPresentationContextTransitionStyle="YES" id="tq8-Iq-r7t" customClass="ConclusionVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jLe-Ln-vVf">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -537,6 +537,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="9Cg-ST-CZA">
                                 <rect key="frame" x="34" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="Vlc-Sp-Gth">
                                 <rect key="frame" x="86" y="71" width="44" height="46"/>
