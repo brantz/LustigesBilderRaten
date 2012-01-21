@@ -17,7 +17,9 @@
     self.totalPoints = 0;
     self->picture = pic;
     [self findPainting  ];
+    if(myPainting) {
     [self newQuestionOfPainting];
+    }
     return self;
 }
 
@@ -40,7 +42,9 @@
         nameOfPainting = info.paintingName;
         pictureOfPainting = [UIImage imageWithData:info.paintingImg];
         NSLog(@"nameofpaa %@", nameOfPainting);
+        if(nameOfPainting && pictureOfPainting) {
         [myGallery addPainting:[[Painting alloc] initPaintingWithName:nameOfPainting andPic:pictureOfPainting]andBool:false];
+        }
     }    
     
    
@@ -48,10 +52,11 @@
 
 -(void) findPainting
 {   
-    //if(![picture isKindOfClass:[NSNull class]]) {
+    if(picture) {
+    NSLog(@"picture und ich bin hier %@",picture);
     myPainting = [[Painting alloc] initPaintingWithFoto:picture];
     [myGallery addPainting:myPainting andBool:true];
-    //}
+    }
 }
 -(void) quitGame {
     

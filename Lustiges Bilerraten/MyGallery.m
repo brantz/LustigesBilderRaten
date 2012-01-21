@@ -16,6 +16,7 @@
     NSLog(@"???????????????????????array count %i",paintingsArray.count );
     
     if(coreData) {
+        NSLog(@"mit core data");
     NSData *imageData = UIImagePNGRepresentation(painting.picture);
     myGallery.paintingName = painting.nameOfPainting;
     myGallery.paintingImg = imageData;
