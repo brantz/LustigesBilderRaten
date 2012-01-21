@@ -7,6 +7,7 @@
 //
 
 #import "MyGalleryTableVC.h"
+#import "Painting.h"
 
 
 @implementation MyGalleryTableVC
@@ -107,6 +108,20 @@
     // Configure the cell...
     
     NSLog(@"!!!!!!!!!!!!!!!!!!: %i", myGame.myGallery.paintingsArray.count);
+
+    Painting* meinPainting = (Painting*) [myGame.myGallery.paintingsArray objectAtIndex:0];
+    
+    UIImage* meinImage = meinPainting.picture;
+    
+    UIImageView* meinImageView = [[UIImageView alloc] initWithImage:meinImage];
+    [meinImageView sizeToFit];
+    
+    meinImageView.multipleTouchEnabled = YES;
+    meinImageView.userInteractionEnabled = YES;
+    
+    if (meinImage) {
+        [self.view addSubview:meinImageView];
+    }
     
     return cell;
 }
