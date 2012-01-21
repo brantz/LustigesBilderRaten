@@ -13,7 +13,7 @@
 @synthesize myPainting,totalPoints,question;
 
 -(Game*) initGameWithPic: (UIImage*) pic {
-    myGallery = [[MyGallery alloc]init];
+    myGallery = [[MyGallery alloc]initWith];
     self.totalPoints = 0;
     self->picture = pic;
     [self findPainting  ];
@@ -23,16 +23,18 @@
 
 //um die bereits gespielten bilder in die Galerie zu laden
 -(void) getPaintingsFromCoreData{
-    
+    NSLog(@"getPaintingsfromcoredata");
     NSError *error;
     NSString* nameOfPainting;
     UIImage* pictureOfPainting;
-    
+    NSManagedObjectContext* context;
+    PEMAppDelegate* appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    context=appDelegate.context;
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Galerie" inManagedObjectContext:myGallery.context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Galerie" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
-    NSArray *fetchedObjects = [myGallery.context executeFetchRequest:fetchRequest error:&error];
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     
     for (Galerie *info in fetchedObjects) {
         nameOfPainting = info.paintingName;
@@ -42,10 +44,9 @@
 }
 
 -(void) findPainting
-{   if(picture!=nil) {
+{   
     myPainting = [[Painting alloc] initPaintingWithFoto:picture];
     [myGallery addPainting:myPainting];
-}
 }
 -(void) quitGame {
     

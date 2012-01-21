@@ -15,7 +15,7 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
-@synthesize databasePath;
+@synthesize databasePath,context;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -24,7 +24,7 @@
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 	NSString *documentsDir = [documentPaths objectAtIndex:0];
 	self.databasePath = [documentsDir stringByAppendingPathComponent:databaseName];
-    NSLog(@"databasePaht %@",self.databasePath);
+    context = [self managedObjectContext];
     [self checkAndCreateDatabase];
     return YES;
 }

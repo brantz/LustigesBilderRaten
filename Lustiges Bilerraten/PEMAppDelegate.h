@@ -13,6 +13,8 @@
     
     NSString *databaseName;
 	NSString *databasePath;
+    NSManagedObjectContext *context;
+    
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -21,6 +23,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic,strong)    NSString* databasePath;
+@property(nonatomic,strong) NSManagedObjectContext* context;
+
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

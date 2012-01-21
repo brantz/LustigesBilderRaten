@@ -35,7 +35,6 @@
 -(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear {
     self.artist = myArtist;
     self.year = myYear;
-    NSLog(@"artist %@,%@,%@",self.artist,self.year,myStyle);
     [self findStyleOfPainting:myStyle];
 }
 
@@ -51,9 +50,7 @@
     
     PEMAppDelegate *appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
    // NSString* paintingName = self.nameOfPainting;
-    NSLog(@"painting %@",self.nameOfPainting);
     NSString* databasePath = appDelegate.databasePath;
-    NSLog(@"databaseinPainting %@",databasePath);
     sqlite3 *database;
     
     // Open the database from the users filessytem
@@ -61,7 +58,6 @@
 		// Setup the SQL Statement and compile it for faster access
         
         NSString* sqlStatement = [NSString stringWithFormat:@"SELECT * FROM paintings WHERE name='%@'",self.nameOfPainting];
-        NSLog(@"%@",sqlStatement);
 		sqlite3_stmt *compiledStatement;
         
         if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {
