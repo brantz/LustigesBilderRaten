@@ -534,26 +534,26 @@
                                 <color key="textColor" red="0.9405895471572876" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="9Cg-ST-CZA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="9Cg-ST-CZA">
                                 <rect key="frame" x="34" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="Vlc-Sp-Gth">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="Vlc-Sp-Gth">
                                 <rect key="frame" x="86" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="iWe-xj-ylf">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="iWe-xj-ylf">
                                 <rect key="frame" x="138" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="MzG-Kl-YNj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="MzG-Kl-YNj">
                                 <rect key="frame" x="190" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" highlighted="YES" id="TzW-Rx-gG1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="TzW-Rx-gG1">
                                 <rect key="frame" x="242" y="71" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
