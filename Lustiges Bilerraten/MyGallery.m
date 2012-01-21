@@ -11,9 +11,10 @@
 @implementation MyGallery
 @synthesize paintingsArray;
 
-- (void) addPainting:(Painting*) painting {
+- (void) addPainting:(Painting*) painting andBool:(BOOL)coreData{
     [paintingsArray addObject:painting];
     
+    if(coreData) {
     NSData *imageData = UIImagePNGRepresentation(painting.picture);
     myGallery.paintingName = painting.nameOfPainting;
     myGallery.paintingImg = imageData;
@@ -22,13 +23,16 @@
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     }
+    
+    NSLog(@"paintingsinmyga %@",[paintingsArray objectAtIndex:0]);
+}
 
 - (MyGallery*) initWith {
     
     PEMAppDelegate* appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
     context=appDelegate.context;    
     myGallery = [NSEntityDescription insertNewObjectForEntityForName:@"Galerie" inManagedObjectContext:context];
-
+    paintingsArray = [[NSMutableArray alloc]init];
     return self;
 }
 

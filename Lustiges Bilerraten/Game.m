@@ -39,14 +39,17 @@
     for (Galerie *info in fetchedObjects) {
         nameOfPainting = info.paintingName;
         pictureOfPainting = [UIImage imageWithData:info.paintingImg];
-        [myGallery addPainting:[[Painting alloc] initPaintingWithName:nameOfPainting andPic:pictureOfPainting]];
+        NSLog(@"nameofpaa %@", nameOfPainting);
+        [myGallery addPainting:[[Painting alloc] initPaintingWithName:nameOfPainting andPic:pictureOfPainting]andBool:false];
     }          
 }
 
 -(void) findPainting
 {   
+    if(![picture isKindOfClass:[NSNull class]]) {
     myPainting = [[Painting alloc] initPaintingWithFoto:picture];
-    [myGallery addPainting:myPainting];
+    [myGallery addPainting:myPainting andBool:true];
+    }
 }
 -(void) quitGame {
     

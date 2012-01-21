@@ -18,7 +18,7 @@
 
 @property(nonatomic,strong) NSMutableArray* paintingsArray;
 
-- (void) addPainting:(Painting*)painting;
+- (void) addPainting:(Painting*)painting andBool: (BOOL) coreData;
 - (MyGallery*) initWith;
 
 
