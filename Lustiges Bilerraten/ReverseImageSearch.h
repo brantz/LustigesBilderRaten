@@ -10,6 +10,6 @@
 
 @interface ReverseImageSearch : NSObject
 
--(NSString *)getInfoOnImage: (UIImage *) selectedImage fromSender: (id) sender;
+-(NSString *)getInfoOnImage: (UIImage *) selectedImage;
 
 @end

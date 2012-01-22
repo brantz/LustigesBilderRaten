@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
-#import "ReverseImageSearch.h"
 
 @interface ImageChooserVC : UIViewController<UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>{
     
     UIImage* pictureTaken;
     IBOutlet UIImageView* previewImage;
-    ReverseImageSearch* imageSearchEngine;
         
     //UIImagePickerController* imagePicker;
 }

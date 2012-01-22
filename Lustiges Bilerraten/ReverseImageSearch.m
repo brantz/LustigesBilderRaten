@@ -10,7 +10,7 @@
 
 @implementation ReverseImageSearch
 
-- (NSString *) getInfoOnImage:(UIImage *) selectedImage fromSender:(id)sender {
+- (NSString *) getInfoOnImage:(UIImage *) selectedImage {
 	
 	NSData *imageData = UIImageJPEGRepresentation(selectedImage, 1);
 	
@@ -18,7 +18,6 @@
 	
 	NSString *boundary = [NSString stringWithString:@"---------------------------14737809831466499882746641449"];
 	
-	//NSString *urlString = [NSString stringWithFormat:@"http://httpbin.org/post"];
 	NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
 	
 	[request setURL:[NSURL URLWithString:urlString]];

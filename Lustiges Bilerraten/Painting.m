@@ -7,6 +7,7 @@
 //
 
 #import "Painting.h"
+#import "ReverseImageSearch.h"
 
 @implementation Painting
 @synthesize nameOfPainting,styleOfPainting,artist,picture,year;
@@ -14,7 +15,7 @@
 
 - (Painting*) initPaintingWithFoto: (UIImage*) foto {
     self->picture = foto;
-    [self findPaintingName];
+    [self findPaintingName: foto];
     return self;
 }
 
@@ -26,8 +27,10 @@
 }
 
 //TODO Name des Bildes muss gesetzt werden
--(void) findPaintingName {
-    self.nameOfPainting =@"Ostende";
+-(void) findPaintingName: (UIImage*) foto {
+	ReverseImageSearch* searchEngine = [ReverseImageSearch alloc];
+    self.nameOfPainting = [searchEngine getInfoOnImage:foto]; //@"Ostende";
+	NSLog(@"The following picture info was retrieved: %@", self.nameOfPainting);
     [self readPaintingFromDB];
     
 }
