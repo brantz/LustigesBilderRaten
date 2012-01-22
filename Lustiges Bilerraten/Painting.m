@@ -60,7 +60,7 @@
 	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		// Setup the SQL Statement and compile it for faster access
         
-        NSString* sqlStatement = [NSString stringWithFormat:@"SELECT * FROM paintings WHERE name='%@'",self.nameOfPainting];
+        NSString* sqlStatement = [NSString stringWithFormat:@"SELECT * FROM paintings WHERE name='%@' OR WHERE name_eng LIKE '%@' COLLATE NOCASEm", self.nameOfPainting];
 		sqlite3_stmt *compiledStatement;
         
         if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {
