@@ -18,6 +18,10 @@
 		267A21D414B8706400A8B194 /* Hints.m in Sources */ = {isa = PBXBuildFile; fileRef = 267A21D314B8706400A8B194 /* Hints.m */; };
 		26F8A56E14C4AF5700009509 /* Musuem.sql in Resources */ = {isa = PBXBuildFile; fileRef = 26F8A56D14C4AF5700009509 /* Musuem.sql */; };
 		84111C9814B787E1009C60BD /* MainMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84111C9714B787E1009C60BD /* MainMenuVC.m */; };
+		841211C514CC24CE009A7C0D /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 841211C414CC24CE009A7C0D /* Icon.png */; };
+		841211C714CC24D1009A7C0D /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841211C614CC24D1009A7C0D /* Icon@2x.png */; };
+		841211C914CC2540009A7C0D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841211C814CC2540009A7C0D /* Default@2x.png */; };
+		841211CA14CC2581009A7C0D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 841211BF14CC246B009A7C0D /* Default.png */; };
 		84160BD514950E3A0049C4B4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD414950E3A0049C4B4 /* UIKit.framework */; };
 		84160BD714950E3A0049C4B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD614950E3A0049C4B4 /* Foundation.framework */; };
 		84160BD914950E3A0049C4B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84160BD814950E3A0049C4B4 /* CoreGraphics.framework */; };
@@ -63,6 +67,11 @@
 		26F8A56D14C4AF5700009509 /* Musuem.sql */ = {isa = PBXFileReference; lastKnownFileType = file; path = Musuem.sql; sourceTree = "<group>"; };
 		84111C9614B787E1009C60BD /* MainMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuVC.h; sourceTree = "<group>"; };
 		84111C9714B787E1009C60BD /* MainMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuVC.m; sourceTree = "<group>"; };
+		841211BF14CC246B009A7C0D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		841211C214CC249D009A7C0D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		841211C414CC24CE009A7C0D /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		841211C614CC24D1009A7C0D /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		841211C814CC2540009A7C0D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = SOURCE_ROOT; };
 		84160BD014950E3A0049C4B4 /* Lustiges Bilderraten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lustiges Bilderraten.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84160BD414950E3A0049C4B4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		84160BD614950E3A0049C4B4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -172,6 +181,10 @@
 		84160BC514950E3A0049C4B4 = {
 			isa = PBXGroup;
 			children = (
+				841211C614CC24D1009A7C0D /* Icon@2x.png */,
+				841211C414CC24CE009A7C0D /* Icon.png */,
+				841211C214CC249D009A7C0D /* Default@2x.png */,
+				841211BF14CC246B009A7C0D /* Default.png */,
 				2654E0B414C33F1400F9B1FF /* libsqlite3.0.dylib */,
 				84160BDC14950E3A0049C4B4 /* Lustiges Bilderraten */,
 				84160BD314950E3A0049C4B4 /* Frameworks */,
@@ -227,6 +240,7 @@
 		8461E7E014B8B3A900BA363B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				841211C814CC2540009A7C0D /* Default@2x.png */,
 				26F8A56D14C4AF5700009509 /* Musuem.sql */,
 				84667B1D14B9A78A00FEA1A1 /* chooseImageButton.png */,
 				8461E7EC14B8E0B100BA363B /* star_default.png */,
@@ -297,6 +311,10 @@
 				8461E7EF14B8E0B200BA363B /* star_highlighted.png in Resources */,
 				84667B1E14B9A78A00FEA1A1 /* chooseImageButton.png in Resources */,
 				26F8A56E14C4AF5700009509 /* Musuem.sql in Resources */,
+				841211C514CC24CE009A7C0D /* Icon.png in Resources */,
+				841211C714CC24D1009A7C0D /* Icon@2x.png in Resources */,
+				841211C914CC2540009A7C0D /* Default@2x.png in Resources */,
+				841211CA14CC2581009A7C0D /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

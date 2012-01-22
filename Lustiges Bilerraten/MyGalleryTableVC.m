@@ -124,6 +124,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //NSArray* paintingNameArray = [[NSArray alloc] init];
+    NSMutableDictionary* styleArtDic = [[NSDictionary alloc] init];
+    
+    for (Painting* painting in myGame.myGallery.paintingsArray) {
+        
+        //painting
+        
+        
+    }
+    
     static NSString *CellIdentifier = @"imageMGCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -131,12 +141,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    for (Painting* paintingm in myGame.myGallery.paintingsArray) {
-       
-        
-            }
-    
-
+    cell.textLabel.text = [myGame.myGallery.paintingsArray objectAtIndex:indexPath.row];
     return cell;
 }
 
