@@ -12,7 +12,7 @@
 
 - (NSString *) getInfoOnImage:(UIImage *) selectedImage {
 	
-	NSData *imageData = UIImageJPEGRepresentation(selectedImage, 1);
+	NSData *imageData = UIImageJPEGRepresentation(selectedImage, 0.5	);
 	
 	NSString *urlString = [NSString stringWithFormat:@"http://3141.eu:4567"];
 	

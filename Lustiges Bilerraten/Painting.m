@@ -28,9 +28,8 @@
 
 //TODO Name des Bildes muss gesetzt werden
 -(void) findPaintingName: (UIImage*) foto {	
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 	ReverseImageSearch* searchEngine = [ReverseImageSearch alloc];
-    self.nameOfPainting = [searchEngine getInfoOnImage:foto];
+	self.nameOfPainting = [searchEngine getInfoOnImage:foto];
     [self readPaintingFromDB];
     
 }

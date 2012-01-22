@@ -152,11 +152,23 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
 }
 
 - (void) updatePicturePreview: (UIImage*) image{
+	//show activity indicator to show users that somethings's happpening while doing reverse image search in background
+	UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	//av.frame=CGRectMake(145, 160, 25, 25);
+	[av setCenter:imagePicker.view.center];
+	av.tag  = 1;
+	[imagePicker.view addSubview:av];
+	[av startAnimating];
     [previewImage setImage:image];
     //Update Image within Game
     
     //myGame = [[Game alloc] initGameWithPic:image];
+	
+	//remove activity indicator when done
     [myGame nextRound:0 andFoto:image];
+	UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[imagePicker.view viewWithTag:1];
+	[tmpimg removeFromSuperview];
+
     //********DEBUGGING************
     
     //********DEBUGGING************

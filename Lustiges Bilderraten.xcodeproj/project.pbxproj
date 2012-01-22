@@ -137,8 +137,6 @@
 				8461E7D114B8962E00BA363B /* SettingsVC.m */,
 				8461E7D514B8992100BA363B /* ImageChooserVC.h */,
 				8461E7D614B8992100BA363B /* ImageChooserVC.m */,
-				A6351CDE14C9E99400050887 /* ReverseImageSearch.h */,
-				A6351CDF14C9E99400050887 /* ReverseImageSearch.m */,
 				8461E7E514B8CF0C00BA363B /* QuestionVC.h */,
 				8461E7E614B8CF0C00BA363B /* QuestionVC.m */,
 				84667B1914B9A20600FEA1A1 /* ConclusionVC.h */,
@@ -219,6 +217,7 @@
 		84160BDC14950E3A0049C4B4 /* Lustiges Bilderraten */ = {
 			isa = PBXGroup;
 			children = (
+				A625C58B14CCBFBB00044879 /* Classes */,
 				84111C9514B78766009C60BD /* Main */,
 				84160BF014950E5A0049C4B4 /* Storyboard.storyboard */,
 				84111C9214B78739009C60BD /* ViewController */,
@@ -255,6 +254,15 @@
 				8461E7DB14B8B3A100BA363B /* noImage@2x.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		A625C58B14CCBFBB00044879 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A6351CDE14C9E99400050887 /* ReverseImageSearch.h */,
+				A6351CDF14C9E99400050887 /* ReverseImageSearch.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
