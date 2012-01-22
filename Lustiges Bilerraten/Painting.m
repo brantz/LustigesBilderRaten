@@ -27,11 +27,10 @@
 }
 
 //TODO Name des Bildes muss gesetzt werden
--(void) findPaintingName: (UIImage*) foto {
-	ReverseImageSearch* searchEngine = [ReverseImageSearch alloc];
+-(void) findPaintingName: (UIImage*) foto {	
 	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    self.nameOfPainting = [searchEngine getInfoOnImage:foto]; //@"Ostende";
-	NSLog(@"The following picture info was retrieved: %@", self.nameOfPainting);
+	ReverseImageSearch* searchEngine = [ReverseImageSearch alloc];
+    self.nameOfPainting = [searchEngine getInfoOnImage:foto];
     [self readPaintingFromDB];
     
 }
@@ -62,11 +61,9 @@
 		// Setup the SQL Statement and compile it for faster access
         
         NSString* sqlStatement = [NSString stringWithFormat:@"SELECT DISTINCT * FROM paintings WHERE id = (SELECT DISTINCT referenced_painting FROM query_results WHERE UPPER(name) LIKE UPPER('%%%@%%'))", self.nameOfPainting];
-		NSLog(@"%@", sqlStatement);
 		sqlite3_stmt *compiledStatement;
         
         if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {
-			NSLog(@"SQL Statement: OK");
             while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
 				NSLog(@"Entering while block");
 				// Read the data from the result row
