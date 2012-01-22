@@ -43,7 +43,7 @@
 
 
 //TODO Kuststil setzen 
--(void) findStyleOfPainting:(NSString*)style{    
+-(void) findStyleOfPainting:(NSString*)style{
     styleOfPainting = [[ArtStyle alloc] initArtStyleWithName:style];
     
 }
@@ -60,16 +60,21 @@
 	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		// Setup the SQL Statement and compile it for faster access
         
-        NSString* sqlStatement = [NSString stringWithFormat:@"SELECT * FROM paintings WHERE name='%@' OR WHERE name_eng LIKE '%@' COLLATE NOCASEm", self.nameOfPainting];
+        NSString* sqlStatement = [NSString stringWithFormat:@"SELECT * FROM paintings WHERE id = (SELECT DISTINCT referenced_painting FROM query_results WHERE UPPER(name) LIKE UPPER('%%%@%%'))", self.nameOfPainting];
+		NSLog(@"%@", sqlStatement);
 		sqlite3_stmt *compiledStatement;
         
         if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {
+			NSLog(@"SQL Statement: OK");
             while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
 				// Read the data from the result row
 				NSString *pArtist = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
 				NSString *pArtStyle = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
 				NSString *pYear = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
-                
+                NSLog(@"Found Artist: %@", pArtist);
+				NSLog(@"Found ArtStyle: %@", pArtStyle);
+				NSLog(@"Found Year: %@", pYear);
+				
                 [self initFromDataBase:pArtist andStyle:pArtStyle andYear:pYear];
             }
             
