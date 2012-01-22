@@ -18,7 +18,6 @@
 
 - (void) setHints:(NSString*) hints{
     hint = [hints componentsSeparatedByString:@";"];
-    NSLog(@"hint[0] %@", [hint objectAtIndex:0]);
 }
 
 -(NSString*) generateHint {
@@ -31,7 +30,6 @@
     PEMAppDelegate *appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSLog(@"style %@",painting.styleOfPainting.styleName);
     NSString* databasePath = appDelegate.databasePath;
-    NSLog(@"databaseinPainting %@",databasePath);
     sqlite3 *database;
     
     // Open the database from the users filessytem
@@ -39,7 +37,6 @@
 		// Setup the SQL Statement and compile it for faster access
         
         NSString* sqlStatement = [NSString stringWithFormat:@"SELECT * FROM artStyle WHERE name='%@'",painting.styleOfPainting.styleName];
-        NSLog(@"%@",sqlStatement);
 		sqlite3_stmt *compiledStatement;
         
         if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {

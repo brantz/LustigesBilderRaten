@@ -94,13 +94,17 @@
         case 1:{
             NSLog(@"AnleitungsButton");
 			ManualVC *manualVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ManualView"];
-			[self.navigationController pushViewController:manualVC animated:YES];
+            [self.navigationController presentModalViewController:manualVC animated:YES];
+			//[self.navigationController pushViewController:manualVC animated:YES];
+           // manualVC.navigationController.mod
             break;
         }
         case 2:{
             NSLog(@"MeineGalerieButton");
 			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+            galleryVC.myGame = myGame;
 			[self.navigationController pushViewController:galleryVC animated:YES];
+            
             break;
 		}
 		case 3:{
@@ -144,14 +148,9 @@
 
 }
 
-//TODO: rightChoice dynamically
 - (IBAction)questionButtonPushed:(id)sender{
     //Tags for Buttons: first: 10; second: 11; third: 12
-    
-    //******DEBUGGING********
-    //rightChoice = @"a";
-    //******DEBUGGING********
-    
+
     //Setup Points and Stop Animation
     roundActive = NO;
     pointsInRound = 1000 * pointsBar.progress;
@@ -212,7 +211,6 @@
     }
 }
 
-//FIXME: fix this fucking int
 -(void)changeProgress
 {
     if(duration <= 0.0f && !roundActive)

@@ -12,6 +12,8 @@
 
 @implementation MainMenuVC
 
+@synthesize myGame;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -75,13 +77,22 @@
 
 #pragma mark - Data Transmission
 
+//TODO: Wenn MenuToMG Segue, evtl. prüfen ob spiel schon läuft/lief
+
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     if ( [[segue identifier] isEqualToString:@"newGameSegue"] && !gameIsRunning ) {
         //Create new game
-        Game* myGame = [[Game alloc] initGameWithPic:nil];
+        myGame = [[Game alloc] initGameWithPic:nil];
+        [myGame getPaintingsFromCoreData];
         ImageChooserVC* imageChooser = (ImageChooserVC*) [segue destinationViewController];
         imageChooser.myGame = myGame;
+        
+    }
+    if ( [[segue identifier] isEqualToString:@"menuToMG"] ) {
+        
+        MyGalleryTableVC* myGallery = (MyGalleryTableVC*) [segue destinationViewController];
+        myGallery.myGame = myGame;
         
     }
 }

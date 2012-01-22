@@ -21,11 +21,13 @@
 @property(nonatomic,strong) Painting* myPainting;
 @property int totalPoints;
 @property (nonatomic, strong) Question* question;
+@property (nonatomic, strong) MyGallery* myGallery;
 
 -(Game*) initGameWithPic: (UIImage*) pic;
 -(void) findPainting;
 -(void) quitGame;
 -(Question*) newQuestionOfPainting;
 -(void) nextRound: (int) points andFoto:(UIImage*) foto ; 
+-(void) getPaintingsFromCoreData;
 
 @end

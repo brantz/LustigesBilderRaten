@@ -7,9 +7,12 @@
 //
 
 #import "MyGalleryTableVC.h"
+#import "Painting.h"
 
 
 @implementation MyGalleryTableVC
+
+@synthesize myGame;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,6 +36,33 @@
 {
     [super viewDidLoad];
 
+    
+    NSLog(@"!!!!!!!!!!!!!!!!!!: %i", myGame.myGallery.paintingsArray.count);
+    
+    Painting* meinPainting = (Painting*) [myGame.myGallery.paintingsArray objectAtIndex:1];
+    
+    UIImage* meinImage;
+    
+
+    
+
+    
+    for (Painting* paintingm in myGame.myGallery.paintingsArray) {
+        NSLog(@"--");
+        meinImage = paintingm.picture;
+        NSLog(@"Object?: %@", meinImage);
+        NSLog(@"Width: %f", meinImage.size.width);
+        NSLog(@"--");
+    }
+    meinImage = meinPainting.picture;
+    
+    UIImageView* meinImageView = [[UIImageView alloc] initWithImage:meinImage];
+    [meinImageView sizeToFit];
+    meinImageView.multipleTouchEnabled = YES;
+    meinImageView.userInteractionEnabled = YES;
+    [self.view addSubview:meinImageView];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -94,18 +124,68 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    //NSArray* paintingNameArray = [[NSArray alloc] init];
+    NSMutableDictionary* styleArtDic = [[NSDictionary alloc] init];
+    
+    for (Painting* painting in myGame.myGallery.paintingsArray) {
+        
+        //painting
+        
+        
+    }
+    
+    static NSString *CellIdentifier = @"imageMGCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = @"Hello";
-    // Configure the cell...
-    
+    cell.textLabel.text = [myGame.myGallery.paintingsArray objectAtIndex:indexPath.row];
     return cell;
 }
+
+
+//
+//-(void)changeProgress
+//{
+//    if(duration <= 0.0f)
+//    {   
+//        [timer invalidate];
+//    }
+//    else
+//    {
+//        NSLog(@"zähl");
+//        
+//        
+//        Painting* meinPainting = (Painting*) [myGame.myGallery.paintingsArray objectAtIndex:2];
+//        
+//        UIImage* meinImage;
+//        
+//        UIImageView* meinImageView = [[UIImageView alloc] initWithImage:meinImage];
+//        [meinImageView sizeToFit];
+//        
+//        meinImageView.multipleTouchEnabled = YES;
+//        meinImageView.userInteractionEnabled = YES;
+//        
+//        for (Painting* paintingm in myGame.myGallery.paintingsArray) {
+//            NSLog(@"--");
+//            meinImage = paintingm.picture;
+//            NSLog(@"Object?: %@", meinImage);
+//            NSLog(@"Width: %f", meinImage.size.width);
+//            NSLog(@"--");
+//        }
+//        if (meinImage != nil) {
+//            //[self.view removeFromSuperview]
+//            [self.view addSubview:meinImageView];
+//        }
+//        
+//        //[self.view addSubview:meinImageView];
+//
+//    }
+//}
+
+
 
 /*
 // Override to support conditional editing of the table view.

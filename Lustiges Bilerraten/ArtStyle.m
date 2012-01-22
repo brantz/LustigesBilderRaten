@@ -22,15 +22,12 @@
     self.moreInfoLink = link;
     self.infoText = text;
     self.shortText = shortT;
-    NSLog(@"styyllll %@,%@,%@",self.moreInfoLink,self.infoText,self.shortText);
 }
 
 - (void) readStyleFromDB{
     
     PEMAppDelegate *appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"style %@",self.styleName);
     NSString* databasePath = appDelegate.databasePath;
-    NSLog(@"databaseinPainting %@",databasePath);
     sqlite3 *database;
     
     // Open the database from the users filessytem
@@ -38,7 +35,6 @@
 		// Setup the SQL Statement and compile it for faster access
         
         NSString* sqlStatement = [NSString stringWithFormat:@"SELECT * FROM artStyle WHERE name='%@'",self.styleName];
-        NSLog(@"%@",sqlStatement);
 		sqlite3_stmt *compiledStatement;
         
         if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {

@@ -31,4 +31,5 @@
 -(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear;
 -(void) findStyleOfPainting:(NSString*)style;
 - (void) readPaintingFromDB;
+- (Painting*) initPaintingWithName:(NSString*) name andPic: (UIImage*) pic;
 @end

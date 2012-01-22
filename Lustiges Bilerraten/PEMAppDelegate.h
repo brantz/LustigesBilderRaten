@@ -13,7 +13,8 @@
     
     NSString *databaseName;
 	NSString *databasePath;
-  //  sqlite3 *database;
+    NSManagedObjectContext *context;
+    
 }
 
 @property (strong, nonatomic) UIWindow *window;
@@ -22,11 +23,12 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (nonatomic,strong)    NSString* databasePath;
+@property(nonatomic,strong) NSManagedObjectContext* context;
+
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 - (void) checkAndCreateDatabase;
-//- (void) readPaintingFromDB;
 
 
 @end

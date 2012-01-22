@@ -87,7 +87,6 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-    NSLog(@"11111111111");
 
 }
 
@@ -155,7 +154,9 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
 - (void) updatePicturePreview: (UIImage*) image{
     [previewImage setImage:image];
     //Update Image within Game
-    myGame = [[Game alloc] initGameWithPic:image];
+    
+    //myGame = [[Game alloc] initGameWithPic:image];
+    [myGame nextRound:0 andFoto:image];
     //********DEBUGGING************
     
     //********DEBUGGING************
