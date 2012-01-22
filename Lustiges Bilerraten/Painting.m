@@ -67,6 +67,7 @@
         if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {
 			NSLog(@"SQL Statement: OK");
             while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+				NSLog(@"Entering while block");
 				// Read the data from the result row
 				NSString *pArtist = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
 				NSString *pArtStyle = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
