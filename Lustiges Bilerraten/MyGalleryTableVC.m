@@ -124,26 +124,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"imageMGCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = @"Hello";
-    // Configure the cell...
+    for (Painting* paintingm in myGame.myGallery.paintingsArray) {
+       
+        
+            }
     
 
-    
-    
-//        duration = 10;
-//        timer = [NSTimer scheduledTimerWithTimeInterval: .1f
-//                                                 target: self
-//                                               selector: @selector(changeProgress)
-//                                               userInfo: nil
-//                                                repeats: YES];
-    
     return cell;
 }
 
