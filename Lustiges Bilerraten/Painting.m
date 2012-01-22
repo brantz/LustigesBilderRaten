@@ -60,7 +60,7 @@
 	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		// Setup the SQL Statement and compile it for faster access
         
-        NSString* sqlStatement = [NSString stringWithFormat:@"SELECT * FROM paintings WHERE id = (SELECT DISTINCT referenced_painting FROM query_results WHERE UPPER(name) LIKE UPPER('%%%@%%'))", self.nameOfPainting];
+        NSString* sqlStatement = [NSString stringWithFormat:@"SELECT DISTINCT i* FROM paintings WHERE id = (SELECT DISTINCT referenced_painting FROM query_results WHERE UPPER(name) LIKE UPPER('%%%@%%'))", self.nameOfPainting];
 		NSLog(@"%@", sqlStatement);
 		sqlite3_stmt *compiledStatement;
         
