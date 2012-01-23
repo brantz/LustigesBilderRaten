@@ -54,7 +54,7 @@
    // NSString* paintingName = self.nameOfPainting;
     NSString* databasePath = appDelegate.databasePath;
     sqlite3 *database;
-    
+    BOOL paintingIsInDB=false;
     // Open the database from the users filessytem
 	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
 		// Setup the SQL Statement and compile it for faster access
@@ -66,6 +66,7 @@
             while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
 				NSLog(@"Entering while block");
 				// Read the data from the result row
+                paintingIsInDB=true;
 				NSString *pArtist = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
 				NSString *pArtStyle = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
 				NSString *pYear = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
@@ -76,6 +77,9 @@
                 [self initFromDataBase:pArtist andStyle:pArtStyle andYear:pYear];
             }
             
+            if(!paintingIsInDB) {
+                NSLog(@"Match not found, try again");
+            }
             
         } else {
             NSLog(@"%s", sqlite3_errmsg(database));
