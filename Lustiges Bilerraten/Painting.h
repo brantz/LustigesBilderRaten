@@ -27,7 +27,7 @@
 @property(nonatomic, strong) NSString* year;
 
 -(Painting*) initPaintingWithFoto: (UIImage*) foto;
--(void) findPaintingName;
+-(void) findPaintingName:(UIImage*) foto;
 -(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear;
 -(void) findStyleOfPainting:(NSString*)style;
 - (void) readPaintingFromDB;

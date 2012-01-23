@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 
-@interface MyGalleryTableVC : UITableViewController
+@interface MyGalleryTableVC : UITableViewController{
+    
+    NSTimer* timer;
+    float duration;
+}
 
 @property (nonatomic, strong) Game* myGame;
 

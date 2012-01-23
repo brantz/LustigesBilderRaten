@@ -1,18 +1,15 @@
 //
-//  MyGalleryTableVC.m
+//  SettingsVC.m
 //  Lustiges Bilderraten
 //
 //  Created by Raphael Teßmer on 07.01.12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MyGalleryTableVC.h"
-#import "Painting.h"
+#import "SettingsVC.h"
 
 
-@implementation MyGalleryTableVC
-
-@synthesize myGame;
+@implementation SettingsVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,33 +33,6 @@
 {
     [super viewDidLoad];
 
-    
-    NSLog(@"!!!!!!!!!!!!!!!!!!: %i", myGame.myGallery.paintingsArray.count);
-    
-    Painting* meinPainting = (Painting*) [myGame.myGallery.paintingsArray objectAtIndex:1];
-    
-    UIImage* meinImage;
-    
-
-    
-
-    
-    for (Painting* paintingm in myGame.myGallery.paintingsArray) {
-        NSLog(@"--");
-        meinImage = paintingm.picture;
-        NSLog(@"Object?: %@", meinImage);
-        NSLog(@"Width: %f", meinImage.size.width);
-        NSLog(@"--");
-    }
-    meinImage = meinPainting.picture;
-    
-    UIImageView* meinImageView = [[UIImageView alloc] initWithImage:meinImage];
-    [meinImageView sizeToFit];
-    meinImageView.multipleTouchEnabled = YES;
-    meinImageView.userInteractionEnabled = YES;
-    [self.view addSubview:meinImageView];
-    
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -73,18 +43,13 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    //Set the NavigationControlBar visible
-    self.navigationController.navigationBarHidden = YES;
-    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
     [super viewWillAppear:animated];
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -113,80 +78,46 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSArray* paintingNameArray = [[NSArray alloc] init];
-    NSMutableDictionary* styleArtDic = [[NSDictionary alloc] init];
-    
-    for (Painting* painting in myGame.myGallery.paintingsArray) {
-        
-        //painting
-        
-        
-    }
-    
-    static NSString *CellIdentifier = @"imageMGCell";
+    static NSString *CellIdentifier = @"SettingsSwitchCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
     
-    cell.textLabel.text = [myGame.myGallery.paintingsArray objectAtIndex:indexPath.row];
+    UILabel* settingsLabel = (UILabel*) [cell viewWithTag:10];
+    UISwitch* settingsSwitch = (UISwitch*) [cell viewWithTag:11];
+
+    
+    settingsLabel.text = [self getSettingsDataWithSection:indexPath.section andRow:indexPath.row];
+    settingsSwitch.on = NO;
+    
+    
+    
     return cell;
 }
 
+        
+#pragma mark - Settings Data
 
-//
-//-(void)changeProgress
-//{
-//    if(duration <= 0.0f)
-//    {   
-//        [timer invalidate];
-//    }
-//    else
-//    {
-//        NSLog(@"zähl");
-//        
-//        
-//        Painting* meinPainting = (Painting*) [myGame.myGallery.paintingsArray objectAtIndex:2];
-//        
-//        UIImage* meinImage;
-//        
-//        UIImageView* meinImageView = [[UIImageView alloc] initWithImage:meinImage];
-//        [meinImageView sizeToFit];
-//        
-//        meinImageView.multipleTouchEnabled = YES;
-//        meinImageView.userInteractionEnabled = YES;
-//        
-//        for (Painting* paintingm in myGame.myGallery.paintingsArray) {
-//            NSLog(@"--");
-//            meinImage = paintingm.picture;
-//            NSLog(@"Object?: %@", meinImage);
-//            NSLog(@"Width: %f", meinImage.size.width);
-//            NSLog(@"--");
-//        }
-//        if (meinImage != nil) {
-//            //[self.view removeFromSuperview]
-//            [self.view addSubview:meinImageView];
-//        }
-//        
-//        //[self.view addSubview:meinImageView];
-//
-//    }
-//}
-
-
-
+- (NSString*) getSettingsDataWithSection: (NSInteger) section andRow: (NSInteger) myRow{
+    if (section == 0) {
+        // First Section Stuff
+        return [NSString stringWithFormat:@"Section 1, Row %i", myRow];
+    } else{
+        return [NSString stringWithFormat:@"Section 2, Row %i", myRow];
+    }
+}
+        
+        
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -230,14 +161,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     // Navigation logic may go here. Create and push another view controller.
-    
-     UITableViewController *detailViewController = [[UITableViewController alloc] init];
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
-     
+     */
 }
 
 @end

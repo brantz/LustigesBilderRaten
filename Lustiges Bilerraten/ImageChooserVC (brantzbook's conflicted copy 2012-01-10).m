@@ -12,7 +12,7 @@
 
 @implementation ImageChooserVC
 
-@synthesize imagePicker, myGame, shouldSkipView;
+@synthesize imagePicker;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,9 +39,9 @@
 delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Hauptmenü", @"Meine Galerie", nil];
         
     [gameMenu showInView:self.view];
+    
 }
 
-//TODO: case:2
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     switch (buttonIndex) {
@@ -49,6 +49,7 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
             [self quitGame];
             break;
         case 1:
+            NSLog(@"1");
             [self.navigationController popViewControllerAnimated:YES];
             break;
         case 2:
@@ -59,18 +60,9 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     }
 }
 
-- (void) viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    
-    if (shouldSkipView) {
-        [self showQuestion];
-        shouldSkipView = NO;
-    }
-}
 
 - (void)viewDidLoad
 {
-
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     //Generate a Menu Button for the Navigation Bar
@@ -87,10 +79,7 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
-
 }
-
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -101,7 +90,6 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
 
 - (void) showQuestion{
     QuestionVC* nextQuestion = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionView"];
-    nextQuestion.myGame = self.myGame;
     [self.navigationController pushViewController:nextQuestion animated:YES];
 }
 
@@ -118,7 +106,6 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
     if (buttonIndex == 1) {
         
         GameOverVC* gameOver = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverView"];
-        gameOver.myGame = myGame;
         [self.navigationController pushViewController:gameOver animated:YES];
         
     }
@@ -134,11 +121,7 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
 - (IBAction) takePicture{
         imagePicker = [[UIImagePickerController alloc] init];
         [imagePicker setDelegate:self];
-    if( [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
         [self presentViewController:self.imagePicker animated:YES completion:NULL];
         
     }
@@ -152,26 +135,7 @@ delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Been
 }
 
 - (void) updatePicturePreview: (UIImage*) image{
-	//show activity indicator to show users that somethings's happpening while doing reverse image search in background
-	UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-	//av.frame=CGRectMake(145, 160, 25, 25);
-	[av setCenter:imagePicker.view.center];
-	av.tag  = 1;
-	[imagePicker.view addSubview:av];
-	[av startAnimating];
     [previewImage setImage:image];
-    //Update Image within Game
-    
-    //myGame = [[Game alloc] initGameWithPic:image];
-	
-	//remove activity indicator when done
-    [myGame nextRound:0 andFoto:image];
-	UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[imagePicker.view viewWithTag:1];
-	[tmpimg removeFromSuperview];
-
-    //********DEBUGGING************
-    
-    //********DEBUGGING************
 }
 
 @end

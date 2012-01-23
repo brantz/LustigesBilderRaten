@@ -68,8 +68,6 @@
 
 -(void) nextRound: (int)points andFoto:(UIImage*) foto{
     totalPoints = totalPoints + points;
-    NSLog(@"points %i",totalPoints);
-    NSLog(@"!!!!!!!!!!!!!!!!!: %i", points);
     picture = foto;
     [self findPainting];
     [self newQuestionOfPainting];
