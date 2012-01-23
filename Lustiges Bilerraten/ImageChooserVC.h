@@ -11,6 +11,7 @@
 
 @interface ImageChooserVC : UIViewController<UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>
 {
+	UIActivityIndicatorView *cLoadingView;
     UIImage* pictureTaken;
     IBOutlet UIImageView* previewImage;
 }
@@ -19,10 +20,14 @@
 - (void) updatePicturePreview:(UIImage*)image;
 - (void) showQuestion;
 - (void) quitGame;
+- (void)initSpinner;
+- (void)spinBegin;
+- (void)spinEnd;
 
 @property (nonatomic, retain) UIImagePickerController* imagePicker;
 @property (nonatomic, retain) Game* myGame;
 @property BOOL shouldSkipView;
 @property (nonatomic, retain) UIImage* selectedImage;
+@property (nonatomic, retain) UIActivityIndicatorView *cLoadingView;
 
 @end

@@ -12,7 +12,7 @@
 
 @implementation ImageChooserVC
 
-@synthesize imagePicker, myGame, shouldSkipView, selectedImage;
+@synthesize imagePicker, myGame, shouldSkipView, selectedImage, cLoadingView;;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,6 +74,7 @@
 
 - (void)viewDidLoad
 {
+	[self initSpinner];
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     //Generate a Menu Button for the Navigation Bar
@@ -108,19 +109,12 @@
 {
 	//show activity indicator to show users that somethings's happpening while 
 	//doing reverse image search in background
-	UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]
-					initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-	av.frame=CGRectMake(145, 160, 25, 25);
-	//[av setCenter:self.view.center];
-	av.tag  = 1;
-	[self.view addSubview:av];
-	[av startAnimating];
+	[NSThread detachNewThreadSelector: @selector(spinBegin) toTarget:self withObject:nil];
 	
 	[myGame nextRound:0 andFoto:selectedImage];
 	
 	//remove activity indicator when done
-	UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.view viewWithTag:1];
-	[tmpimg removeFromSuperview];
+	[NSThread detachNewThreadSelector: @selector(spinEnd) toTarget:self withObject:nil];
 	
 	//prepare next question and segue to question view
     QuestionVC* nextQuestion = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionView"];
@@ -152,7 +146,8 @@
 
 /*
  Create a ImagePickerController and set self as it's delegate.
- Sourcetype defines that a new photo is going to be taken rather than chosen from camera roll. Finally the image picker is being presented as a modal view.
+ Sourcetype defines that a new photo is going to be taken rather than chosen 
+ from camera roll. Finally the image picker is being presented as a modal view.
 */
 - (IBAction) takePicture
 {
@@ -176,5 +171,26 @@
 	//dismiss imagePickerController
     [picker dismissModalViewControllerAnimated:YES];
 }
+
+- (void)initSpinner
+{
+	cLoadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];    
+	//putting spinning "thing" right in the center of the current view
+	CGPoint newCenter = (CGPoint) [self.view center];
+	cLoadingView.center = newCenter;
+	[self.view addSubview:cLoadingView];
+}
+
+- (void)spinBegin
+{
+	[cLoadingView startAnimating];
+}
+
+- (void)spinEnd
+{
+	[cLoadingView stopAnimating];
+}
+
+
 
 @end
