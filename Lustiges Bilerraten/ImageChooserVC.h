@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 
-@interface ImageChooserVC : UIViewController<UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>{
-    
+@interface ImageChooserVC : UIViewController<UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIAlertViewDelegate>
+{
     UIImage* pictureTaken;
     IBOutlet UIImageView* previewImage;
-        
-    //UIImagePickerController* imagePicker;
 }
 
 - (IBAction) takePicture;
@@ -25,5 +23,6 @@
 @property (nonatomic, retain) UIImagePickerController* imagePicker;
 @property (nonatomic, retain) Game* myGame;
 @property BOOL shouldSkipView;
+@property (nonatomic, retain) UIImage* selectedImage;
 
 @end

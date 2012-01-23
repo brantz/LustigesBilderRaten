@@ -42,7 +42,8 @@
 */
 
 
-- (void) viewWillAppear:(BOOL)animated{
+- (void) viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
 }
 
@@ -52,17 +53,18 @@
     
     self.navigationItem.hidesBackButton = YES;
     //Generate a Menu Button for the Navigation Bar
-    UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
+    UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" 
+				style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
     self.navigationItem.leftBarButtonItem = menuBarButton;
     
     if(answerIsRight)
+	{
         [self setupRightAnswerView];
-    else
+    } else {
         [self setupWrongAnswerView];
-    
     }
-
+}
 
 - (void)viewDidUnload
 {
@@ -77,22 +79,26 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void) showMenu{
+- (void) showMenu
+{
     UIActionSheet* gameMenu = [[UIActionSheet alloc] initWithTitle:@""
-                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Meine Galerie", nil];
-    
+									delegate:self cancelButtonTitle:@"Abbrechen"
+									destructiveButtonTitle:@"Spiel Beenden"
+									otherButtonTitles:@"Meine Galerie", nil];
     [gameMenu showInView:self.view];
-    
+  
 }
 
-- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    switch (buttonIndex) {
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{ 
+    switch (buttonIndex)
+	{
         case 0:
 			NSLog(@"SpielBeendenButton");
             [self quitGame];
             break;
-        case 1:{
+        case 1:
+		{
             NSLog(@"MeineGalerieButton");
 			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
 			[self.navigationController pushViewController:galleryVC animated:YES];
@@ -103,24 +109,24 @@
     }
 }
 
-- (void) quitGame{
+- (void) quitGame
+{
     [self dismissModalViewControllerAnimated:YES];
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Spiel Beenden"
-                                                    message:@"Wollen Sie das Spiel wirklich beenden?" delegate:self cancelButtonTitle:@"Abbrechen" otherButtonTitles:@"Beenden", nil];
-    [alert show];
-    
+					message:@"Wollen Sie das Spiel wirklich beenden?" delegate:self 
+					cancelButtonTitle:@"Abbrechen" 
+					otherButtonTitles:@"Beenden", nil];
+    [alert show];  
 }
 
-- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
     if (buttonIndex == 1) {
         
         GameOverVC* gameOver = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverView"];
         gameOver.myGame = myGame;
-        [self.navigationController pushViewController:gameOver animated:YES];
-        
-    }
-    
+        [self.navigationController pushViewController:gameOver animated:YES];   
+    }  
 }
 
 
@@ -129,7 +135,8 @@
 
 //TODO: Setup More Information button push
 
-- (void) setupRightAnswerView{
+- (void) setupRightAnswerView
+{
     //Setup Headline
     [wrongLabel setHidden:YES];
     [rightLabel setHidden:NO];
@@ -144,8 +151,8 @@
     [shortInfoText setText: myGame.myPainting.styleOfPainting.shortText];
 }
 
-- (void) setupWrongAnswerView{
-    
+- (void) setupWrongAnswerView
+{
     //Setup Headline
     [wrongLabel setHidden:NO];
     [rightLabel setHidden:YES];
@@ -163,9 +170,10 @@
     [shortInfoText setText: myGame.myPainting.styleOfPainting.shortText];
 }
 
-- (void) setupStarRating:(int)rating{
-    
-    switch (rating) {
+- (void) setupStarRating:(int)rating
+{  
+    switch (rating)
+	{
             //wrong answer
         case 0:
             [star1 setHighlighted:NO];
@@ -228,7 +236,8 @@
  Sourcetype defines that a new photo is going to be taken rather than chosen from camera roll.
  Finally the image picker is being presented as a modal view.
  */
-- (IBAction) takePicture{
+- (IBAction) takePicture
+{
     imagePicker = [[UIImagePickerController alloc] init];
     [imagePicker setDelegate:self];
     imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -239,20 +248,32 @@
 
 
 
-- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo{
-    [self.imagePicker dismissModalViewControllerAnimated:YES];
+- (void) imagePickerController:(UIImagePickerController *)picker
+		 didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
+{
+	//show activity indicator to show users that somethings's happpening while 
+	//doing reverse image search in background
+	UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]
+				initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	av.frame=CGRectMake(145, 160, 25, 25);
+	[av setCenter:picker.view.center];
+	av.tag  = 1;
+	[self.view addSubview:av];
+	[av startAnimating];
+	
+	[self.imagePicker dismissModalViewControllerAnimated:YES];
     
+	//remove activity indicator when done
+	UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.imagePicker.view viewWithTag:1];
+	[tmpimg removeFromSuperview];
+	
     //setup next Round
     [myGame nextRound:(int)pointsInRound andFoto:image];
     //pop back to QuestionVC
     
     ImageChooserVC* oldImageChooser = [[self.navigationController viewControllers] objectAtIndex:1];
     oldImageChooser.shouldSkipView = YES;
-    [self.navigationController popToViewController:oldImageChooser  animated:NO];
-    
-    
+    [self.navigationController popToViewController:oldImageChooser  animated:NO];    
 }
-
-
 
 @end

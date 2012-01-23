@@ -12,7 +12,7 @@
 
 @implementation ImageChooserVC
 
-@synthesize imagePicker, myGame, shouldSkipView;
+@synthesize imagePicker, myGame, shouldSkipView, selectedImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -106,6 +106,23 @@
 
 - (void) showQuestion
 {
+	//show activity indicator to show users that somethings's happpening while 
+	//doing reverse image search in background
+	UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]
+					initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	av.frame=CGRectMake(145, 160, 25, 25);
+	//[av setCenter:self.view.center];
+	av.tag  = 1;
+	[self.view addSubview:av];
+	[av startAnimating];
+	
+	[myGame nextRound:0 andFoto:selectedImage];
+	
+	//remove activity indicator when done
+	UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.view viewWithTag:1];
+	[tmpimg removeFromSuperview];
+	
+	//prepare next question and segue to question view
     QuestionVC* nextQuestion = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionView"];
     nextQuestion.myGame = self.myGame;
     [self.navigationController pushViewController:nextQuestion animated:YES];
@@ -153,37 +170,11 @@
 - (void) imagePickerController:(UIImagePickerController *)picker 
 		 didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
-    //show activity indicator to show users that somethings's happpening while doing reverse image search in background
-	UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-	av.frame=CGRectMake(145, 160, 25, 25);
-	[av setCenter:picker.view.center];
-	av.tag  = 1;
-	[self.view addSubview:av];
-	[av startAnimating];
+    self.selectedImage = image;
+	[previewImage setImage:image];
 
-	[self updatePicturePreview:image];
-	
-	//remove activity indicator when done
-	UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.imagePicker.view viewWithTag:1];
-	[tmpimg removeFromSuperview];
-	
 	//dismiss imagePickerController
     [picker dismissModalViewControllerAnimated:YES];
-}
-
-- (void) updatePicturePreview: (UIImage*) image
-{
-	[previewImage setImage:image];
-	
-    //Update Image within Game
-	//myGame = [[Game alloc] initGameWithPic:image];
-	
-    [myGame nextRound:0 andFoto:image];
-	
-
-    //********DEBUGGING************
-    
-    //********DEBUGGING************
 }
 
 @end
