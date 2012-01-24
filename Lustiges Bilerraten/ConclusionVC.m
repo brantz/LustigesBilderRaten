@@ -240,9 +240,13 @@
 {
     imagePicker = [[UIImagePickerController alloc] init];
     [imagePicker setDelegate:self];
-    imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:self.imagePicker animated:YES completion:NULL];
-    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+	{
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+	[self presentViewController:self.imagePicker animated:YES completion:NULL];    
 }
 
 
