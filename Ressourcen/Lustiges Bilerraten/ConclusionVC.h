@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Game.h"
-#import "CustomImagePickerController.h"
 
 @interface ConclusionVC : UIViewController <UIActionSheetDelegate, UIAlertViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
     //View elements
@@ -30,7 +29,7 @@
 @property (nonatomic, strong) Game* myGame;
 @property BOOL answerIsRight;
 @property float pointsInRound;
-@property (nonatomic, retain) CustomImagePickerController* imagePicker;
+@property (nonatomic, retain) UIImagePickerController* imagePicker;
 
 
 - (void) showMenu;
@@ -40,7 +39,7 @@
 - (void) quitGame;
 
 - (IBAction) takePicture;
-- (void) imagePickerController:(CustomImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo;
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo;
 
 
 @end

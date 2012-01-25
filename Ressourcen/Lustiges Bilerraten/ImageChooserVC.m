@@ -12,7 +12,7 @@
 
 @implementation ImageChooserVC
 
-@synthesize imagePicker, myGame, shouldSkipView, selectedImage;
+@synthesize imagePicker, myGame, shouldSkipView, selectedImage, cLoadingView;;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,6 +74,7 @@
 
 - (void)viewDidLoad
 {
+	[self initSpinner];
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     //Generate a Menu Button for the Navigation Bar
@@ -85,7 +86,6 @@
     
     self.navigationItem.leftBarButtonItem = menuBarButton;
     self.navigationItem.rightBarButtonItem = nextBarButton;
-    [self.navigationItem.rightBarButtonItem setEnabled:NO];
 }
 
 - (void)viewDidUnload
@@ -107,19 +107,19 @@
 
 - (void) showQuestion
 {
-
-    if (! (myGame.myPainting.paintingIsInDB)){
-        UIAlertView* matchError = [[UIAlertView alloc] initWithTitle:@"Bild nicht gefunden" message:@"Leider konnten wir deinem Foto kein Bild zuweisen. Bitte versuche es erneut" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [matchError show];
-        [self.navigationItem.rightBarButtonItem setEnabled:NO];
-    }
-    else
-    {
+	//show activity indicator to show users that somethings's happpening while 
+	//doing reverse image search in background
+	[NSThread detachNewThreadSelector: @selector(spinBegin) toTarget:self withObject:nil];
+	
+	[myGame nextRound:0 andFoto:selectedImage];
+	
+	//remove activity indicator when done
+	[NSThread detachNewThreadSelector: @selector(spinEnd) toTarget:self withObject:nil];
+	
 	//prepare next question and segue to question view
     QuestionVC* nextQuestion = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionView"];
     nextQuestion.myGame = self.myGame;
     [self.navigationController pushViewController:nextQuestion animated:YES];
-    }
 }
 
 - (void) quitGame
@@ -151,9 +151,9 @@
 */
 - (IBAction) takePicture
 {
-	imagePicker = [[CustomImagePickerController alloc] init];
+	imagePicker = [[UIImagePickerController alloc] init];
 	[imagePicker setDelegate:self];
-    if ([CustomImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
 	{
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     } else {
@@ -162,25 +162,35 @@
 	[self presentViewController:self.imagePicker animated:YES completion:NULL];  
 }
 
-- (void) imagePickerController:(CustomImagePickerController *)picker 
+- (void) imagePickerController:(UIImagePickerController *)picker 
 		 didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
-	self.selectedImage = image;
+    self.selectedImage = image;
 	[previewImage setImage:image];
-
-	//start ActicvityIndicator in ImagePickerController
-	[self.imagePicker startActivityIndicator];
-	
-	[myGame nextRound:0 andFoto:selectedImage];
-
-	//stop ActivityIndicator in ImagePickerController
-	[self.imagePicker stopActivityIndicator];
-	 
-	[self.navigationItem.rightBarButtonItem setEnabled:YES];
 
 	//dismiss imagePickerController
     [picker dismissModalViewControllerAnimated:YES];
 }
+
+- (void)initSpinner
+{
+	cLoadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];    
+	//putting spinning "thing" right in the center of the current view
+	CGPoint newCenter = (CGPoint) [self.view center];
+	cLoadingView.center = newCenter;
+	[self.view addSubview:cLoadingView];
+}
+
+- (void)spinBegin
+{
+	[cLoadingView startAnimating];
+}
+
+- (void)spinEnd
+{
+	[cLoadingView stopAnimating];
+}
+
 
 
 @end
