@@ -113,78 +113,51 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return styleArtDic.allKeys.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    return styleArtDic.allValues.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSArray* paintingNameArray = [[NSArray alloc] init];
-    NSMutableDictionary* styleArtDic = [[NSDictionary alloc] init];
+    //NSString* artStyle -> NSString* paintingName
+    styleArtDic = [[NSMutableDictionary alloc] init];
+    
     
     for (Painting* painting in myGame.myGallery.paintingsArray) {
+            
+        if (styleArtDic.allKeys.count > 0){
+        for (NSString* artStyle in styleArtDic.allKeys) {
+            if ( [painting.styleOfPainting.styleName isEqualToString:artStyle] ){
+                [styleArtDic setValue:painting.nameOfPainting forKey:artStyle];
+            }
+        }
+        }
+            else
+            { 
+                 [styleArtDic setObject:painting.nameOfPainting forKey:painting.styleOfPainting.styleName];
+            }
+        }
         
-        //painting
         
-        
-    }
     
-    static NSString *CellIdentifier = @"imageMGCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    static NSString *CellIdentifier = @"artStyleMGCell";
+    static NSString* CellIdentifierName = @"paintingMGCell";
+    
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierName];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierName];
     }
     
-    cell.textLabel.text = [myGame.myGallery.paintingsArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [styleArtDic.allValues objectAtIndex:indexPath.row];
     return cell;
 }
-
-
-//
-//-(void)changeProgress
-//{
-//    if(duration <= 0.0f)
-//    {   
-//        [timer invalidate];
-//    }
-//    else
-//    {
-//        NSLog(@"zähl");
-//        
-//        
-//        Painting* meinPainting = (Painting*) [myGame.myGallery.paintingsArray objectAtIndex:2];
-//        
-//        UIImage* meinImage;
-//        
-//        UIImageView* meinImageView = [[UIImageView alloc] initWithImage:meinImage];
-//        [meinImageView sizeToFit];
-//        
-//        meinImageView.multipleTouchEnabled = YES;
-//        meinImageView.userInteractionEnabled = YES;
-//        
-//        for (Painting* paintingm in myGame.myGallery.paintingsArray) {
-//            NSLog(@"--");
-//            meinImage = paintingm.picture;
-//            NSLog(@"Object?: %@", meinImage);
-//            NSLog(@"Width: %f", meinImage.size.width);
-//            NSLog(@"--");
-//        }
-//        if (meinImage != nil) {
-//            //[self.view removeFromSuperview]
-//            [self.view addSubview:meinImageView];
-//        }
-//        
-//        //[self.view addSubview:meinImageView];
-//
-//    }
-//}
-
 
 
 /*
