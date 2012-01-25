@@ -10,6 +10,12 @@
 #import "ReverseImageSearch.h"
 
 @implementation Painting
+{
+	NSMutableArray *pArtist;
+	NSMutableArray *pName;
+	NSMutableArray *pArtStyle;
+	NSMutableArray *pYear;
+}
 
 @synthesize nameOfPainting,styleOfPainting,artist,picture,year,paintingIsInDB;
 
@@ -81,16 +87,32 @@
         
         if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK)
 		{
+			int counter = 0;
             while(sqlite3_step(compiledStatement) == SQLITE_ROW)
 			{
 				// Read the data from the result row
                 paintingIsInDB=true;
-				NSString *pArtist = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
-				NSString *pArtStyle = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
-				NSString *pYear = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
-				[self initFromDataBase:pArtist andStyle:pArtStyle andYear:pYear];
+				NSString *pNameTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
+				NSString *pArtistTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
+				NSString *pArtStyleTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
+				NSString *pYearTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
+				[pName addObject:pNameTemp];
+				[pArtist addObject:pArtistTemp];
+				[pArtStyle addObject:pArtStyleTemp];
+				[pYear addObject:pYearTemp];
+				
+				counter++;
             }
-            
+            if (counter > 1)
+			{
+				NSLog(@"FOUND MORE THAN 1 MATCHING PAINTING");
+			}
+			else
+			{
+				[self initFromDataBase:[pArtist objectAtIndex:1] andStyle:[pArtStyle objectAtIndex:1]  andYear:[pYear objectAtIndex:1]];
+			}
+			
+			//in case no matching painting was found in the library
             if(!paintingIsInDB)
 			{
                 NSLog(@"Match not found, try again");
