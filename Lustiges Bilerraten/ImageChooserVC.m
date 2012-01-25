@@ -85,6 +85,7 @@
     
     self.navigationItem.leftBarButtonItem = menuBarButton;
     self.navigationItem.rightBarButtonItem = nextBarButton;
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
 }
 
 - (void)viewDidUnload
@@ -106,10 +107,19 @@
 
 - (void) showQuestion
 {
+
+    if (! (myGame.myPainting.paintingIsInDB)){
+        UIAlertView* matchError = [[UIAlertView alloc] initWithTitle:@"Bild nicht gefunden" message:@"Leider konnten wir deinem Foto kein Bild zuweisen. Bitte versuche es erneut" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [matchError show];
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    }
+    else
+    {
 	//prepare next question and segue to question view
     QuestionVC* nextQuestion = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionView"];
     nextQuestion.myGame = self.myGame;
     [self.navigationController pushViewController:nextQuestion animated:YES];
+    }
 }
 
 - (void) quitGame
@@ -166,6 +176,8 @@
 	//stop ActivityIndicator in ImagePickerController
 	[self.imagePicker stopActivityIndicator];
 	 
+	[self.navigationItem.rightBarButtonItem setEnabled:YES];
+
 	//dismiss imagePickerController
     [picker dismissModalViewControllerAnimated:YES];
 }
