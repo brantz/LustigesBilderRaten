@@ -238,7 +238,7 @@
  */
 - (IBAction) takePicture
 {
-    imagePicker = [[CustomImagePickerController alloc] init];
+    imagePicker = [[UIImagePickerController alloc] init];
     [imagePicker setDelegate:self];
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
 	{
@@ -252,23 +252,30 @@
 
 
 
-- (void) imagePickerController:(CustomImagePickerController *)picker
+- (void) imagePickerController:(UIImagePickerController *)picker
 		 didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
 	//show activity indicator to show users that somethings's happpening while 
 	//doing reverse image search in background
-	[self.imagePicker startActivityIndicator];
+	UIActivityIndicatorView  *av = [[UIActivityIndicatorView alloc]
+				initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+	av.frame=CGRectMake(145, 160, 25, 25);
+	[av setCenter:picker.view.center];
+	av.tag  = 1;
+	[self.view addSubview:av];
+	[av startAnimating];
+	
+	[self.imagePicker dismissModalViewControllerAnimated:YES];
+    
+	//remove activity indicator when done
+	UIActivityIndicatorView *tmpimg = (UIActivityIndicatorView *)[self.imagePicker.view viewWithTag:1];
+	[tmpimg removeFromSuperview];
 	
     //setup next Round
     [myGame nextRound:(int)pointsInRound andFoto:image];
+    //pop back to QuestionVC
     
-	//remove activity indicator when done
-	[self.imagePicker stopActivityIndicator];
-	
-	//pop back to QuestionVC
-	[self.imagePicker dismissModalViewControllerAnimated:YES];    
-	
-	ImageChooserVC* oldImageChooser = [[self.navigationController viewControllers] objectAtIndex:1];
+    ImageChooserVC* oldImageChooser = [[self.navigationController viewControllers] objectAtIndex:1];
     oldImageChooser.shouldSkipView = YES;
     [self.navigationController popToViewController:oldImageChooser  animated:NO];    
 }
