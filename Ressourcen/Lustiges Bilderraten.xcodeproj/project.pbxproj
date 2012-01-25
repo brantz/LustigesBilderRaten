@@ -43,7 +43,6 @@
 		84667B1B14B9A20600FEA1A1 /* ConclusionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84667B1A14B9A20600FEA1A1 /* ConclusionVC.m */; };
 		84667B1E14B9A78A00FEA1A1 /* chooseImageButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 84667B1D14B9A78A00FEA1A1 /* chooseImageButton.png */; };
 		84667B2114B9B2C300FEA1A1 /* GameOverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 84667B2014B9B2C300FEA1A1 /* GameOverVC.m */; };
-		A6155AA414D073D10038A5FF /* CustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6155AA314D073D10038A5FF /* CustomImagePickerController.m */; };
 		A6351CE014C9E99400050887 /* ReverseImageSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = A6351CDF14C9E99400050887 /* ReverseImageSearch.m */; };
 		A64BDFB214BCE5B500CA2068 /* ManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A64BDFB114BCE5B500CA2068 /* ManualVC.m */; };
 /* End PBXBuildFile section */
@@ -105,8 +104,6 @@
 		84667B2014B9B2C300FEA1A1 /* GameOverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverVC.m; sourceTree = "<group>"; };
 		849BAD2D14B86FA2005E75B5 /* MyGalleryTableVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyGalleryTableVC.h; sourceTree = "<group>"; };
 		849BAD3014B878C9005E75B5 /* SettingsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsVC.h; sourceTree = "<group>"; };
-		A6155AA214D073D10038A5FF /* CustomImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImagePickerController.h; sourceTree = "<group>"; };
-		A6155AA314D073D10038A5FF /* CustomImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImagePickerController.m; sourceTree = "<group>"; };
 		A6351CDE14C9E99400050887 /* ReverseImageSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReverseImageSearch.h; sourceTree = "<group>"; };
 		A6351CDF14C9E99400050887 /* ReverseImageSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverseImageSearch.m; sourceTree = "<group>"; };
 		A64BDFB014BCE5B500CA2068 /* ManualVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualVC.h; sourceTree = "<group>"; };
@@ -262,8 +259,6 @@
 		A625C58B14CCBFBB00044879 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A6155AA214D073D10038A5FF /* CustomImagePickerController.h */,
-				A6155AA314D073D10038A5FF /* CustomImagePickerController.m */,
 				A6351CDE14C9E99400050887 /* ReverseImageSearch.h */,
 				A6351CDF14C9E99400050887 /* ReverseImageSearch.m */,
 			);
@@ -363,7 +358,6 @@
 				A64BDFB214BCE5B500CA2068 /* ManualVC.m in Sources */,
 				A6351CE014C9E99400050887 /* ReverseImageSearch.m in Sources */,
 				264A59E314C73445004AD42E /* Galerie.m in Sources */,
-				A6155AA414D073D10038A5FF /* CustomImagePickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
