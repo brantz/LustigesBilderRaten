@@ -19,7 +19,8 @@
 }
 
 -(int) pointsToStars {
-    int stars = (points*5)/1000;
+    float point = (points*5)/1000;
+    int stars = lroundf(point);
     return stars;
 }
 

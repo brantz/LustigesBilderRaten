@@ -18,6 +18,7 @@
     NSString* artist;
     UIImage* picture;
     NSString* year;
+    BOOL paintingIsInDB;
 }
 
 @property(nonatomic, strong) NSString* nameOfPainting;
@@ -25,6 +26,7 @@
 @property(nonatomic, strong) NSString* artist;
 @property (nonatomic, strong)UIImage* picture;
 @property(nonatomic, strong) NSString* year;
+@property BOOL paintingIsInDB;
 
 -(Painting*) initPaintingWithFoto: (UIImage*) foto;
 -(void) findPaintingName:(UIImage*) foto;

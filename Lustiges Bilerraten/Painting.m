@@ -10,7 +10,7 @@
 #import "ReverseImageSearch.h"
 
 @implementation Painting
-@synthesize nameOfPainting,styleOfPainting,artist,picture,year;
+@synthesize nameOfPainting,styleOfPainting,artist,picture,year,paintingIsInDB;
 
 
 - (Painting*) initPaintingWithFoto: (UIImage*) foto {
@@ -30,6 +30,7 @@
 -(void) findPaintingName: (UIImage*) foto {	
 	ReverseImageSearch* searchEngine = [ReverseImageSearch alloc];
 	self.nameOfPainting = [searchEngine getInfoOnImage:foto];
+    NSLog(@"ReverseImageSearch%@",self.nameOfPainting);
     [self readPaintingFromDB];
     
 }
@@ -54,16 +55,16 @@
    // NSString* paintingName = self.nameOfPainting;
     NSString* databasePath = appDelegate.databasePath;
     sqlite3 *database;
-    BOOL paintingIsInDB=false;
+    paintingIsInDB=false;
     // Open the database from the users filessytem
-	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK) {
+	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK ) {
 		// Setup the SQL Statement and compile it for faster access
         
         NSString* sqlStatement = [NSString stringWithFormat:@"SELECT DISTINCT * FROM paintings WHERE id = (SELECT DISTINCT referenced_painting FROM query_results WHERE UPPER(name) LIKE UPPER('%%%@%%'))", self.nameOfPainting];
 		sqlite3_stmt *compiledStatement;
         
         if(sqlite3_prepare_v2(database, [sqlStatement UTF8String], -1, &compiledStatement, NULL) == SQLITE_OK) {
-            while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+            while(sqlite3_step(compiledStatement) == SQLITE_ROW && self.nameOfPainting.length!=0) {
 				NSLog(@"Entering while block");
 				// Read the data from the result row
                 paintingIsInDB=true;
