@@ -185,16 +185,16 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="xbs-8L-yDN">
-                                <rect key="frame" x="29" y="109" width="263" height="198"/>
+                            <view contentMode="scaleToFill" id="xbs-8L-yDN" userLabel="previewImageView">
+                                <rect key="frame" x="30" y="109" width="260" height="198"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="e6x-p9-Ma3">
-                                        <rect key="frame" x="2" y="2" width="259" height="194"/>
+                                        <rect key="frame" x="2" y="2" width="256" height="194"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="noImage@2x.png" id="TlW-Ts-hzh">
-                                                <rect key="frame" x="0.0" y="0.0" width="259" height="194"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="256" height="194"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
                                         </subviews>
@@ -630,67 +630,6 @@
         <image name="star_default.png" width="175" height="167"/>
         <image name="star_highlighted.png" width="175" height="167"/>
     </resources>
-    <classes>
-        <class className="ConclusionVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ConclusionVC.h"/>
-            <relationships>
-                <relationship kind="action" name="takePicture"/>
-                <relationship kind="outlet" name="moreInfoButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="rightAnswerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="rightLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="shortInfoText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="star1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star4" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="star5" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="wrongLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GameOverVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GameOverVC.h"/>
-            <relationships>
-                <relationship kind="action" name="mainMenuPushed"/>
-                <relationship kind="outlet" name="pointsLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ImageChooserVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageChooserVC.h"/>
-            <relationships>
-                <relationship kind="action" name="takePicture"/>
-                <relationship kind="outlet" name="previewImage" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MainMenuVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainMenuVC.h"/>
-        </class>
-        <class className="ManualVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ManualVC.h"/>
-        </class>
-        <class className="MyGalleryTableVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyGalleryTableVC.h"/>
-        </class>
-        <class className="QuestionVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/QuestionVC.h"/>
-            <relationships>
-                <relationship kind="action" name="hintButtonPushed"/>
-                <relationship kind="action" name="questionButtonPushed:"/>
-                <relationship kind="outlet" name="firstQuestionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="hintButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="hintButtonView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="hintText" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="hintTextView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="pointsBar" candidateClass="UIProgressView"/>
-                <relationship kind="outlet" name="pointsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="secondQuestionButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="thirdQuestionButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SettingsVC" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

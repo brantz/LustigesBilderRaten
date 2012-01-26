@@ -156,7 +156,9 @@
     if ([CustomImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
 	{
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
+    }
+	else
+	{
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
 	[self presentViewController:self.imagePicker animated:YES completion:NULL];  
@@ -166,6 +168,11 @@
 		 didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo
 {
 	self.selectedImage = image;
+	
+	//adjust width of peviewImageView
+	float imageWidthResized = image.size.width * (198.0 / image.size.height);
+	CGRect bounds = CGRectMake((self.view.bounds.size.width - imageWidthResized) / 2.0, 109.0, imageWidthResized, 196.0);
+	previewImage.superview.superview.frame =  bounds;	
 	[previewImage setImage:image];
 
 	//start ActicvityIndicator in ImagePickerController
@@ -176,7 +183,7 @@
 	//stop ActivityIndicator in ImagePickerController
 	[self.imagePicker stopActivityIndicator];
 	 
-	[self.navigationItem.rightBarButtonItem setEnabled:YES];
+	//[self.navigationItem.rightBarButtonItem setEnabled];
 
 	//dismiss imagePickerController
     [picker dismissModalViewControllerAnimated:YES];
