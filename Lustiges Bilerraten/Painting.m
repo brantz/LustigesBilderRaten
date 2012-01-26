@@ -8,6 +8,7 @@
 
 #import "Painting.h"
 #import "ReverseImageSearch.h"
+#import "LevensteinDistance.h"
 
 @implementation Painting
 {
@@ -103,10 +104,24 @@
 				
 				counter++;
             }
+			//database retunred more than one possible matches
             if (counter > 1)
 			{
 				NSLog(@"FOUND MORE THAN 1 MATCHING PAINTING");
+				LevensteinDistance* referenceName = [[LevensteinDistance alloc] initWithString:self.nameOfPainting];
+				
+				//iterate through matching-candidates and determine levenstein distance as indicator for similarity
+				// and save results to a dictionary
+				NSMutableArray *similarityResults = [[NSMutableArray alloc] init];
+				for (NSString* testString in pName)
+				{
+					NSNumber *similarity = [[NSNumber alloc] initWithFloat:[referenceName compareWithString:testString]];		
+					[similarityResults addObject:similarity];
+				}
+				int indexOfMostSimilarMatch = [self calculateHighestValueIndex:similarityResults];
+				[self initFromDataBase:[pArtist objectAtIndex:indexOfMostSimilarMatch] andStyle:[pArtStyle objectAtIndex:indexOfMostSimilarMatch]  andYear:[pYear objectAtIndex:indexOfMostSimilarMatch]];
 			}
+			//database returned one match
 			else
 			{
 				[self initFromDataBase:[pArtist objectAtIndex:1] andStyle:[pArtStyle objectAtIndex:1]  andYear:[pYear objectAtIndex:1]];
@@ -126,6 +141,30 @@
 		sqlite3_finalize(compiledStatement);
     }
     sqlite3_close(database);
+}
+
+//method to find 
+-(int)calculateHighestValueIndex:(NSMutableArray*)myDataArray
+{
+	int index = 0;
+	int value = 0;
+	
+	for (int x = 0; x < [myDataArray count]; x++)
+	{
+		if (x==0) {
+			value = (int)[myDataArray objectAtIndex:x];
+			index = x;
+		}
+		else
+		{
+			if (value < (int)[myDataArray objectAtIndex:x])
+			{
+				value = (int)[myDataArray objectAtIndex:x];
+				index = x;
+			}
+		}		
+	}	
+	return index;	
 }
 
 @end
