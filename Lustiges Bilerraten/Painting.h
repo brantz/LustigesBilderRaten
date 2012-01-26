@@ -33,5 +33,6 @@
 -(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear;
 -(void) findStyleOfPainting:(NSString*)style;
 - (void) readPaintingFromDB;
+-(int)calculateHighestValueIndex:(NSMutableArray*)myDataArray;
 - (Painting*) initPaintingWithName:(NSString*) name andPic: (UIImage*) pic;
 @end

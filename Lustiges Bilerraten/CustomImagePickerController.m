@@ -20,7 +20,6 @@
 
 -(void) startActivityIndicator
 {
-	NSLog(@"start spinner");
 	//show activity indicator to show users that somethings's happpening while 
 	//doing reverse image search in background
 	[NSThread detachNewThreadSelector: @selector(spinBegin) toTarget:self withObject:nil];
@@ -28,7 +27,6 @@
 
 -(void) stopActivityIndicator
 {
-	NSLog(@"stop spinner");
 	//remove activity indicator when done
 	[NSThread detachNewThreadSelector: @selector(spinEnd) toTarget:self withObject:nil];
 }
