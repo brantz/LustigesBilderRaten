@@ -49,6 +49,7 @@
 		A6155AA414D073D10038A5FF /* CustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6155AA314D073D10038A5FF /* CustomImagePickerController.m */; };
 		A6351CE014C9E99400050887 /* ReverseImageSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = A6351CDF14C9E99400050887 /* ReverseImageSearch.m */; };
 		A64BDFB214BCE5B500CA2068 /* ManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A64BDFB114BCE5B500CA2068 /* ManualVC.m */; };
+		A6A0915C14D30EE6001B4C99 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A0915B14D30EE6001B4C99 /* WebVC.m */; };
 		A6A3B2D114D1773600CF9AE3 /* LevensteinDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3B2D014D1773600CF9AE3 /* LevensteinDistance.m */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,8 @@
 		A6351CDF14C9E99400050887 /* ReverseImageSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverseImageSearch.m; sourceTree = "<group>"; };
 		A64BDFB014BCE5B500CA2068 /* ManualVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualVC.h; sourceTree = "<group>"; };
 		A64BDFB114BCE5B500CA2068 /* ManualVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualVC.m; sourceTree = "<group>"; };
+		A6A0915A14D30EE6001B4C99 /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
+		A6A0915B14D30EE6001B4C99 /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
 		A6A3B2CF14D1773600CF9AE3 /* LevensteinDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevensteinDistance.h; sourceTree = "<group>"; };
 		A6A3B2D014D1773600CF9AE3 /* LevensteinDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevensteinDistance.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +159,8 @@
 				84667B2014B9B2C300FEA1A1 /* GameOverVC.m */,
 				A64BDFB014BCE5B500CA2068 /* ManualVC.h */,
 				A64BDFB114BCE5B500CA2068 /* ManualVC.m */,
+				A6A0915A14D30EE6001B4C99 /* WebVC.h */,
+				A6A0915B14D30EE6001B4C99 /* WebVC.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 				264A59E314C73445004AD42E /* Galerie.m in Sources */,
 				A6155AA414D073D10038A5FF /* CustomImagePickerController.m in Sources */,
 				A6A3B2D114D1773600CF9AE3 /* LevensteinDistance.m in Sources */,
+				A6A0915C14D30EE6001B4C99 /* WebVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

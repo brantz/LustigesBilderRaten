@@ -85,7 +85,7 @@
     
     self.navigationItem.leftBarButtonItem = menuBarButton;
     self.navigationItem.rightBarButtonItem = nextBarButton;
-    [self.navigationItem.rightBarButtonItem setEnabled:NO];
+    [self.navigationItem.rightBarButtonItem setEnabled:YES];
 }
 
 - (void)viewDidUnload
