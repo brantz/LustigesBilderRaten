@@ -33,6 +33,11 @@
 
 - (void)spinBegin
 {
+	UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 270, 80, 20)];
+	loadingLabel.text = @"identifying...";
+	loadingLabel.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.0f];
+	loadingLabel.font = [UIFont boldSystemFontOfSize:12.0];
+	loadingLabel.textColor = [UIColor colorWithWhite:1.0 alpha:1.0];
 	cLoadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];    
 	//putting spinning "thing" right in the center of the current view
 	CGPoint newCenter = (CGPoint) [self.view center];
@@ -43,8 +48,9 @@
 	loading.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.6f];
 	loading.frame = CGRectMake(100, 180, 120, 120);
 	[self.view addSubview:loading];
-	[self.view addSubview:cLoadingView];
 	
+	[self.view addSubview:cLoadingView];
+	[self.view addSubview:loadingLabel];
 	
 	
 	[cLoadingView startAnimating];
