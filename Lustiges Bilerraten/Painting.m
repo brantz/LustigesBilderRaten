@@ -12,10 +12,7 @@
 
 @implementation Painting
 {
-	NSMutableArray *pArtist;
-	NSMutableArray *pName;
-	NSMutableArray *pArtStyle;
-	NSMutableArray *pYear;
+	
 }
 
 @synthesize nameOfPainting,styleOfPainting,artist,picture,year,paintingIsInDB;
@@ -61,6 +58,10 @@
 
 - (void) readPaintingFromDB
 {
+	NSMutableArray *pArtist = [[NSMutableArray alloc] init ];
+	NSMutableArray *pName = [[NSMutableArray alloc] init ];
+	NSMutableArray *pArtStyle = [[NSMutableArray alloc] init ];
+	NSMutableArray *pYear = [[NSMutableArray alloc] init ];
     PEMAppDelegate *appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSString* databasePath = appDelegate.databasePath;
     sqlite3 *database;
@@ -97,11 +98,10 @@
 				NSString *pArtistTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
 				NSString *pArtStyleTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
 				NSString *pYearTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
-				[pName addObject:pNameTemp];
-				[pArtist addObject:pArtistTemp];
-				[pArtStyle addObject:pArtStyleTemp];
-				[pYear addObject:pYearTemp];
-				
+				[pName addObject:[[NSString alloc] initWithString: pNameTemp]];
+				[pArtist addObject:[[NSString alloc] initWithString: pArtistTemp]];
+				[pArtStyle addObject:[[NSString alloc] initWithString: pArtStyleTemp]];
+				[pYear addObject:[[NSString alloc] initWithString: pYearTemp]];
 				counter++;
             }
 			//database retunred more than one possible matches
@@ -124,7 +124,7 @@
 			//database returned one match
 			else
 			{
-				[self initFromDataBase:[pArtist objectAtIndex:1] andStyle:[pArtStyle objectAtIndex:1]  andYear:[pYear objectAtIndex:1]];
+				[self initFromDataBase:[pArtist objectAtIndex:0] andStyle:[pArtStyle objectAtIndex:0]  andYear:[pYear objectAtIndex:0]];
 			}
 			
 			//in case no matching painting was found in the library
