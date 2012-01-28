@@ -11,13 +11,8 @@
 
 @interface MyGalleryTableVC : UITableViewController{
     
-    NSTimer* timer;
-    float duration;
-    NSString* prevStyle;
-    
     NSMutableArray* styleArtDic;
-    NSMutableArray* paintingArray;
-    NSMutableArray* integratedArray;
+
 }
 
 @property (nonatomic, strong) Game* myGame;
