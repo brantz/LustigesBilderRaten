@@ -10,6 +10,7 @@
 #import "MyGalleryTableVC.h"
 #import "GameOverVC.h"
 #import "ImageChooserVC.h"
+#import "WebVC.h"
 
 @implementation ConclusionVC
 
@@ -247,6 +248,14 @@
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
 	[self presentViewController:self.imagePicker animated:YES completion:NULL];    
+}
+
+- (IBAction)moreInfoButtonPressed:(id)sender
+{
+	WebVC *moreInfoWebVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MoreInfoWebVC"];
+	moreInfoWebVC.infoUrl = [[NSURL alloc] initWithString:myGame.myPainting.link];
+	moreInfoWebVC.barTitle = myGame.myPainting.styleOfPainting.styleName;
+	[self.navigationController presentModalViewController:moreInfoWebVC animated:YES];
 }
 
 

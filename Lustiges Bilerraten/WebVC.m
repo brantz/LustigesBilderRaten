@@ -10,6 +10,8 @@
 
 @implementation WebVC
 
+@synthesize infoUrl, webView, titleBar, barTitle;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -36,16 +38,23 @@
 }
 */
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
+- (void)viewWDidLoad
 {
     [super viewDidLoad];
 }
-*/
+
+-(void) viewDidAppear:(BOOL)animated
+{
+	titleBar.title = barTitle;
+	[webView loadRequest:[NSURLRequest requestWithURL:infoUrl]];
+}
+
 
 - (void)viewDidUnload
 {
+	webView = nil;
+	[self setWebView:nil];
+	[self setTitleBar:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -57,4 +66,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)backToGame:(id)sender
+{
+	[self dismissModalViewControllerAnimated:YES]; 
+}
 @end
