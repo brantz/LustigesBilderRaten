@@ -49,6 +49,7 @@
 		A6155AA414D073D10038A5FF /* CustomImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6155AA314D073D10038A5FF /* CustomImagePickerController.m */; };
 		A6351CE014C9E99400050887 /* ReverseImageSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = A6351CDF14C9E99400050887 /* ReverseImageSearch.m */; };
 		A64BDFB214BCE5B500CA2068 /* ManualVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A64BDFB114BCE5B500CA2068 /* ManualVC.m */; };
+		A67E04D614D4471600B44F1B /* reverseImageSearch.rb in Resources */ = {isa = PBXBuildFile; fileRef = A67E04D514D4471600B44F1B /* reverseImageSearch.rb */; };
 		A6A0915C14D30EE6001B4C99 /* WebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A0915B14D30EE6001B4C99 /* WebVC.m */; };
 		A6A3B2D114D1773600CF9AE3 /* LevensteinDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A3B2D014D1773600CF9AE3 /* LevensteinDistance.m */; };
 /* End PBXBuildFile section */
@@ -118,6 +119,7 @@
 		A6351CDF14C9E99400050887 /* ReverseImageSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReverseImageSearch.m; sourceTree = "<group>"; };
 		A64BDFB014BCE5B500CA2068 /* ManualVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualVC.h; sourceTree = "<group>"; };
 		A64BDFB114BCE5B500CA2068 /* ManualVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualVC.m; sourceTree = "<group>"; };
+		A67E04D514D4471600B44F1B /* reverseImageSearch.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = reverseImageSearch.rb; sourceTree = "<group>"; };
 		A6A0915A14D30EE6001B4C99 /* WebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebVC.h; sourceTree = "<group>"; };
 		A6A0915B14D30EE6001B4C99 /* WebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebVC.m; sourceTree = "<group>"; };
 		A6A3B2CF14D1773600CF9AE3 /* LevensteinDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevensteinDistance.h; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				A625C58B14CCBFBB00044879 /* Classes */,
 				84111C9514B78766009C60BD /* Main */,
 				84160BF014950E5A0049C4B4 /* Storyboard.storyboard */,
+				A67E04D514D4471600B44F1B /* reverseImageSearch.rb */,
 				84111C9214B78739009C60BD /* ViewController */,
 				84111C9414B7874F009C60BD /* Model */,
 				8461E7E014B8B3A900BA363B /* Resources */,
@@ -353,6 +356,7 @@
 				262EAC1614D08B0900DF466D /* launchImage.png in Resources */,
 				262EAC1814D08B9300DF466D /* Default@2x.png in Resources */,
 				262EAC1A14D08D5F00DF466D /* highResolutionLaunchIm.png in Resources */,
+				A67E04D614D4471600B44F1B /* reverseImageSearch.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
