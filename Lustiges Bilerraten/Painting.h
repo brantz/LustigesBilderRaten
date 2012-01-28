@@ -13,7 +13,8 @@
 
 
 @interface Painting : NSObject {
-    NSString* nameOfPainting;
+    NSString* nameFromSearchQuery;
+	NSString* nameReal;
     ArtStyle* styleOfPainting;
     NSString* artist;
     UIImage* picture;
@@ -22,7 +23,8 @@
     BOOL paintingIsInDB;
 }
 
-@property(nonatomic, strong) NSString* nameOfPainting;
+@property(nonatomic, strong) NSString* nameFromSearchQuery;
+@property(nonatomic, strong) NSString* nameReal;
 @property(nonatomic, strong) ArtStyle* styleOfPainting;
 @property(nonatomic, strong) NSString* artist;
 @property (nonatomic, strong)UIImage* picture;
@@ -32,7 +34,7 @@
 
 -(Painting*) initPaintingWithFoto: (UIImage*) foto;
 -(void) findPaintingName:(UIImage*) foto;
--(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear;
+-(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear andLink: (NSString*) myLink andName: (NSString*) myName;
 -(void) findStyleOfPainting:(NSString*)style;
 - (void) readPaintingFromDB;
 -(int)calculateHighestValueIndex:(NSMutableArray*)myDataArray;

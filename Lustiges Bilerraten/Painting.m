@@ -15,7 +15,7 @@
 	
 }
  
-@synthesize nameOfPainting, styleOfPainting, artist, picture, year, link, paintingIsInDB;
+@synthesize nameFromSearchQuery, styleOfPainting, artist, picture, year, link, paintingIsInDB;
 
 
 - (Painting*) initPaintingWithFoto: (UIImage*) foto
@@ -27,7 +27,7 @@
 
 - (Painting*) initPaintingWithName:(NSString*) name andPic: (UIImage*) pic
 {
-    self.nameOfPainting = name;
+    self.nameFromSearchQuery = name;
     self.picture = pic;
    [self readPaintingFromDB];
     return self;
@@ -36,16 +36,17 @@
 -(void) findPaintingName: (UIImage*) foto
 {	
 	ReverseImageSearch* searchEngine = [ReverseImageSearch alloc];
-	self.nameOfPainting = [searchEngine getInfoOnImage:foto];
+	self.nameFromSearchQuery = [searchEngine getInfoOnImage:foto];
     [self readPaintingFromDB];
     
 }
 
--(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear andLink: (NSString*) myLink
+-(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear andLink: (NSString*) myLink andName: (NSString*) myName
 {
     self.artist = myArtist;
     self.year = myYear;
 	self.link = myLink;
+	self.nameReal = myName;
     [self findStyleOfPainting:myStyle];
 }
 
@@ -70,12 +71,12 @@
     sqlite3 *database;
     paintingIsInDB=false;
     // Open the database from the users filessytem
-	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK && self.nameOfPainting.length!=0)
+	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK && self.nameFromSearchQuery.length!=0)
 	{
 		// Setup the SQL Statement and compile it for faster access
 		NSMutableString* sqlStatement = [[NSMutableString alloc] initWithString:
 				@"SELECT DISTINCT p.name, p.artist, p.artStyle, p.year, a.link FROM paintings p JOIN artStyle a WHERE p.artStyle = a.name AND p.id = (SELECT DISTINCT q.referenced_painting FROM query_results q WHERE UPPER(q.name) LIKE UPPER('%%"];
-		NSArray* imageNameArray = [self.nameOfPainting componentsSeparatedByString:@" "];
+		NSArray* imageNameArray = [self.nameFromSearchQuery componentsSeparatedByString:@" "];
 		BOOL firstOne = YES;
 		for (NSMutableString *s in imageNameArray)
 		{
@@ -103,11 +104,6 @@
 				NSString *pArtStyleTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
 				NSString *pYearTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
 				NSString *pLinkTemp = [NSString  stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
-				NSLog(@"Table_column1: %@", pNameTemp );
-				NSLog(@"Table_column2: %@", pArtistTemp );
-				NSLog(@"Table_column3: %@", pArtStyleTemp );
-				NSLog(@"Table_column4: %@", pYearTemp );
-				NSLog(@"Table_column6: %@", pLinkTemp );
 				[pName addObject:[[NSString alloc] initWithString: pNameTemp]];
 				[pArtist addObject:[[NSString alloc] initWithString: pArtistTemp]];
 				[pArtStyle addObject:[[NSString alloc] initWithString: pArtStyleTemp]];
@@ -119,7 +115,7 @@
             if (counter > 1)
 			{
 				NSLog(@"FOUND MORE THAN 1 MATCHING PAINTING");
-				LevensteinDistance* referenceName = [[LevensteinDistance alloc] initWithString:self.nameOfPainting];
+				LevensteinDistance* referenceName = [[LevensteinDistance alloc] initWithString:self.nameFromSearchQuery];
 				
 				//iterate through matching-candidates and determine levenstein distance as indicator for similarity
 				// and save results to a dictionary
@@ -131,13 +127,13 @@
 				}
 				int indexOfMostSimilarMatch = [self calculateHighestValueIndex:similarityResults];
 				[self initFromDataBase:[pArtist objectAtIndex:indexOfMostSimilarMatch] andStyle:[pArtStyle objectAtIndex:indexOfMostSimilarMatch]  
-							   andYear:[pYear objectAtIndex:indexOfMostSimilarMatch] andLink:[pLink objectAtIndex:indexOfMostSimilarMatch]];
+							   andYear:[pYear objectAtIndex:indexOfMostSimilarMatch] andLink:[pLink objectAtIndex:indexOfMostSimilarMatch] andName: [pName objectAtIndex:indexOfMostSimilarMatch]];
 			}
 			//database returned one match
 			else if (counter == 1)
 			{
 				[self initFromDataBase:[pArtist objectAtIndex:0] andStyle:[pArtStyle objectAtIndex:0]  
-							   andYear:[pYear objectAtIndex:0] andLink:[pLink objectAtIndex:0]];
+							   andYear:[pYear objectAtIndex:0] andLink:[pLink objectAtIndex:0] andName:[pName objectAtIndex:0]];
 			}
 			
 			//in case no matching painting was found in the library
