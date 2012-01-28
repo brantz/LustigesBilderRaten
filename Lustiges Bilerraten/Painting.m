@@ -71,7 +71,7 @@
     sqlite3 *database;
     paintingIsInDB=false;
     // Open the database from the users filessytem
-	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK && self.nameFromSearchQuery.length!=0)
+	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK && self.nameFromSearchQuery.length!=0 && ![self.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
 	{
 		// Setup the SQL Statement and compile it for faster access
 		NSMutableString* sqlStatement = [[NSMutableString alloc] initWithString:
