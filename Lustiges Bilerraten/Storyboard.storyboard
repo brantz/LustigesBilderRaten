@@ -177,6 +177,46 @@
             </objects>
             <point key="canvasLocation" x="1306" y="638"/>
         </scene>
+        <scene sceneID="4uf-xF-LNK">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yaz-Ps-HCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="MoreInfoWebVC" modalTransitionStyle="flipHorizontal" id="WC8-MU-x3S" userLabel="MoreInfoWebVC" customClass="WebVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h94-DU-Cro">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="4QM-So-UTn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="26H-fA-Qy4">
+                                        <barButtonItem key="leftBarButtonItem" title="Zum spiel" id="xT1-rt-E7K">
+                                            <connections>
+                                                <action selector="backToGame:" destination="WC8-MU-x3S" id="WrN-lH-P7O"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" id="R6i-Ez-10U">
+                                <rect key="frame" x="0.0" y="44" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="WC8-MU-x3S" id="fvM-Hu-5y5"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleBar" destination="26H-fA-Qy4" id="mXS-cE-hqX"/>
+                        <outlet property="webView" destination="R6i-Ez-10U" id="iYL-Yn-yW6"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="211" y="-448"/>
+        </scene>
         <scene sceneID="Xze-D5-yWb">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6a-pk-jTT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -585,6 +625,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="moreInfoButtonPressed:" destination="tq8-Iq-r7t" eventType="touchUpInside" id="hcD-JP-aDr"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="u3j-n6-JCi">
                                 <rect key="frame" x="60" y="363" width="201" height="39"/>

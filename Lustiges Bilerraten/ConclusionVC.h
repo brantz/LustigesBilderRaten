@@ -40,6 +40,7 @@
 - (void) quitGame;
 
 - (IBAction) takePicture;
+- (IBAction)moreInfoButtonPressed:(id)sender;
 - (void) imagePickerController:(CustomImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo;
 
 

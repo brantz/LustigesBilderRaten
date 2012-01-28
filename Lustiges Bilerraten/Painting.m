@@ -14,8 +14,8 @@
 {
 	
 }
-
-@synthesize nameOfPainting,styleOfPainting,artist,picture,year,paintingIsInDB;
+ 
+@synthesize nameOfPainting, styleOfPainting, artist, picture, year, link, paintingIsInDB;
 
 
 - (Painting*) initPaintingWithFoto: (UIImage*) foto
@@ -41,10 +41,11 @@
     
 }
 
--(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear
+-(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear andLink: (NSString*) myLink
 {
     self.artist = myArtist;
     self.year = myYear;
+	self.link = myLink;
     [self findStyleOfPainting:myStyle];
 }
 
@@ -62,6 +63,8 @@
 	NSMutableArray *pName = [[NSMutableArray alloc] init ];
 	NSMutableArray *pArtStyle = [[NSMutableArray alloc] init ];
 	NSMutableArray *pYear = [[NSMutableArray alloc] init ];
+	NSMutableArray *pLink = [[NSMutableArray alloc] init ];
+
     PEMAppDelegate *appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSString* databasePath = appDelegate.databasePath;
     sqlite3 *database;
@@ -70,14 +73,15 @@
 	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK && self.nameOfPainting.length!=0)
 	{
 		// Setup the SQL Statement and compile it for faster access
-		NSMutableString* sqlStatement = [[NSMutableString alloc] initWithString:@"SELECT DISTINCT * FROM paintings WHERE id = (SELECT DISTINCT referenced_painting FROM query_results WHERE UPPER(name) LIKE UPPER('%%"];
+		NSMutableString* sqlStatement = [[NSMutableString alloc] initWithString:
+				@"SELECT DISTINCT p.name, p.artist, p.artStyle, p.year, a.link FROM paintings p JOIN artStyle a WHERE p.artStyle = a.name AND p.id = (SELECT DISTINCT q.referenced_painting FROM query_results q WHERE UPPER(q.name) LIKE UPPER('%%"];
 		NSArray* imageNameArray = [self.nameOfPainting componentsSeparatedByString:@" "];
 		BOOL firstOne = YES;
 		for (NSMutableString *s in imageNameArray)
 		{
 			if (s.length > 4)
 			{
-				if (!firstOne) [sqlStatement appendString:@" OR UPPER(name) LIKE UPPER('%%"];
+				if (!firstOne) [sqlStatement appendString:@" OR UPPER(q.name) LIKE UPPER('%%"];
 				firstOne = NO;
 				[sqlStatement appendString:s];
 				[sqlStatement appendString:@"%%')"];
@@ -94,14 +98,21 @@
 			{
 				// Read the data from the result row
                 paintingIsInDB=true;
-				NSString *pNameTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
-				NSString *pArtistTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
-				NSString *pArtStyleTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
-				NSString *pYearTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
+				NSString *pNameTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 0)];
+				NSString *pArtistTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 1)];
+				NSString *pArtStyleTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 2)];
+				NSString *pYearTemp = [NSString stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 3)];
+				NSString *pLinkTemp = [NSString  stringWithUTF8String:(char *)sqlite3_column_text(compiledStatement, 4)];
+				NSLog(@"Table_column1: %@", pNameTemp );
+				NSLog(@"Table_column2: %@", pArtistTemp );
+				NSLog(@"Table_column3: %@", pArtStyleTemp );
+				NSLog(@"Table_column4: %@", pYearTemp );
+				NSLog(@"Table_column6: %@", pLinkTemp );
 				[pName addObject:[[NSString alloc] initWithString: pNameTemp]];
 				[pArtist addObject:[[NSString alloc] initWithString: pArtistTemp]];
 				[pArtStyle addObject:[[NSString alloc] initWithString: pArtStyleTemp]];
 				[pYear addObject:[[NSString alloc] initWithString: pYearTemp]];
+				[pLink addObject:[[NSString alloc] initWithString: pLinkTemp]];
 				counter++;
             }
 			//database retunred more than one possible matches
@@ -119,12 +130,14 @@
 					[similarityResults addObject:similarity];
 				}
 				int indexOfMostSimilarMatch = [self calculateHighestValueIndex:similarityResults];
-				[self initFromDataBase:[pArtist objectAtIndex:indexOfMostSimilarMatch] andStyle:[pArtStyle objectAtIndex:indexOfMostSimilarMatch]  andYear:[pYear objectAtIndex:indexOfMostSimilarMatch]];
+				[self initFromDataBase:[pArtist objectAtIndex:indexOfMostSimilarMatch] andStyle:[pArtStyle objectAtIndex:indexOfMostSimilarMatch]  
+							   andYear:[pYear objectAtIndex:indexOfMostSimilarMatch] andLink:[pLink objectAtIndex:indexOfMostSimilarMatch]];
 			}
 			//database returned one match
-			else
+			else if (counter == 1)
 			{
-				[self initFromDataBase:[pArtist objectAtIndex:0] andStyle:[pArtStyle objectAtIndex:0]  andYear:[pYear objectAtIndex:0]];
+				[self initFromDataBase:[pArtist objectAtIndex:0] andStyle:[pArtStyle objectAtIndex:0]  
+							   andYear:[pYear objectAtIndex:0] andLink:[pLink objectAtIndex:0]];
 			}
 			
 			//in case no matching painting was found in the library
@@ -135,7 +148,7 @@
         }
 		else
 		{
-            NSLog(@"%s", sqlite3_errmsg(database));
+            NSLog(@"DB ERROR: %s", sqlite3_errmsg(database));
 		}
         // Release the compiled statement from memory
 		sqlite3_finalize(compiledStatement);
