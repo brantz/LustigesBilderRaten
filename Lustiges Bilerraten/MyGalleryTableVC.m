@@ -35,44 +35,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     
-    NSLog(@"!!!!!!!!!!!!!!!!!!: %i", myGame.myGallery.paintingsArray.count);
-    
-    
-    //NSString* artStyle -> NSString* paintingName
     styleArtDic = [[NSMutableArray alloc] init];
-    paintingArray = [[NSMutableArray alloc] init];
-    integratedArray = [[NSMutableArray alloc] init];
-
-    
-    
     for (Painting* painting in myGame.myGallery.paintingsArray) {
             [styleArtDic addObject:
              [NSString stringWithFormat:@"%@;%@", painting.styleOfPainting.styleName, painting.nameReal]
               ];
         }
-
-    //sorting
-    for (NSString* test in styleArtDic) {
-        NSLog(@"---- %@", test);
-    }
     styleArtDic = [self arrayMagic:styleArtDic];
-    
-    for (NSString* myString in styleArtDic) {
-        NSLog(@"!!!!!!!!! VAL: %@", myString);
-    }
-    
-
-    UIImage* meinImage;
-    for (Painting* paintingm in myGame.myGallery.paintingsArray) {
-        NSLog(@"--");
-        meinImage = paintingm.picture;
-        NSLog(@"Object?: %@", paintingm.nameReal);
-        NSLog(@"Width: %f", meinImage.size.width);
-        NSLog(@"--");
-    }
-    
 }
 
 - (void)viewDidUnload

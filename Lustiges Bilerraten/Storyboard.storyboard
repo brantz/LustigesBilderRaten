@@ -363,11 +363,11 @@
                             </label>
                             <view contentMode="scaleToFill" id="20i-NK-kaa">
                                 <rect key="frame" x="40" y="310" width="240" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hinweistexte wurden dazu erfunden sinnvolle Hinweise zu erteilen. Dies ist hier nicht bedacht wurden." id="Fax-PK-o9H">
                                         <rect key="frame" x="0.0" y="-2" width="240" height="90"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -377,7 +377,7 @@
                             </view>
                             <view contentMode="scaleToFill" id="qPw-yj-4Bv">
                                 <rect key="frame" x="40" y="310" width="240" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2JG-tQ-ByS">
                                         <rect key="frame" x="70" y="26" width="99" height="37"/>
@@ -495,11 +495,11 @@
                                 <rect key="frame" x="86" y="20" width="148" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <color key="textColor" red="0.28016316890716553" green="0.72450923919677734" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.1128263995051384" green="0.62310517723880599" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Deine Punktzahl:" lineBreakMode="tailTruncation" minimumFontSize="10" id="VhO-en-5Kz">
-                                <rect key="frame" x="96" y="81" width="129" height="21"/>
+                                <rect key="frame" x="96" y="98" width="129" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -536,17 +536,13 @@
                                     <action selector="mainMenuPushed" destination="lyy-fJ-noO" eventType="touchUpInside" id="zWj-BK-LL2"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1337" lineBreakMode="tailTruncation" minimumFontSize="10" id="MtX-Ms-WCW">
-                                <rect key="frame" x="139" y="116" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="1337" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="MtX-Ms-WCW">
+                                <rect key="frame" x="87" y="121" width="123" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <color key="textColor" red="0.0" green="0.57086637126865669" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" progress="0.5" id="LDl-Og-hiV">
-                                <rect key="frame" x="85" y="140" width="150" height="9"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
@@ -566,44 +562,44 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="98" contentMode="left" text="Richtig" lineBreakMode="tailTruncation" minimumFontSize="10" id="hZB-qm-tFo">
-                                <rect key="frame" x="90" y="9" width="123" height="48"/>
+                                <rect key="frame" x="90" y="0.0" width="123" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="37"/>
                                 <color key="textColor" red="0.20118230581283569" green="0.67254197597503662" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="99" contentMode="left" text="Falsch" lineBreakMode="tailTruncation" minimumFontSize="10" id="qwI-yH-HYd">
-                                <rect key="frame" x="90" y="9" width="123" height="48"/>
+                                <rect key="frame" x="90" y="0.0" width="123" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="37"/>
                                 <color key="textColor" red="0.9405895471572876" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="9Cg-ST-CZA">
-                                <rect key="frame" x="34" y="71" width="44" height="46"/>
+                                <rect key="frame" x="34" y="52" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
                                 </accessibility>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="Vlc-Sp-Gth">
-                                <rect key="frame" x="86" y="71" width="44" height="46"/>
+                                <rect key="frame" x="86" y="52" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="iWe-xj-ylf">
-                                <rect key="frame" x="138" y="71" width="44" height="46"/>
+                                <rect key="frame" x="138" y="52" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="MzG-Kl-YNj">
-                                <rect key="frame" x="190" y="71" width="44" height="46"/>
+                                <rect key="frame" x="190" y="52" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="star_default.png" highlightedImage="star_highlighted.png" id="TzW-Rx-gG1">
-                                <rect key="frame" x="242" y="71" width="44" height="46"/>
+                                <rect key="frame" x="242" y="52" width="44" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="e99-ab-KbJ">
-                                <rect key="frame" x="20" y="157" width="280" height="135"/>
+                                <rect key="frame" x="20" y="122" width="280" height="189"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in</string>
@@ -611,7 +607,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Richtige Antwort: Realer Impressionismus" lineBreakMode="tailTruncation" minimumFontSize="10" id="dBs-gx-z5N">
-                                <rect key="frame" x="28" y="137" width="318" height="21"/>
+                                <rect key="frame" x="28" y="104" width="318" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
