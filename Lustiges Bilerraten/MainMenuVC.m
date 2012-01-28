@@ -38,15 +38,6 @@
 
 #pragma mark - View lifecycle
 
-- (void) viewWillAppear:(BOOL)animated{
-    //Set the NavigationControlBar hidden
-    self.navigationController.navigationBarHidden = YES;
-}
-
--(void) viewWillDisappear:(BOOL)animated{
-    //Set the NavigationControlBar hidden
-    self.navigationController.navigationBarHidden = NO;
-}
 
 /*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
