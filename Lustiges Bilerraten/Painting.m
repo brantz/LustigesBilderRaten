@@ -37,6 +37,7 @@
 {	
 	ReverseImageSearch* searchEngine = [ReverseImageSearch alloc];
 	self.nameOfPainting = [searchEngine getInfoOnImage:foto];
+    NSLog(@"findPainting %@",self.nameOfPainting);
     [self readPaintingFromDB];
     
 }
@@ -70,7 +71,7 @@
     sqlite3 *database;
     paintingIsInDB=false;
     // Open the database from the users filessytem
-	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK && self.nameOfPainting.length!=0)
+	if(sqlite3_open([databasePath UTF8String], &database) == SQLITE_OK && self.nameOfPainting.length!=0 && [self.nameOfPainting isEqualToString:@"FFFFFF-"])
 	{
 		// Setup the SQL Statement and compile it for faster access
 		NSMutableString* sqlStatement = [[NSMutableString alloc] initWithString:

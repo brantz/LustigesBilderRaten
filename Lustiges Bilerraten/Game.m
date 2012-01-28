@@ -17,7 +17,7 @@
     self.totalPoints = 0;
     self->picture = pic;
     [self findPainting  ];
-    if(myPainting) {
+    if(myPainting && myPainting.nameOfPainting && self.myPainting.nameOfPainting.length!=0 && [self.myPainting.nameOfPainting isEqualToString:@"FFFFFF-"]) {
     [self newQuestionOfPainting];
     }
     return self;
@@ -41,7 +41,6 @@
     for (Galerie *info in fetchedObjects) {
         nameOfPainting = info.paintingName;
         pictureOfPainting = [UIImage imageWithData:info.paintingImg];
-        NSLog(@"nameofpaa %@", nameOfPainting);
         if(nameOfPainting && pictureOfPainting) {
         [myGallery addPainting:[[Painting alloc] initPaintingWithName:nameOfPainting andPic:pictureOfPainting]andBool:false];
         }
@@ -53,9 +52,10 @@
 -(void) findPainting
 {   
     if(picture) {
-    NSLog(@"picture und ich bin hier %@",picture);
     myPainting = [[Painting alloc] initPaintingWithFoto:picture];
-    [myGallery addPainting:myPainting andBool:true];
+        if(myPainting.nameOfPainting && self.myPainting.nameOfPainting.length!=0 && [self.myPainting.nameOfPainting isEqualToString:@"FFFFFF-"]) {
+                [myGallery addPainting:myPainting andBool:true];
+        }
     }
 }
 -(void) quitGame {
@@ -67,6 +67,7 @@
 }
 
 -(void) nextRound: (int)points andFoto:(UIImage*) foto{
+    myPainting.paintingIsInDB=false;
     totalPoints = totalPoints + points;
     picture = foto;
     [self findPainting];
