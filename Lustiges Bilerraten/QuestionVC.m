@@ -245,6 +245,9 @@
     firstWrongAnswer = [possibleAnswers objectAtIndex:1];
     secondWrongAnswer = [possibleAnswers objectAtIndex:2];
     
+    NSLog(@"----- Right: %@", rightAnswer);
+    NSLog(@"----- Wrong1: %@", firstWrongAnswer);
+    NSLog(@"----- Wrong2: %@", secondWrongAnswer);
     
     int rightAnswerIndex = arc4random() % 2;
     

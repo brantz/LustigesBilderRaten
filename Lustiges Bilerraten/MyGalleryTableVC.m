@@ -39,35 +39,52 @@
     
     NSLog(@"!!!!!!!!!!!!!!!!!!: %i", myGame.myGallery.paintingsArray.count);
     
-    Painting* meinPainting = (Painting*) [myGame.myGallery.paintingsArray objectAtIndex:1];
     
+    //NSString* artStyle -> NSString* paintingName
+    styleArtDic = [[NSMutableArray alloc] init];
+    paintingArray = [[NSMutableArray alloc] init];
+    
+    
+    
+    for (Painting* painting in myGame.myGallery.paintingsArray) {
+            
+        if ( !( [styleArtDic containsObject:painting.styleOfPainting.styleName] ) )
+        {
+            [styleArtDic addObject:painting.styleOfPainting.styleName];
+        }
+                
+        if ( !( [paintingArray containsObject:painting.nameOfPainting] ) )
+        {
+            [paintingArray addObject:painting.nameOfPainting];
+        }
+                
+            
+        }
+    
+    
+    
+    NSLog(@"so viele ArtStyles: %i", styleArtDic.count);
+    NSLog(@"so viele Bilder: %i", paintingArray.count);
+    
+    
+    for (NSString* myString in styleArtDic) {
+        NSLog(@"!!!!!!!!! KEY: %@", myString);
+    }
+    
+    for (NSString* myString in paintingArray) {
+        NSLog(@"!!!!!!!!! VAL: %@", myString);
+    }
+    
+
     UIImage* meinImage;
-    
-
-    
-
-    
     for (Painting* paintingm in myGame.myGallery.paintingsArray) {
         NSLog(@"--");
         meinImage = paintingm.picture;
-        NSLog(@"Object?: %@", meinImage);
+        NSLog(@"Object?: %@", paintingm.nameOfPainting);
         NSLog(@"Width: %f", meinImage.size.width);
         NSLog(@"--");
     }
-    meinImage = meinPainting.picture;
     
-    UIImageView* meinImageView = [[UIImageView alloc] initWithImage:meinImage];
-    [meinImageView sizeToFit];
-    meinImageView.multipleTouchEnabled = YES;
-    meinImageView.userInteractionEnabled = YES;
-    [self.view addSubview:meinImageView];
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -113,36 +130,31 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return styleArtDic.allKeys.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return styleArtDic.allValues.count;
+    int key = styleArtDic.count;
+    int val = paintingArray.count;
+    NSLog(@"______ key: %i val: %i", key, val);
+    int seErgebnis = key + val;
+    return seErgebnis;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSString* artStyle -> NSString* paintingName
-    styleArtDic = [[NSMutableDictionary alloc] init];
+    int thisRow = indexPath.row;
     
+    int keyIndex = styleArtDic.count;
     
-    for (Painting* painting in myGame.myGallery.paintingsArray) {
-            
-        if (styleArtDic.allKeys.count > 0){
-        for (NSString* artStyle in styleArtDic.allKeys) {
-            if ( [painting.styleOfPainting.styleName isEqualToString:artStyle] ){
-                [styleArtDic setValue:painting.nameOfPainting forKey:artStyle];
-            }
-        }
-        }
-            else
-            { 
-                 [styleArtDic setObject:painting.nameOfPainting forKey:painting.styleOfPainting.styleName];
-            }
-        }
+    if ( thisRow == 0
+        || thisRow == styleArtDic
         
+        ) {
+        <#statements#>
+    }
+     
         
     
     
@@ -155,7 +167,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierName];
     }
     
-    cell.textLabel.text = [styleArtDic.allValues objectAtIndex:indexPath.row];
+    cell.textLabel.text = [paintingArray objectAtIndex:thisRow];
     return cell;
 }
 

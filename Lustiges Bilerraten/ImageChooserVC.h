@@ -17,7 +17,6 @@
 }
 
 - (IBAction) takePicture;
-- (void) updatePicturePreview:(UIImage*)image;
 - (void) showQuestion;
 - (void) quitGame;
 
