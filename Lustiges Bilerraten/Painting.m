@@ -15,7 +15,7 @@
 	
 }
  
-@synthesize nameFromSearchQuery, styleOfPainting, artist, picture, year, link, paintingIsInDB;
+@synthesize nameFromSearchQuery, styleOfPainting, artist, picture, year, link, paintingIsInDB, nameOfPainting, nameReal;
 
 
 - (Painting*) initPaintingWithFoto: (UIImage*) foto

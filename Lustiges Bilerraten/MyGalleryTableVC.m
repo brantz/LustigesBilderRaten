@@ -146,7 +146,7 @@
 {
     int thisRow = indexPath.row;
     
-    int keyIndex = styleArtDic.count;
+   // int keyIndex = styleArtDic.count;
     /*
     if ( thisRow == 0
         || thisRow == styleArtDic
@@ -158,7 +158,7 @@
         
     */
     
-    static NSString *CellIdentifier = @"artStyleMGCell";
+    //static NSString *CellIdentifier = @"artStyleMGCell";
     static NSString* CellIdentifierName = @"paintingMGCell";
     
 
