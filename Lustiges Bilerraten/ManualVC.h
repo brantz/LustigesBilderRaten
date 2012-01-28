@@ -10,9 +10,10 @@
 
 @class ManualVC;
 
-@interface ManualVC : UIViewController{
+@interface ManualVC : UIViewController
+{
 }
-
+- (IBAction)backToGame:(id)sender;
 
 
 @end

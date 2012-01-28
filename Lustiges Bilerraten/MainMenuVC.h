@@ -17,4 +17,6 @@
 
 @property (nonatomic, strong) Game* myGame;
 
+- (IBAction)goToManual:(id)sender;
+
 @end

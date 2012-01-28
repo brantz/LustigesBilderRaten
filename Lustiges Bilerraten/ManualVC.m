@@ -57,4 +57,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)backToGame:(id)sender
+{
+	[self dismissModalViewControllerAnimated:YES];
+}
+
 @end

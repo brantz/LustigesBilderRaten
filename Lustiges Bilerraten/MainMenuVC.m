@@ -9,6 +9,7 @@
 #import "MainMenuVC.h"
 #import "Game.h"
 #import "ImageChooserVC.h"
+#import "ManualVC.h"
 
 @implementation MainMenuVC
 
@@ -98,4 +99,10 @@
 }
 
 
+- (IBAction)goToManual:(id)sender
+{
+	ManualVC *manualVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ManualView"];
+	
+	[self.navigationController presentModalViewController:manualVC animated:YES];
+}
 @end
