@@ -13,7 +13,7 @@
 
 -(Question*) initQuestionWith: (Painting*) paint{
     self->painting = paint;
-    self->allAnswer = [NSArray arrayWithObjects:@"Abstrakte Malerei",@"Abstrakter Expressionismus",@"Barock",@"Dadaismus",@"Expressionismus",@"Fauvismus, die Fauves",@"Futurismus",@"Gotik & Gotische Malerei",@"Impressionismus",@"Jugendstil",@"Konstruktivismus",@"Kubismus",@"Manierismus",@"Naive Malerei",@"Naturalismus",@"Neoplastizismus",@"Neue Figuration",@"Neue Sachlichkeit",@"opart op art",@"Orphismus",@"Pop Art Popart",@"Realismus",@"Renaicance",@"Rokoko",@"Romanik & romanische Malerei",@"Romantik",@"Surrealismus",@"Symbolismus",nil];
+    self->allAnswer = [NSArray arrayWithObjects:@"Abstrakte Malerei",@"Abstrakter Expressionismus",@"Barock",@"Dadaismus",@"Expressionismus",@"Fauvismus, die Fauves",@"Futurismus",@"Gotik & Gotische Malerei",@"Impressionismus",@"Jugendstil",@"Konstruktivismus",@"Kubismus",@"Manierismus",@"Naive Malerei",@"Naturalismus",@"Neoplastizismus",@"Neue Figuration",@"Neue Sachlichkeit",@"opart op art",@"Orphismus",@"Pop Art  ",@"Realismus",@"Renaicance",@"Rokoko",@"Romanik & romanische Malerei",@"Romantik",@"Surrealismus",@"Symbolismus",nil];
     [self generateAnswerPossibilities];
     [self generateHints];
     return self;
