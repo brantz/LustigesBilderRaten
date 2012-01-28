@@ -14,7 +14,8 @@
     NSTimer* timer;
     float duration;
     
-    NSMutableDictionary* styleArtDic;
+    NSMutableArray* styleArtDic;
+    NSMutableArray* paintingArray;
 }
 
 @property (nonatomic, strong) Game* myGame;

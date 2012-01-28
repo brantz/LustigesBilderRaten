@@ -85,7 +85,7 @@
     
     self.navigationItem.leftBarButtonItem = menuBarButton;
     self.navigationItem.rightBarButtonItem = nextBarButton;
-    [self.navigationItem.rightBarButtonItem setEnabled:YES];
+    [self.navigationItem.rightBarButtonItem setEnabled:NO];
 }
 
 - (void)viewDidUnload
@@ -109,9 +109,9 @@
 {
 
     if (! (myGame.myPainting.paintingIsInDB)){
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
         UIAlertView* matchError = [[UIAlertView alloc] initWithTitle:@"Bild nicht gefunden" message:@"Leider konnten wir deinem Foto kein Bild zuweisen. Bitte versuche es erneut" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [matchError show];
-        [self.navigationItem.rightBarButtonItem setEnabled:NO];
     }
     else
     {
@@ -169,6 +169,8 @@
 {
 	self.selectedImage = image;
 	
+    [self.navigationItem.rightBarButtonItem setEnabled:YES];
+    
 	//adjust width of peviewImageView
 	float imageWidthResized = image.size.width * (198.0 / image.size.height);
 	CGRect bounds = CGRectMake((self.view.bounds.size.width - imageWidthResized) / 2.0, 109.0, imageWidthResized, 196.0);
