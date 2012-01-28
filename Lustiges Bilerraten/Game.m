@@ -56,7 +56,7 @@
 {   
     if(picture) {
     myPainting = [[Painting alloc] initPaintingWithFoto:picture];
-        if(myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && [self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
+        if(myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && ![self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
 		{
                 [myGallery addPainting:myPainting andBool:true];
         }
