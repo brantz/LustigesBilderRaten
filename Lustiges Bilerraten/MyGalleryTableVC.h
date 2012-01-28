@@ -13,11 +13,15 @@
     
     NSTimer* timer;
     float duration;
+    NSString* prevStyle;
     
     NSMutableArray* styleArtDic;
     NSMutableArray* paintingArray;
+    NSMutableArray* integratedArray;
 }
 
 @property (nonatomic, strong) Game* myGame;
+
+- (NSMutableArray*) arrayMagic: (NSMutableArray*) inputArray;
 
 @end

@@ -43,35 +43,23 @@
     //NSString* artStyle -> NSString* paintingName
     styleArtDic = [[NSMutableArray alloc] init];
     paintingArray = [[NSMutableArray alloc] init];
-    
+    integratedArray = [[NSMutableArray alloc] init];
+
     
     
     for (Painting* painting in myGame.myGallery.paintingsArray) {
-            
-        if ( !( [styleArtDic containsObject:painting.styleOfPainting.styleName] ) )
-        {
-            [styleArtDic addObject:painting.styleOfPainting.styleName];
+            [styleArtDic addObject:
+             [NSString stringWithFormat:@"%@;%@", painting.styleOfPainting.styleName, painting.nameReal]
+              ];
         }
-                
-        if ( !( [paintingArray containsObject:painting.nameReal] ) )
-        {
-            [paintingArray addObject:painting.nameReal];
-        }
-                
-            
-        }
-    
-    
-    
-    NSLog(@"so viele ArtStyles: %i", styleArtDic.count);
-    NSLog(@"so viele Bilder: %i", paintingArray.count);
-    
+
+    //sorting
+    for (NSString* test in styleArtDic) {
+        NSLog(@"---- %@", test);
+    }
+    styleArtDic = [self arrayMagic:styleArtDic];
     
     for (NSString* myString in styleArtDic) {
-        NSLog(@"!!!!!!!!! KEY: %@", myString);
-    }
-    
-    for (NSString* myString in paintingArray) {
         NSLog(@"!!!!!!!!! VAL: %@", myString);
     }
     
@@ -125,6 +113,33 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark Array Adjustments for Cells
+
+- (NSMutableArray*) arrayMagic: (NSMutableArray*) inputArray{
+    
+    NSMutableArray* tempArray = [[NSMutableArray alloc] initWithArray:inputArray];    
+
+    tempArray = (NSMutableArray*) [styleArtDic sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    NSMutableArray* outputArray = [[NSMutableArray alloc] init];
+    
+    NSString* alterLump;
+    for (NSString* myString in tempArray) {
+        NSMutableArray* sepArray = (NSMutableArray*) [myString componentsSeparatedByString:@";"];
+        
+        NSString* styleString = [sepArray objectAtIndex:0];
+        NSString* paintString = [sepArray objectAtIndex:1];
+        
+        if ( !( [styleString isEqualToString:alterLump] ) ) {
+            [outputArray addObject: [NSString stringWithFormat:@";%@", styleString] ];
+            alterLump = styleString;
+        }
+        [outputArray addObject:paintString];
+    }
+    
+    return outputArray;
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -135,40 +150,41 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int key = styleArtDic.count;
-    int val = paintingArray.count;
-    NSLog(@"______ key: %i val: %i", key, val);
-    int seErgebnis = key + val;
-    return seErgebnis;
+        return styleArtDic.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     int thisRow = indexPath.row;
-    
-   // int keyIndex = styleArtDic.count;
-    /*
-    if ( thisRow == 0
-        || thisRow == styleArtDic
-        
-        ) {
-        <#statements#>
-    }
-     
-        
-    */
-    
-    //static NSString *CellIdentifier = @"artStyleMGCell";
-    static NSString* CellIdentifierName = @"paintingMGCell";
-    
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierName];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierName];
+    if ( [[styleArtDic objectAtIndex:thisRow] hasPrefix:@";"] )
+        {
+        NSString* myArt = [[[styleArtDic objectAtIndex:thisRow] 
+                                componentsSeparatedByString:@";"] objectAtIndex:1];
+        static NSString *CellIdentifier = @"artStyleMGCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            }
+            
+            UILabel* myArtLabel = (UILabel*) [cell viewWithTag:100];
+            myArtLabel.text = myArt;
+            cell.backgroundColor = [UIColor blueColor];
+            
+        return cell;
+
+        }
+    else 
+        {
+        static NSString* CellIdentifierName = @"paintingMGCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifierName];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierName];
+        }
+        cell.textLabel.text = [styleArtDic objectAtIndex:thisRow];
+        return cell;
     }
     
-    cell.textLabel.text = [paintingArray objectAtIndex:thisRow];
-    return cell;
 }
 
 
