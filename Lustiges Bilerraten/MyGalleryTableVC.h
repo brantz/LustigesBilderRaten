@@ -23,6 +23,6 @@
 @property (nonatomic, strong) Game* myGame;
 
 - (NSMutableArray*) arrayMagic: (NSMutableArray*) inputArray;
-- (void) showWebView: (id) someObject;
+- (void) showWebView;
 
 @end
