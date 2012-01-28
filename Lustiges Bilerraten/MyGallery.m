@@ -18,7 +18,7 @@
     if(coreData) {
         NSLog(@"mit core data");
     NSData *imageData = UIImagePNGRepresentation(painting.picture);
-    myGallery.paintingName = painting.nameOfPainting;
+    myGallery.paintingName = painting.nameReal;
     myGallery.paintingImg = imageData;
     NSError *error;
     if (![context save:&error]) {

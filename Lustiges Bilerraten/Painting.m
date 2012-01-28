@@ -15,7 +15,7 @@
 	
 }
  
-@synthesize nameFromSearchQuery, styleOfPainting, artist, picture, year, link, paintingIsInDB, nameOfPainting, nameReal;
+@synthesize nameFromSearchQuery, styleOfPainting, artist, picture, year, link, paintingIsInDB, nameReal;
 
 
 - (Painting*) initPaintingWithFoto: (UIImage*) foto
@@ -41,7 +41,9 @@
     
 }
 
--(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle andYear: (NSString*) myYear andLink: (NSString*) myLink andName: (NSString*) myName
+-(void) initFromDataBase:(NSString*) myArtist andStyle: (NSString*) myStyle 
+				 andYear: (NSString*) myYear andLink: (NSString*) myLink 
+				 andName: (NSString*) myName
 {
     self.artist = myArtist;
     self.year = myYear;

@@ -53,9 +53,9 @@
             [styleArtDic addObject:painting.styleOfPainting.styleName];
         }
                 
-        if ( !( [paintingArray containsObject:painting.nameOfPainting] ) )
+        if ( !( [paintingArray containsObject:painting.nameReal] ) )
         {
-            [paintingArray addObject:painting.nameOfPainting];
+            [paintingArray addObject:painting.nameReal];
         }
                 
             
@@ -80,7 +80,7 @@
     for (Painting* paintingm in myGame.myGallery.paintingsArray) {
         NSLog(@"--");
         meinImage = paintingm.picture;
-        NSLog(@"Object?: %@", paintingm.nameOfPainting);
+        NSLog(@"Object?: %@", paintingm.nameReal);
         NSLog(@"Width: %f", meinImage.size.width);
         NSLog(@"--");
     }

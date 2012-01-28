@@ -12,22 +12,25 @@
 @implementation Game
 @synthesize myPainting,totalPoints,question,myGallery;
 
--(Game*) initGameWithPic: (UIImage*) pic {
+-(Game*) initGameWithPic: (UIImage*) pic
+{
     myGallery = [[MyGallery alloc]initWith];
     self.totalPoints = 0;
     self->picture = pic;
     [self findPainting  ];
-    if(myPainting && myPainting.nameOfPainting && self.myPainting.nameOfPainting.length!=0 && [self.myPainting.nameOfPainting isEqualToString:@"FFFFFF-"]) {
+    if(myPainting && myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && ![self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
+	{
     [self newQuestionOfPainting];
     }
     return self;
 }
 
 //um die bereits gespielten bilder in die Galerie zu laden
--(void) getPaintingsFromCoreData{
+-(void) getPaintingsFromCoreData
+{
     NSLog(@"getPaintingsfromcoredata");
     NSError *error;
-    NSString* nameOfPainting;
+    NSString* nameReal;
     UIImage* pictureOfPainting;
     NSManagedObjectContext* context;
     PEMAppDelegate* appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -38,22 +41,23 @@
     
     NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
     
-    for (Galerie *info in fetchedObjects) {
-        nameOfPainting = info.paintingName;
+    for (Galerie *info in fetchedObjects)
+	{
+        nameReal = info.paintingName;
         pictureOfPainting = [UIImage imageWithData:info.paintingImg];
-        if(nameOfPainting && pictureOfPainting) {
-        [myGallery addPainting:[[Painting alloc] initPaintingWithName:nameOfPainting andPic:pictureOfPainting]andBool:false];
+        if(nameReal && pictureOfPainting)
+		{
+        [myGallery addPainting:[[Painting alloc] initPaintingWithName:nameReal andPic:pictureOfPainting]andBool:false];
         }
     }    
-    
-   
 }
 
 -(void) findPainting
 {   
     if(picture) {
     myPainting = [[Painting alloc] initPaintingWithFoto:picture];
-        if(myPainting.nameOfPainting && self.myPainting.nameOfPainting.length!=0 && [self.myPainting.nameOfPainting isEqualToString:@"FFFFFF-"]) {
+        if(myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && [self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
+		{
                 [myGallery addPainting:myPainting andBool:true];
         }
     }

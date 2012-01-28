@@ -25,7 +25,6 @@
 
 @property(nonatomic, strong) NSString* nameFromSearchQuery;
 @property(nonatomic, strong) NSString* nameReal;
-@property(nonatomic, strong) NSString* nameOfPainting;
 @property(nonatomic, strong) ArtStyle* styleOfPainting;
 @property(nonatomic, strong) NSString* artist;
 @property (nonatomic, strong)UIImage* picture;
