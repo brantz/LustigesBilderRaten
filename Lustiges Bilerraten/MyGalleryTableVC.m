@@ -137,6 +137,8 @@
 
 #pragma mark - Table view delegate
 
+//TODO: Add UIPinchGestureRecognizer for painting view
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UIViewController *detailViewController = [[UIViewController alloc] init];
@@ -168,7 +170,23 @@
         
         
     } else {
-        NSLog(@"Faaaaalsch: %@", [rowIndexDic objectForKey:indexPath]);
+        
+        Painting* myGalPainting = (Painting*) [rowIndexDic objectForKey:indexPath];
+        
+        UIImageView* bigImageOfPainting = [[UIImageView alloc] init];
+        
+        CGRect bigPaintingViewFrame =  [[UIScreen mainScreen] bounds];
+        UIImage* bigImage = myGalPainting.picture;
+        
+        [bigImageOfPainting setFrame:bigPaintingViewFrame];
+        [bigImageOfPainting setImage:bigImage];
+        [bigImageOfPainting setMultipleTouchEnabled:YES];
+        [bigImageOfPainting setContentMode:UIViewContentModeScaleAspectFit];
+        [bigImageOfPainting setUserInteractionEnabled:YES];
+        [bigImageOfPainting setClipsToBounds:YES];
+        
+        [detailViewController.view addSubview:bigImageOfPainting];
+        
     }
     
     [self.navigationController pushViewController:detailViewController animated:YES];
