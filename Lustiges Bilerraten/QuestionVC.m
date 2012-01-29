@@ -92,7 +92,6 @@
             [self quitGame];
             break;
         case 1:{
-            NSLog(@"AnleitungsButton");
 			ManualVC *manualVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ManualView"];
             [self.navigationController presentModalViewController:manualVC animated:YES];
 			//[self.navigationController pushViewController:manualVC animated:YES];
@@ -100,7 +99,6 @@
             break;
         }
         case 2:{
-            NSLog(@"MeineGalerieButton");
 			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
             galleryVC.myGame = myGame;
 			[self.navigationController pushViewController:galleryVC animated:YES];
@@ -108,7 +106,6 @@
             break;
 		}
 		case 3:{
-			NSLog(@"EinstellungsButton");
 			SettingsVC *settingsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsView"];
 			[self.navigationController pushViewController:settingsVC animated:YES];
 			break;
@@ -210,7 +207,6 @@
     } else if( [questionID isEqualToString:@"c"]){
         return firstQuestionButton.titleLabel.text;
     } else {
-        NSLog(@"No QuestionID matching");
         return @"wrongID";
     }
 }
@@ -248,10 +244,6 @@
     rightAnswer = [possibleAnswers objectAtIndex:0];
     firstWrongAnswer = [possibleAnswers objectAtIndex:1];
     secondWrongAnswer = [possibleAnswers objectAtIndex:2];
-    
-    NSLog(@"----- Right: %@", rightAnswer);
-    NSLog(@"----- Wrong1: %@", firstWrongAnswer);
-    NSLog(@"----- Wrong2: %@", secondWrongAnswer);
     
     int rightAnswerIndex = arc4random() % 2;
     

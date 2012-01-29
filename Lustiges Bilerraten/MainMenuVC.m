@@ -32,33 +32,23 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - Main to Gallery
 
 
 
 #pragma mark - View lifecycle
 
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad
-{
+- (void) viewDidLoad{
     [super viewDidLoad];
-    //Set the NavigationControlBar hidden
+    
+    myGame = [[Game alloc] initGameWithPic:nil];
+    [myGame getPaintingsFromCoreData];
 }
 
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+- (void) viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self becomeFirstResponder];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -75,8 +65,6 @@
     
     if ( [[segue identifier] isEqualToString:@"newGameSegue"] && !gameIsRunning ) {
         //Create new game
-        myGame = [[Game alloc] initGameWithPic:nil];
-        [myGame getPaintingsFromCoreData];
         ImageChooserVC* imageChooser = (ImageChooserVC*) [segue destinationViewController];
         imageChooser.myGame = myGame;
         
@@ -96,4 +84,37 @@
 	
 	[self.navigationController presentModalViewController:manualVC animated:YES];
 }
+
+
+#pragma mark Shake Gesture
+
+
+- (BOOL) canBecomeFirstResponder{
+    return YES;
+}
+
+- (void) motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    
+    if (motion == UIEventSubtypeMotionShake) {
+        UIAlertView* shakeAlert = [[UIAlertView alloc] initWithTitle:@"Spiel zurücksetzen" message:@"Willst du das Spiel wirklich zurücksetzen? Alle gespielten Bilder gehen dabei verloren." delegate:self cancelButtonTitle:@"Ja" otherButtonTitles:@"Nein", nil];
+        [shakeAlert show];
+    }
+    
+}
+
+//TODO: Implementation of gallery reset
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"Ja");
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
 @end

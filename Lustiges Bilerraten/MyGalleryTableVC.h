@@ -12,11 +12,17 @@
 @interface MyGalleryTableVC : UITableViewController{
     
     NSMutableArray* styleArtDic;
+    NSMutableDictionary* rowDic;
+    NSMutableDictionary* rowIndexDic;
+    NSMutableArray* rowsWithStyle;
 
+    ArtStyle* tempArtStyle;
+    
 }
 
 @property (nonatomic, strong) Game* myGame;
 
 - (NSMutableArray*) arrayMagic: (NSMutableArray*) inputArray;
+- (void) showWebView;
 
 @end

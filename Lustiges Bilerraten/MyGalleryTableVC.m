@@ -8,6 +8,7 @@
 
 #import "MyGalleryTableVC.h"
 #import "Painting.h"
+#import "WebVC.h"
 
 
 @implementation MyGalleryTableVC
@@ -22,13 +23,6 @@
     return self;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
 
 #pragma mark - View lifecycle
 
@@ -37,45 +31,21 @@
     [super viewDidLoad];
     
     styleArtDic = [[NSMutableArray alloc] init];
+    rowDic = [[NSMutableDictionary alloc] init];
+    rowIndexDic = [[NSMutableDictionary alloc] init];
+    rowsWithStyle = [[NSMutableArray alloc] init];
+    
     for (Painting* painting in myGame.myGallery.paintingsArray) {
             [styleArtDic addObject:
              [NSString stringWithFormat:@"%@;%@", painting.styleOfPainting.styleName, painting.nameReal]
               ];
+        [rowDic setObject:painting.styleOfPainting forKey:painting.styleOfPainting.styleName];
+        [rowDic setObject:painting forKey:painting.nameReal];
+        
         }
     styleArtDic = [self arrayMagic:styleArtDic];
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    //Set the NavigationControlBar visible
-    self.navigationController.navigationBarHidden = YES;
-    
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    
-    [super viewWillAppear:animated];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -93,6 +63,7 @@
     NSMutableArray* outputArray = [[NSMutableArray alloc] init];
     
     NSString* alterLump;
+    NSString* altesBild;
     for (NSString* myString in tempArray) {
         NSMutableArray* sepArray = (NSMutableArray*) [myString componentsSeparatedByString:@";"];
         
@@ -103,18 +74,19 @@
             [outputArray addObject: [NSString stringWithFormat:@";%@", styleString] ];
             alterLump = styleString;
         }
+        if ( !([paintString isEqualToString:altesBild]) ){
         [outputArray addObject:paintString];
+            altesBild = paintString;
+        }
     }
     
     return outputArray;
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
@@ -131,17 +103,17 @@
         {
         NSString* myArt = [[[styleArtDic objectAtIndex:thisRow] 
                                 componentsSeparatedByString:@";"] objectAtIndex:1];
+        [rowIndexDic setObject:[rowDic valueForKey:myArt] forKey: indexPath];
+            
         static NSString *CellIdentifier = @"artStyleMGCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             }
-            
             UILabel* myArtLabel = (UILabel*) [cell viewWithTag:100];
             myArtLabel.text = myArt;
             cell.backgroundColor = [UIColor blueColor];
-            
-        return cell;
+            return cell;
 
         }
     else 
@@ -152,63 +124,83 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifierName];
         }
         cell.textLabel.text = [styleArtDic objectAtIndex:thisRow];
+        [rowIndexDic setObject:[rowDic valueForKey:[styleArtDic objectAtIndex:thisRow]] forKey: indexPath];
         return cell;
     }
     
 }
 
 
-/*
-// Override to support conditional editing of the table view.
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
+//TODO: Add UIPinchGestureRecognizer for painting view
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UIViewController *detailViewController = [[UIViewController alloc] init];
+
+    if ( [[rowIndexDic objectForKey:indexPath] isKindOfClass:[ArtStyle class]] ){
+        
+        tempArtStyle = (ArtStyle*) [rowIndexDic objectForKey:indexPath];
+        
+        CGRect infoTextFrame = CGRectMake(0, 0, 320, 350);
+        CGRect moreInfoButtonFrame = CGRectMake(77, 360, 166, 37);
+        
+        UITextView* bigInfoText = [[UITextView alloc] initWithFrame:infoTextFrame];
+        UIButton* moreInfoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        
+        [moreInfoButton setFrame:moreInfoButtonFrame];
+        [bigInfoText setFont:[UIFont systemFontOfSize:14]];
+        
+        [bigInfoText setText:tempArtStyle.infoText];
+        [moreInfoButton setTitle:@"Mehr Informationen" forState:UIControlStateNormal];
+        
+        [detailViewController.view addSubview:bigInfoText];
+        [detailViewController.view addSubview:moreInfoButton];
+        [detailViewController setTitle:tempArtStyle.styleName];
+        
+        [detailViewController.view setBackgroundColor:[UIColor whiteColor]];
+        
+        
+        [moreInfoButton addTarget:self action:@selector(showWebView) forControlEvents:UIControlEventTouchUpInside];
+        
+        
+    } else {
+        
+        Painting* myGalPainting = (Painting*) [rowIndexDic objectForKey:indexPath];
+        
+        UIImageView* bigImageOfPainting = [[UIImageView alloc] init];
+        
+        CGRect bigPaintingViewFrame =  [[UIScreen mainScreen] bounds];
+        UIImage* bigImage = myGalPainting.picture;
+        
+        [bigImageOfPainting setFrame:bigPaintingViewFrame];
+        [bigImageOfPainting setImage:bigImage];
+        [bigImageOfPainting setMultipleTouchEnabled:YES];
+        [bigImageOfPainting setContentMode:UIViewContentModeScaleAspectFit];
+        [bigImageOfPainting setUserInteractionEnabled:YES];
+        [bigImageOfPainting setClipsToBounds:YES];
+        
+        [detailViewController.view addSubview:bigImageOfPainting];
+        
+    }
     
-    // Navigation logic may go here. Create and push another view controller.
-    
-     UITableViewController *detailViewController = [[UITableViewController alloc] init];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     
+    [self.navigationController pushViewController:detailViewController animated:YES];
+
+}
+
+- (void) showWebView{
+    WebVC *moreInfoWebVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MoreInfoWebVC"];
+	moreInfoWebVC.infoUrl = [[NSURL alloc] initWithString:tempArtStyle.moreInfoLink];
+	moreInfoWebVC.barTitle = tempArtStyle.styleName;
+	[self.navigationController presentModalViewController:moreInfoWebVC animated:YES];
 }
 
 @end

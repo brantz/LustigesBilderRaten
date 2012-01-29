@@ -44,7 +44,6 @@
 {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
-    NSLog(@"!!!!!!!!!!!!!!!!!!!!! %@", [NSString stringWithFormat:@"%i", myGame.totalPoints]);
     [pointsLabel setText: [NSString stringWithFormat:@"%i", myGame.totalPoints] ];
     
 }
