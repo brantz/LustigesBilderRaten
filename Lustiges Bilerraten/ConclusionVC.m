@@ -95,12 +95,10 @@
     switch (buttonIndex)
 	{
         case 0:
-			NSLog(@"SpielBeendenButton");
             [self quitGame];
             break;
         case 1:
 		{
-            NSLog(@"MeineGalerieButton");
 			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
 			[self.navigationController pushViewController:galleryVC animated:YES];
             break;

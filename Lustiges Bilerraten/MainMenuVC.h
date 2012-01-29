@@ -10,7 +10,7 @@
 #import "MyGalleryTableVC.h"
 #import "Game.h"
     
-@interface MainMenuVC : UIViewController
+@interface MainMenuVC : UIViewController<UIAlertViewDelegate>
 {
     BOOL gameIsRunning;
 }

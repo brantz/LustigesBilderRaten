@@ -39,7 +39,6 @@
             [styleArtDic addObject:
              [NSString stringWithFormat:@"%@;%@", painting.styleOfPainting.styleName, painting.nameReal]
               ];
-        NSLog(@"2. Value: %@ and Key: %@",painting, painting.nameReal );
         [rowDic setObject:painting.styleOfPainting forKey:painting.styleOfPainting.styleName];
         [rowDic setObject:painting forKey:painting.nameReal];
         
