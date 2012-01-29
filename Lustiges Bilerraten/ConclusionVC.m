@@ -14,7 +14,7 @@
 
 @implementation ConclusionVC
 
-@synthesize myGame, answerIsRight, pointsInRound, imagePicker;
+@synthesize myGame, answerIsRight, pointsInRound, imagePicker,navTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,6 +57,7 @@
     UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" 
 				style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
+    self.navigationItem.title = navTitle;
     self.navigationItem.leftBarButtonItem = menuBarButton;
     
     if(answerIsRight)

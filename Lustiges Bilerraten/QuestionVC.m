@@ -55,7 +55,7 @@
     //Generate a Menu Button for the Navigation Bar
     UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
     
-	self.navigationItem.title = @"Quizz";
+	self.navigationItem.title = myGame.myPainting.nameReal;
     self.navigationItem.leftBarButtonItem = menuBarButton;
             
     [self progressAnimater];
@@ -169,10 +169,14 @@
     
     if ( [self getQuestionIDWithTag: [sender tag] ] == rightChoice){
         myConclusion.answerIsRight = YES;
+        myConclusion.navTitle = rightAnswer;
         myConclusion.pointsInRound = pointsInRound;
+        
     }
-    else 
+    else {
             myConclusion.answerIsRight = NO;
+            myConclusion.navTitle=@"Leider falsche Antwort!";
+    }
     
     
     [self.navigationController pushViewController:myConclusion animated:YES];

@@ -31,6 +31,7 @@
 @property BOOL answerIsRight;
 @property float pointsInRound;
 @property (nonatomic, retain) CustomImagePickerController* imagePicker;
+@property (nonatomic, retain) NSString* navTitle;
 
 
 - (void) showMenu;
