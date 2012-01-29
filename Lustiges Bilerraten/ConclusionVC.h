@@ -33,7 +33,6 @@
 @property (nonatomic, retain) CustomImagePickerController* imagePicker;
 @property (nonatomic, retain) NSString* navTitle;
 
-
 - (void) showMenu;
 - (void) setupRightAnswerView;
 - (void) setupWrongAnswerView;

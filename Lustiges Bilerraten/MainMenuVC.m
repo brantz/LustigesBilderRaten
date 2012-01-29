@@ -69,12 +69,6 @@
         imageChooser.myGame = myGame;
         
     }
-    if ( [[segue identifier] isEqualToString:@"menuToMG"] ) {
-        
-        MyGalleryTableVC* myGallery = (MyGalleryTableVC*) [segue destinationViewController];
-        myGallery.myGame = myGame;
-        
-    }
 }
 
 
@@ -83,6 +77,13 @@
 	ManualVC *manualVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ManualView"];
 	
 	[self.navigationController presentModalViewController:manualVC animated:YES];
+}
+
+- (IBAction)goToGallery:(id)sender
+{
+	MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+	galleryVC.myGame = myGame;
+	[self.navigationController presentModalViewController:galleryVC animated:YES];
 }
 
 

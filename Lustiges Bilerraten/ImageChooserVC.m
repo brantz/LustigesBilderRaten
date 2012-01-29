@@ -59,6 +59,7 @@
         case 2:
 		{
             MyGalleryTableVC *myGallery = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+			myGallery.myGame = myGame;
             [self.navigationController presentModalViewController:myGallery animated:YES];
             break;
 		}
