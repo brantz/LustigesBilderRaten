@@ -9,9 +9,6 @@
 #import "QuestionVC.h"
 #import "MainMenuVC.h"
 #import "GameOverVC.h"
-#import "ManualVC.h"
-#import "MyGallery.h"
-#import "SettingsVC.h"
 #import "Question.h"
 #import "ConclusionVC.h"
 
@@ -52,11 +49,8 @@
     [super viewDidLoad];
     
     self.navigationItem.hidesBackButton = YES;
-    //Generate a Menu Button for the Navigation Bar
-    UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Menü" style:UIBarButtonItemStylePlain target:self action:@selector(showMenu)];
-    
+        
 	self.navigationItem.title = @"Quizz";
-    self.navigationItem.leftBarButtonItem = menuBarButton;
             
     [self progressAnimater];
     [self setupQuestions];
@@ -75,47 +69,6 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-- (void) showMenu{
-    UIActionSheet* gameMenu = [[UIActionSheet alloc] initWithTitle:@""
-                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Anleitung", @"Meine Galerie", @"Einstellungen", nil];
-    
-    [gameMenu showInView:self.view];
-    
-}
-
-- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    
-    switch (buttonIndex) {
-        case 0:
-            [self quitGame];
-            break;
-        case 1:{
-            NSLog(@"AnleitungsButton");
-			ManualVC *manualVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ManualView"];
-            [self.navigationController presentModalViewController:manualVC animated:YES];
-			//[self.navigationController pushViewController:manualVC animated:YES];
-           // manualVC.navigationController.mod
-            break;
-        }
-        case 2:{
-            NSLog(@"MeineGalerieButton");
-			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
-            galleryVC.myGame = myGame;
-			[self.navigationController pushViewController:galleryVC animated:YES];
-            
-            break;
-		}
-		case 3:{
-			NSLog(@"EinstellungsButton");
-			SettingsVC *settingsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsView"];
-			[self.navigationController pushViewController:settingsVC animated:YES];
-			break;
-		}
-        default:
-            break;
-    }
 }
 
 - (void) quitGame{

@@ -102,7 +102,7 @@
 		{
             NSLog(@"MeineGalerieButton");
 			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
-			[self.navigationController pushViewController:galleryVC animated:YES];
+			[self.navigationController presentModalViewController:galleryVC animated:YES];
             break;
 		}
         default:

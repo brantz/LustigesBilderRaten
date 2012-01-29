@@ -9,6 +9,7 @@
 #import "ImageChooserVC.h"
 #import "QuestionVC.h"
 #import "GameOverVC.h"
+#import "MyGalleryTableVC.h"
 
 @implementation ImageChooserVC
 
@@ -56,8 +57,11 @@
             [self.navigationController popViewControllerAnimated:YES];
             break;
         case 2:
-            NSLog(@"3");
+		{
+            MyGalleryTableVC *myGallery = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+            [self.navigationController presentModalViewController:myGallery animated:YES];
             break;
+		}
         default:
             break;
     }
