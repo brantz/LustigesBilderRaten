@@ -131,9 +131,6 @@
 
 #pragma mark - Setup Conclusion View
 
-
-//TODO: Setup More Information button push
-
 - (void) setupRightAnswerView
 {
     //Setup Headline

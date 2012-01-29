@@ -32,12 +32,18 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - Main to Gallery
 
 
 
 #pragma mark - View lifecycle
 
+
+- (void) viewDidLoad{
+    [super viewDidLoad];
+    
+    myGame = [[Game alloc] initGameWithPic:nil];
+    [myGame getPaintingsFromCoreData];
+}
 
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -59,8 +65,6 @@
     
     if ( [[segue identifier] isEqualToString:@"newGameSegue"] && !gameIsRunning ) {
         //Create new game
-        myGame = [[Game alloc] initGameWithPic:nil];
-        [myGame getPaintingsFromCoreData];
         ImageChooserVC* imageChooser = (ImageChooserVC*) [segue destinationViewController];
         imageChooser.myGame = myGame;
         
@@ -110,7 +114,6 @@
         default:
             break;
     }
-    
 }
 
 
