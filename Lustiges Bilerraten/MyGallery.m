@@ -11,21 +11,23 @@
 @implementation MyGallery
 @synthesize paintingsArray;
 
-- (void) addPainting:(Painting*) painting andBool:(BOOL)coreData{
-    [paintingsArray addObject:painting];
-    NSLog(@"???????????????????????array count %i",paintingsArray.count );
+- (void) addPainting:(Painting*) painting andBool:(BOOL)coreData
+{
+	[paintingsArray addObject:painting];
+	NSLog(@"???????????????????????array count %i",paintingsArray.count );
     
-    if(coreData) {
-        NSLog(@"mit core data");
-    NSData *imageData = UIImagePNGRepresentation(painting.picture);
-    myGallery.paintingName = painting.nameReal;
-    myGallery.paintingImg = imageData;
-    NSError *error;
-    if (![context save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    }
-    
+	if(coreData)
+	{
+		NSLog(@"mit core data");
+		NSData *imageData = UIImagePNGRepresentation(painting.picture);
+		myGallery.paintingName = painting.nameReal;
+		myGallery.paintingImg = imageData;
+		NSError *error;
+		if (![context save:&error])
+		{
+			NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+		}
+	}
 }
 
 - (MyGallery*) initWith {

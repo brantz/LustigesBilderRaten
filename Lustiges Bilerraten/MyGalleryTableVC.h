@@ -15,7 +15,7 @@
     NSMutableDictionary* rowDic;
     NSMutableDictionary* rowIndexDic;
     NSMutableArray* rowsWithStyle;
-
+	UINavigationBar* navBar;
     ArtStyle* tempArtStyle;
     
 }
@@ -24,5 +24,8 @@
 
 - (NSMutableArray*) arrayMagic: (NSMutableArray*) inputArray;
 - (void) showWebView;
+- (IBAction)backToGame;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *back;
+- (IBAction)back:(id)sender;
 
 @end

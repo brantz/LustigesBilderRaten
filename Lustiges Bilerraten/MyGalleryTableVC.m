@@ -12,6 +12,7 @@
 
 
 @implementation MyGalleryTableVC
+@synthesize back;
 
 @synthesize myGame;
 
@@ -44,6 +45,10 @@
         
         }
     styleArtDic = [self arrayMagic:styleArtDic];
+	UIBarButtonItem* menuBarButton = [[UIBarButtonItem alloc] initWithTitle:@"Zurück" 
+																	  style:UIBarButtonItemStylePlain target:self action:@selector(backToGame)];
+    self.navigationItem.title = @"Galerie";
+    self.navigationItem.leftBarButtonItem = menuBarButton;
 }
 
 
@@ -63,7 +68,6 @@
     NSMutableArray* outputArray = [[NSMutableArray alloc] init];
     
     NSString* alterLump;
-    NSString* altesBild;
     for (NSString* myString in tempArray) {
         NSMutableArray* sepArray = (NSMutableArray*) [myString componentsSeparatedByString:@";"];
         
@@ -74,10 +78,7 @@
             [outputArray addObject: [NSString stringWithFormat:@";%@", styleString] ];
             alterLump = styleString;
         }
-        if ( !([paintString isEqualToString:altesBild]) ){
         [outputArray addObject:paintString];
-            altesBild = paintString;
-        }
     }
     
     return outputArray;
@@ -203,4 +204,15 @@
 	[self.navigationController presentModalViewController:moreInfoWebVC animated:YES];
 }
 
+- (IBAction)backToGame
+{
+	[self dismissModalViewControllerAnimated:YES]; 
+}
+
+- (void)viewDidUnload {
+	[self setBack:nil];
+	[super viewDidUnload];
+}
+- (IBAction)back:(id)sender {
+}
 @end

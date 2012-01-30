@@ -10,17 +10,18 @@
 #import "Galerie.h"
 
 @implementation Game
-@synthesize myPainting,totalPoints,question,myGallery;
+@synthesize myPainting,totalPoints,question,myGallery,paintingsAlreadyPlayed, paintingAlreadyPlayed;
 
 -(Game*) initGameWithPic: (UIImage*) pic
 {
     myGallery = [[MyGallery alloc]initWith];
+	paintingsAlreadyPlayed = [[NSMutableSet alloc] init];
     self.totalPoints = 0;
     self->picture = pic;
-    [self findPainting  ];
+    [self findPainting ];
     if(myPainting && myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && ![self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
 	{
-    [self newQuestionOfPainting];
+		[self newQuestionOfPainting];
     }
     return self;
 }
@@ -47,19 +48,26 @@
         pictureOfPainting = [UIImage imageWithData:info.paintingImg];
         if(nameReal && pictureOfPainting)
 		{
-        [myGallery addPainting:[[Painting alloc] initPaintingWithName:nameReal andPic:pictureOfPainting]andBool:false];
+			[myGallery addPainting:[[Painting alloc] initPaintingWithName:nameReal andPic:pictureOfPainting]andBool:false];
         }
     }    
 }
 
 -(void) findPainting
 {   
-    if(picture) {
-    myPainting = [[Painting alloc] initPaintingWithFoto:picture];
-        if(myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && ![self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
-		{
-                [myGallery addPainting:myPainting andBool:true];
-        }
+    if(picture)
+	{
+		paintingAlreadyPlayed = YES;	
+		myPainting = [[Painting alloc] initPaintingWithFoto:picture];
+		if(![self.paintingsAlreadyPlayed containsObject:[[NSString alloc] initWithString:myPainting.nameReal]])
+			{
+				paintingAlreadyPlayed = NO;
+				[self.paintingsAlreadyPlayed addObject:[[NSString alloc] initWithString:myPainting.nameReal]];
+				if(myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && ![self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
+				{
+					[myGallery addPainting:myPainting andBool:true];
+				}
+			}
     }
 }
 -(void) quitGame {
@@ -70,7 +78,8 @@
     return question;
 }
 
--(void) nextRound: (int)points andFoto:(UIImage*) foto{
+-(void) nextRound: (int)points andFoto:(UIImage*) foto
+{
     myPainting.paintingIsInDB=false;
     totalPoints = totalPoints + points;
     picture = foto;

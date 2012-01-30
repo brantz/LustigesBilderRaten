@@ -40,7 +40,6 @@
 @property (nonatomic, strong) Game* myGame; 
 
 - (IBAction) hintButtonPushed;
-- (void) showMenu;
 - (void) quitGame;
 
 - (IBAction) questionButtonPushed:(id)sender;

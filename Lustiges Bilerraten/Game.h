@@ -18,10 +18,12 @@
     MyGallery* myGallery;
 }
 
-@property(nonatomic,strong) Painting* myPainting;
+@property (nonatomic,strong) Painting* myPainting;
+@property (nonatomic, strong) NSMutableSet* paintingsAlreadyPlayed;
 @property int totalPoints;
 @property (nonatomic, strong) Question* question;
 @property (nonatomic, strong) MyGallery* myGallery;
+@property Boolean paintingAlreadyPlayed;
 
 -(Game*) initGameWithPic: (UIImage*) pic;
 -(void) findPainting;

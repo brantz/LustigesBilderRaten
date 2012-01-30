@@ -9,6 +9,7 @@
 #import "ImageChooserVC.h"
 #import "QuestionVC.h"
 #import "GameOverVC.h"
+#import "MyGalleryTableVC.h"
 
 @implementation ImageChooserVC
 
@@ -56,8 +57,15 @@
             [self.navigationController popViewControllerAnimated:YES];
             break;
         case 2:
-            NSLog(@"3");
+		{
+            MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+            galleryVC.myGame = myGame;
+            UINavigationController* modalController = [[UINavigationController alloc] initWithRootViewController:galleryVC];
+            UIBarButtonItem *MGdone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissModalViewControllerAnimated:)];
+            galleryVC.navigationItem.leftBarButtonItem = MGdone;
+            [self.navigationController presentModalViewController:modalController animated:YES];
             break;
+		}
         default:
             break;
     }
@@ -180,15 +188,34 @@
 	//start ActicvityIndicator in ImagePickerController
 	[self.imagePicker startActivityIndicator];
 	
+	//setup next Round
 	[myGame nextRound:0 andFoto:selectedImage];
-
+	
+	
+	
 	//stop ActivityIndicator in ImagePickerController
 	[self.imagePicker stopActivityIndicator];
-	 
-	//[self.navigationItem.rightBarButtonItem setEnabled];
 
 	//dismiss imagePickerController
     [picker dismissModalViewControllerAnimated:YES];
+    
+    
+    if (! (myGame.myPainting.paintingIsInDB))
+	{
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+        UIAlertView* matchError = [[UIAlertView alloc] initWithTitle:@"Bild nicht gefunden" message:@"Leider konnten wir deinem Foto kein Bild zuweisen. Bitte versuche es erneut" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [matchError show];
+    } 
+	if (myGame.paintingAlreadyPlayed)
+	{
+		UIAlertView* alreadyPlayedError = [[UIAlertView alloc] initWithTitle:@"Doppeltes Bild" message:@"Das Bild wurde schon einmal von dir verwendet. Bitte versuche es mit einem anderem." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+		[alreadyPlayedError show];
+		[self.navigationItem.rightBarButtonItem setEnabled:NO];
+	} 
+	else
+	{
+				[self.navigationItem.rightBarButtonItem setEnabled:YES];
+	}
 }
 
 

@@ -154,7 +154,7 @@
     sqlite3_close(database);
 }
 
-//method to find 
+//method to find index of highest value
 -(int)calculateHighestValueIndex:(NSMutableArray*)myDataArray
 {
 	int index = 0;
