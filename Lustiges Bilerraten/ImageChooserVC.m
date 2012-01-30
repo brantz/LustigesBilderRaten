@@ -58,9 +58,12 @@
             break;
         case 2:
 		{
-            MyGalleryTableVC *myGallery = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
-			myGallery.myGame = myGame;
-            [self.navigationController presentModalViewController:myGallery animated:YES];
+            MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+            galleryVC.myGame = myGame;
+            UINavigationController* modalController = [[UINavigationController alloc] initWithRootViewController:galleryVC];
+            UIBarButtonItem *MGdone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissModalViewControllerAnimated:)];
+            galleryVC.navigationItem.leftBarButtonItem = MGdone;
+            [self.navigationController presentModalViewController:modalController animated:YES];
             break;
 		}
         default:
@@ -194,6 +197,14 @@
 
 	//dismiss imagePickerController
     [picker dismissModalViewControllerAnimated:YES];
+    
+    
+    if (! (myGame.myPainting.paintingIsInDB)){
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+        UIAlertView* matchError = [[UIAlertView alloc] initWithTitle:@"Bild nicht gefunden" message:@"Leider konnten wir deinem Foto kein Bild zuweisen. Bitte versuche es erneut" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [matchError show];
+    }
+    
 }
 
 

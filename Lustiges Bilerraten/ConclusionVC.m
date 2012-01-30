@@ -94,15 +94,19 @@
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 { 
     switch (buttonIndex)
-	{
+	{        
         case 0:
             [self quitGame];
             break;
         case 1:
 		{
-			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
-			galleryVC.myGame = myGame;
-			[self.navigationController presentModalViewController:galleryVC animated:YES];
+            MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+            galleryVC.myGame = myGame;
+            UINavigationController* modalController = [[UINavigationController alloc] initWithRootViewController:galleryVC];
+            UIBarButtonItem *MGdone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissModalViewControllerAnimated:)];
+            galleryVC.navigationItem.leftBarButtonItem = MGdone;
+            [self.navigationController presentModalViewController:modalController animated:YES];
+
             break;
 		}
         default:
@@ -270,13 +274,15 @@
     
 	//remove activity indicator when done
 	[self.imagePicker stopActivityIndicator];
-	
+
+    
 	//pop back to QuestionVC
 	[self.imagePicker dismissModalViewControllerAnimated:YES];    
 	
 	ImageChooserVC* oldImageChooser = [[self.navigationController viewControllers] objectAtIndex:1];
     oldImageChooser.shouldSkipView = YES;
     [self.navigationController popToViewController:oldImageChooser  animated:NO];    
+    
 }
 
 @end

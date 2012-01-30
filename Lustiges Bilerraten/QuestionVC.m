@@ -72,6 +72,45 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+<<<<<<< HEAD
+=======
+- (void) showMenu{
+    UIActionSheet* gameMenu = [[UIActionSheet alloc] initWithTitle:@""
+                                                          delegate:self cancelButtonTitle:@"Abbrechen" destructiveButtonTitle:@"Spiel Beenden" otherButtonTitles:@"Anleitung", @"Meine Galerie", @"Einstellungen", nil];
+    
+    [gameMenu showInView:self.view];
+    
+}
+
+- (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    switch (buttonIndex) {
+        case 0:
+            [self quitGame];
+            break;
+        case 1:{
+			ManualVC *manualVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ManualView"];
+            [self.navigationController presentModalViewController:manualVC animated:YES];
+            break;
+        }
+        case 2:{
+			MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
+            galleryVC.myGame = myGame;
+			[self.navigationController pushViewController:galleryVC animated:YES];
+            
+            break;
+		}
+		case 3:{
+			SettingsVC *settingsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsView"];
+			[self.navigationController pushViewController:settingsVC animated:YES];
+			break;
+		}
+        default:
+            break;
+    }
+}
+
+>>>>>>> 92d295b4f033bba6e964823418265eda95af6087
 - (void) quitGame{
     [self dismissModalViewControllerAnimated:YES];
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Spiel Beenden"
