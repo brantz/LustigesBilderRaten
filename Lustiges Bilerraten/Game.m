@@ -10,7 +10,7 @@
 #import "Galerie.h"
 
 @implementation Game
-@synthesize myPainting,totalPoints,question,myGallery,paintingsAlreadyPlayed;
+@synthesize myPainting,totalPoints,question,myGallery,paintingsAlreadyPlayed, paintingAlreadyPlayed;
 
 -(Game*) initGameWithPic: (UIImage*) pic
 {
@@ -18,7 +18,7 @@
 	paintingsAlreadyPlayed = [[NSMutableSet alloc] init];
     self.totalPoints = 0;
     self->picture = pic;
-    //[self findPainting  ];
+    [self findPainting ];
     if(myPainting && myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && ![self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
 	{
 		[self newQuestionOfPainting];
@@ -48,7 +48,7 @@
         pictureOfPainting = [UIImage imageWithData:info.paintingImg];
         if(nameReal && pictureOfPainting)
 		{
-        [myGallery addPainting:[[Painting alloc] initPaintingWithName:nameReal andPic:pictureOfPainting]andBool:false];
+			[myGallery addPainting:[[Painting alloc] initPaintingWithName:nameReal andPic:pictureOfPainting]andBool:false];
         }
     }    
 }
@@ -57,11 +57,17 @@
 {   
     if(picture)
 	{
-    myPainting = [[Painting alloc] initPaintingWithFoto:picture];
-        if(myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && ![self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
-		{
-			[myGallery addPainting:myPainting andBool:true];
-        }
+		paintingAlreadyPlayed = YES;	
+		myPainting = [[Painting alloc] initPaintingWithFoto:picture];
+		if(![self.paintingsAlreadyPlayed containsObject:[[NSString alloc] initWithString:myPainting.nameReal]])
+			{
+				paintingAlreadyPlayed = NO;
+				[self.paintingsAlreadyPlayed addObject:[[NSString alloc] initWithString:myPainting.nameReal]];
+				if(myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && ![self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
+				{
+					[myGallery addPainting:myPainting andBool:true];
+				}
+			}
     }
 }
 -(void) quitGame {

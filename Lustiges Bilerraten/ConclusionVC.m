@@ -281,15 +281,13 @@
         [matchError show];
     } 
 	
-	if ([myGame.paintingsAlreadyPlayed containsObject:myGame.myPainting.nameReal])
+	if (myGame.paintingAlreadyPlayed)
 	{
 		UIAlertView* alreadyPlayedError = [[UIAlertView alloc] initWithTitle:@"Doppeltes Bild" message:@"Das Bild wurde schon einmal von dir verwendet. Bitte versuche es mit einem anderem." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
 		[alreadyPlayedError show];
 	} 
 	else
 	{
-		//add painting to list of already used paintings
-		[myGame.paintingsAlreadyPlayed addObject:[[NSString alloc] initWithString:myGame.myPainting.nameReal]];
 		//pop back to QuestionVC
 		[self.imagePicker dismissModalViewControllerAnimated:YES]; 
 		ImageChooserVC* oldImageChooser = [[self.navigationController viewControllers] objectAtIndex:1];
