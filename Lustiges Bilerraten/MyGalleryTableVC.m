@@ -63,7 +63,6 @@
     NSMutableArray* outputArray = [[NSMutableArray alloc] init];
     
     NSString* alterLump;
-    NSString* altesBild;
     for (NSString* myString in tempArray) {
         NSMutableArray* sepArray = (NSMutableArray*) [myString componentsSeparatedByString:@";"];
         
@@ -74,10 +73,7 @@
             [outputArray addObject: [NSString stringWithFormat:@";%@", styleString] ];
             alterLump = styleString;
         }
-        if ( !([paintString isEqualToString:altesBild]) ){
         [outputArray addObject:paintString];
-            altesBild = paintString;
-        }
     }
     
     return outputArray;

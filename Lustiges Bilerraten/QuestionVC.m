@@ -94,8 +94,6 @@
         case 1:{
 			ManualVC *manualVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ManualView"];
             [self.navigationController presentModalViewController:manualVC animated:YES];
-			//[self.navigationController pushViewController:manualVC animated:YES];
-           // manualVC.navigationController.mod
             break;
         }
         case 2:{
