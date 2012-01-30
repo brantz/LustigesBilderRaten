@@ -25,7 +25,7 @@
     int first = rand() % allAnswer.count;
     int second = rand() % allAnswer.count;
     
-    while(first == second) {
+    while(first == second && ([[allAnswer objectAtIndex:first] isEqualToString:rightAnswer] ||[[allAnswer objectAtIndex:second] isEqualToString:rightAnswer])) {
         first = rand() % allAnswer.count;
         second = rand() % allAnswer.count;
     }

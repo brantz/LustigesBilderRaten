@@ -109,6 +109,7 @@
     switch (buttonIndex) {
         case 0:
             NSLog(@"Ja");
+            [myGame.myGallery deleatDatabase];
             break;
             
         default:

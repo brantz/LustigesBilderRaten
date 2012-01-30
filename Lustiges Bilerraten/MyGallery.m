@@ -37,4 +37,19 @@
     return self;
 }
 
+-(void) deleatDatabase {
+    
+    PEMAppDelegate *appDelegate = (PEMAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSPersistentStore *store = [appDelegate.persistentStoreCoordinator.persistentStores lastObject];
+    NSError *error = nil;
+    NSURL *storeURL = store.URL;
+    [appDelegate.persistentStoreCoordinator removePersistentStore:store error:&error];
+    [[NSFileManager defaultManager] removeItemAtURL:storeURL error:&error];
+    
+        
+    if (![appDelegate.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    }
+}
+
+
 @end

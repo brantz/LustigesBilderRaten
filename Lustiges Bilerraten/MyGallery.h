@@ -20,6 +20,7 @@
 
 - (void) addPainting:(Painting*)painting andBool: (BOOL) coreData;
 - (MyGallery*) initWith;
+-(void) deleatDatabase;
 
 
 @end
