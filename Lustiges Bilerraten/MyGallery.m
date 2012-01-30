@@ -51,6 +51,11 @@
         
     if (![appDelegate.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
     }
+    
+    for(int i=0; i<[paintingsArray count]; i++) {
+        [paintingsArray removeObjectAtIndex:i];
+    }
+
 }
 
 
