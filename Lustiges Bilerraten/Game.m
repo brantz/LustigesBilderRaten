@@ -18,7 +18,7 @@
 	paintingsAlreadyPlayed = [[NSMutableSet alloc] init];
     self.totalPoints = 0;
     self->picture = pic;
-    [self findPainting  ];
+    //[self findPainting  ];
     if(myPainting && myPainting.nameFromSearchQuery && self.myPainting.nameFromSearchQuery.length!=0 && ![self.myPainting.nameFromSearchQuery isEqualToString:@"FFFFFF-"])
 	{
 		[self newQuestionOfPainting];

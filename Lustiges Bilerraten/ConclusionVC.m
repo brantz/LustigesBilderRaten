@@ -106,7 +106,6 @@
             UIBarButtonItem *MGdone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissModalViewControllerAnimated:)];
             galleryVC.navigationItem.leftBarButtonItem = MGdone;
             [self.navigationController presentModalViewController:modalController animated:YES];
-
             break;
 		}
         default:

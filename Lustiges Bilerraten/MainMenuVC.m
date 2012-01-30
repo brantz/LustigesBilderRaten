@@ -83,7 +83,10 @@
 {
 	MyGalleryTableVC *galleryVC = [self.storyboard instantiateViewControllerWithIdentifier:@"MyGalleryTV"];
 	galleryVC.myGame = myGame;
-	[self.navigationController presentModalViewController:galleryVC animated:YES];
+	UINavigationController* modalController = [[UINavigationController alloc] initWithRootViewController:galleryVC];
+	UIBarButtonItem *MGdone = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissModalViewControllerAnimated:)];
+	galleryVC.navigationItem.leftBarButtonItem = MGdone;
+	[self.navigationController presentModalViewController:modalController animated:YES];
 }
 
 
