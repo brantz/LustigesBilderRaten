@@ -273,12 +273,7 @@
     
 	//remove activity indicator when done
 	[self.imagePicker stopActivityIndicator];
-	
-    if (! (myGame.myPainting.paintingIsInDB)){
-        [self.navigationItem.rightBarButtonItem setEnabled:NO];
-        UIAlertView* matchError = [[UIAlertView alloc] initWithTitle:@"Bild nicht gefunden" message:@"Leider konnten wir deinem Foto kein Bild zuweisen. Bitte versuche es erneut" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [matchError show];
-    } else {
+
     
 	//pop back to QuestionVC
 	[self.imagePicker dismissModalViewControllerAnimated:YES];    
@@ -286,7 +281,7 @@
 	ImageChooserVC* oldImageChooser = [[self.navigationController viewControllers] objectAtIndex:1];
     oldImageChooser.shouldSkipView = YES;
     [self.navigationController popToViewController:oldImageChooser  animated:NO];    
-    }
+    
 }
 
 @end
