@@ -34,7 +34,7 @@
 - (void)spinBegin
 {
 	UILabel *loadingLabel = [[UILabel alloc] initWithFrame:CGRectMake(120, 270, 80, 20)];
-	loadingLabel.text = @"identifying...";
+	loadingLabel.text = @"identifiziere...";
 	loadingLabel.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.0f];
 	loadingLabel.font = [UIFont boldSystemFontOfSize:12.0];
 	loadingLabel.textColor = [UIColor colorWithWhite:1.0 alpha:1.0];
