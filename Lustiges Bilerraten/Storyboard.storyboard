@@ -92,7 +92,13 @@
                                 <rect key="frame" x="0.0" y="38" width="320" height="378"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">Starte das Spiel.
+Fotografiere ein beliebiges Bild aus deiner gewählten Galerie ab.                                                         Wenn du damit zufrieden bist, dann drücke auf 'weiter'.
+Beantworte nun die gestellte Frage, brauchst du einen Tip, so tippe auf 'Hinweise'.
+Über den Mehr Informationen Button, kannst du mehr über den gerade gespielten Kunststil erfahren.
+Wenn du dir deine bereits gespielten Bilder anschauen möchtest, so tippe über das Menü auf 'Meine Galerie'.
+Wenn du das Spiel beenden möchtest, dann kannst du das über 'Spiel beenden' im Menü tun.
+Viel Spaß beim Spielen!</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
